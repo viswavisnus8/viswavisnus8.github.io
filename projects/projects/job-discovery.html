@@ -1,0 +1,662 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+
+  <meta name="description"
+    content="Job Discovery Automation — an AI-assisted job research, matching and application tracking project using n8n and Google Sheets.">
+
+  <title>Job Discovery Automation | Viswa Visnus</title>
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --surface: #121a2d;
+      --card: #182238;
+      --border: #2b3850;
+      --text: #f3f6ff;
+      --muted: #a9b5ca;
+      --accent: #64e0bc;
+      --gold: #e4c389;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 28px 0;
+    }
+
+    .logo {
+      color: var(--accent);
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    nav a {
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 95px 0 75px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 68px);
+      line-height: 1.12;
+      letter-spacing: -1px;
+      margin: 18px 0;
+    }
+
+    h2 {
+      font-size: clamp(25px, 4vw, 34px);
+      margin: 0 0 18px;
+    }
+
+    h3 {
+      font-size: 19px;
+      margin: 0 0 12px;
+    }
+
+    p { color: var(--muted); }
+
+    .lead {
+      font-size: 19px;
+      max-width: 790px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 22px;
+      margin: 14px 12px 0 0;
+      border: 1px solid var(--accent);
+      border-radius: 9px;
+      font-weight: bold;
+      transition: transform .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .primary {
+      color: var(--bg);
+      background: var(--accent);
+    }
+
+    section {
+      padding: 65px 0;
+      scroll-margin-top: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(245px, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+    }
+
+    .card p { margin-bottom: 0; }
+
+    .card-icon {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .status {
+      display: inline-block;
+      color: var(--accent);
+      background: rgba(100,224,188,.08);
+      border: 1px solid rgba(100,224,188,.25);
+      padding: 7px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .workflow {
+      max-width: 760px;
+      margin: 35px auto 0;
+    }
+
+    .workflow-node {
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: 14px;
+    }
+
+    .workflow-node strong {
+      display: block;
+      font-size: 18px;
+    }
+
+    .workflow-node p {
+      margin: 6px 0 0;
+      font-size: 14px;
+    }
+
+    .arrow {
+      text-align: center;
+      color: var(--accent);
+      font-size: 25px;
+      padding: 8px 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      font-size: 13px;
+      padding: 7px 14px;
+      border: 1px solid #40536b;
+      border-radius: 30px;
+      color: var(--muted);
+    }
+
+    .note {
+      border-left: 3px solid var(--gold);
+      background: var(--surface);
+      padding: 18px 24px;
+      border-radius: 0 12px 12px 0;
+      margin-top: 24px;
+    }
+
+    .note p { margin: 0; }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 25px;
+      font-size: 14px;
+    }
+
+    .table-scroll { overflow-x: auto; }
+
+    .example-table th,
+    .example-table td {
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .example-table th {
+      color: var(--accent);
+      background: var(--surface);
+    }
+
+    .example-table td {
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 45px;
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 620px) {
+      header { align-items: flex-start; }
+      .hero { padding: 55px 0 45px; }
+      section { padding: 45px 0; }
+      .card { padding: 21px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <a href="../index.html" class="logo">
+      VISWAVISNUS.
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="#workflow">Workflow</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="eyebrow">
+        AI AUTOMATION / CAREER TECHNOLOGY
+      </div>
+
+      <h1>
+        Job Discovery<br>
+        Automation
+      </h1>
+
+      <p class="lead">
+        An AI-assisted workflow for finding relevant
+        career opportunities, evaluating job descriptions,
+        scoring role compatibility, and organizing
+        applications through structured tracking.
+      </p>
+
+      <span class="status">
+        ● In Development
+      </span>
+
+      <div>
+        <a href="#workflow" class="button primary">
+          Explore Workflow
+        </a>
+
+        <a href="#technologies" class="button">
+          Technology Stack
+        </a>
+      </div>
+
+    </section>
+
+    <!-- OVERVIEW -->
+    <section id="overview">
+
+      <div class="eyebrow">PROJECT OVERVIEW</div>
+      <h2>Making job discovery more systematic</h2>
+
+      <p>
+        Searching across job boards, reviewing descriptions,
+        identifying relevant opportunities, and maintaining
+        an application tracker can require substantial
+        repetitive manual effort.
+      </p>
+
+      <p>
+        This project explores how automation and AI-assisted
+        analysis can simplify job research while keeping
+        applications and final decisions under human control.
+      </p>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-icon">🔎</div>
+          <h3>Opportunity Discovery</h3>
+          <p>
+            Collect opportunities from supported job APIs
+            and authorized public sources.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🧠</div>
+          <h3>AI Role Matching</h3>
+          <p>
+            Assess job descriptions against professional
+            skills, experience, and role requirements.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">📋</div>
+          <h3>Structured Tracking</h3>
+          <p>
+            Organize job details and application statuses
+            in a central tracking spreadsheet.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- WORKFLOW -->
+    <section id="workflow">
+
+      <div class="eyebrow">SYSTEM ARCHITECTURE</div>
+      <h2>How the automation works</h2>
+
+      <p>
+        The proposed architecture connects job discovery,
+        data preparation, AI-assisted evaluation,
+        duplicate checking, and application tracking.
+      </p>
+
+      <div class="workflow">
+
+        <div class="workflow-node">
+          <strong>01 — Scheduled Trigger</strong>
+          <p>
+            Starts job discovery at a configured interval.
+          </p>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="workflow-node">
+          <strong>02 — Job Sources & APIs</strong>
+          <p>
+            Retrieves job titles, employers, locations,
+            descriptions, and application links.
+          </p>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="workflow-node">
+          <strong>03 — Data Normalization</strong>
+          <p>
+            Structures source data into a consistent
+            format for comparison and filtering.
+          </p>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="workflow-node">
+          <strong>04 — AI-Assisted Matching</strong>
+          <p>
+            Produces a relevance score and short
+            explanation based on role requirements.
+          </p>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="workflow-node">
+          <strong>05 — Duplicate Checking</strong>
+          <p>
+            Intended to avoid repeated opportunities
+            in the application tracker.
+          </p>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="workflow-node">
+          <strong>06 — Google Sheets Tracker</strong>
+          <p>
+            Stores new job opportunities with
+            relevant details and tracking status.
+          </p>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="workflow-node">
+          <strong>07 — Human Review</strong>
+          <p>
+            Reviews shortlisted opportunities before
+            taking any application action.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="note">
+        <p>
+          <strong>Development note:</strong>
+          This diagram represents the intended end-to-end
+          architecture. Individual components are being
+          tested and improved; it is not a claim that every
+          stage is currently running unattended.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- EXAMPLE TRACKER -->
+    <section id="tracker">
+
+      <div class="eyebrow">DATA STRUCTURE</div>
+      <h2>Job application tracker</h2>
+
+      <p>
+        The tracker organizes collected opportunities
+        into a format that supports sorting, reviewing,
+        prioritizing, and recording application progress.
+      </p>
+
+      <div class="table-scroll">
+        <table class="example-table">
+          <thead>
+            <tr>
+              <th>Date Found</th>
+              <th>Company</th>
+              <th>Job Title</th>
+              <th>Location</th>
+              <th>Match Score</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Example</td>
+              <td>Sample Company</td>
+              <td>Operations Manager</td>
+              <td>Berlin</td>
+              <td>88/100</td>
+              <td>Review</td>
+            </tr>
+            <tr>
+              <td>Example</td>
+              <td>Sample Company</td>
+              <td>Business Development</td>
+              <td>Germany</td>
+              <td>82/100</td>
+              <td>Review</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <p>
+          The rows above are illustrative examples,
+          not live job listings or verified AI scores.
+          The working tracker also stores application links.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- TECHNOLOGIES -->
+    <section id="technologies">
+
+      <div class="eyebrow">TECHNOLOGY STACK</div>
+      <h2>Tools and integrations</h2>
+
+      <div class="tags">
+        <span class="tag">n8n</span>
+        <span class="tag">Job APIs</span>
+        <span class="tag">Adzuna</span>
+        <span class="tag">AI Matching</span>
+        <span class="tag">Google Sheets</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Data Processing</span>
+        <span class="tag">Workflow Automation</span>
+      </div>
+
+    </section>
+
+    <!-- FUTURE DEVELOPMENT -->
+    <section id="development">
+
+      <div class="eyebrow">ROADMAP</div>
+      <h2>Development priorities</h2>
+
+      <div class="grid">
+
+        <article class="card">
+          <h3>More Job Sources</h3>
+          <p>
+            Evaluate additional legitimate job APIs
+            and supported data feeds to broaden
+            opportunity coverage.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Better Matching</h3>
+          <p>
+            Improve scoring consistency, required-skill
+            detection, and the explanations provided
+            for each recommended role.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Duplicate Prevention</h3>
+          <p>
+            Strengthen job identity matching to
+            reduce repeated listings in the tracker.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Reliable Scheduling</h3>
+          <p>
+            Improve execution monitoring, error
+            recovery, and consistent data updates.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- PRIVACY -->
+    <section id="privacy">
+
+      <div class="eyebrow">SECURITY & PRIVACY</div>
+      <h2>Designed around human control</h2>
+
+      <p>
+        AI-generated match scores are decision-support
+        estimates rather than guarantees of hiring
+        suitability or application success.
+      </p>
+
+      <p>
+        Job applications are not submitted automatically
+        without user review and approval.
+      </p>
+
+      <p>
+        Private API credentials, personal application
+        records, and internal workflow configurations
+        are not published on this website.
+      </p>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+      <h2>Explore more automation projects</h2>
+
+      <p>
+        Interested in practical applications of
+        AI, data analytics, and workflow automation?
+      </p>
+
+      <a href="../index.html#projects"
+         class="button primary">
+        View All Projects
+      </a>
+
+      <a
+        href="https://github.com/viswavisnus8"
+        class="button"
+        target="_blank"
+        rel="noopener noreferrer">
+        Explore GitHub
+      </a>
+
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Viswanathan Selvaraj ·
+    <a href="../index.html">Back to Home</a>
+  </footer>
+
+</div>
+</body>
+</html>
