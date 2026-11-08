@@ -4,17 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta name="description"
-        content="Explore AI automation, digital workflows, GitHub projects and business operations by Viswanathan Selvaraj.">
-
   <meta name="theme-color" content="#0b1020">
+  <meta name="description"
+        content="Explore AI automation, GitHub projects, digital workflows and business operations by Viswanathan Selvaraj.">
 
   <title>Viswa Visnus | AI & Automation</title>
 
   <style>
     :root {
       --bg: #0b1020;
+      --surface: #121a2d;
       --card: #161e32;
       --text: #f3f6ff;
       --muted: #a9b5ca;
@@ -38,8 +37,22 @@
       line-height: 1.7;
     }
 
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      opacity: 0.9;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
     .container {
-      max-width: 1080px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 28px;
     }
@@ -53,15 +66,15 @@
     }
 
     .logo {
-      font-size: 22px;
-      font-weight: bold;
       color: var(--accent);
+      font-size: 23px;
+      font-weight: 800;
       letter-spacing: 1px;
     }
 
     nav {
       display: flex;
-      gap: 22px;
+      gap: 24px;
       flex-wrap: wrap;
     }
 
@@ -71,46 +84,33 @@
       font-weight: 600;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      opacity: 0.85;
-    }
-
-    a:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 4px;
-    }
-
     .hero {
-      padding: 110px 0 85px;
+      padding: 110px 0 90px;
     }
 
     .eyebrow {
       color: var(--accent);
-      letter-spacing: 3px;
       font-size: 13px;
+      letter-spacing: 3px;
       font-weight: bold;
       text-transform: uppercase;
     }
 
     h1 {
-      font-size: clamp(38px, 6vw, 72px);
+      font-size: clamp(40px, 6vw, 72px);
       line-height: 1.12;
-      margin: 20px 0;
       letter-spacing: -1.5px;
+      margin: 20px 0;
     }
 
     h2 {
-      font-size: 30px;
-      margin-bottom: 12px;
+      font-size: clamp(28px, 4vw, 35px);
+      margin: 0 0 16px;
     }
 
     h3 {
       font-size: 21px;
+      margin: 0 0 14px;
     }
 
     p {
@@ -118,23 +118,26 @@
     }
 
     .hero p {
-      max-width: 680px;
+      max-width: 720px;
       font-size: 19px;
+      margin-bottom: 25px;
     }
 
     .button {
       display: inline-block;
-      padding: 12px 22px;
-      margin: 12px 12px 0 0;
+      padding: 13px 23px;
+      margin: 10px 12px 0 0;
       border: 1px solid var(--accent);
       border-radius: 9px;
+      font-size: 14px;
       font-weight: bold;
+      text-align: center;
       transition: transform 0.2s ease;
     }
 
     .button:hover {
       transform: translateY(-2px);
-      opacity: 1;
+      text-decoration: none;
     }
 
     .primary {
@@ -142,112 +145,140 @@
       color: var(--bg);
     }
 
+    .secondary {
+      background: transparent;
+      color: var(--accent);
+    }
+
     section {
-      padding: 48px 0;
+      padding: 55px 0;
       scroll-margin-top: 30px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+    .section-description {
+      max-width: 750px;
+      font-size: 16px;
     }
 
-    .card {
-      background: var(--card);
-      padding: 26px;
-      border-radius: 16px;
+    .about-panel,
+    .contact-panel {
+      background: var(--surface);
       border: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      transition:
-        border-color 0.2s ease,
-        transform 0.2s ease;
-    }
-
-    .card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      flex-grow: 1;
+      border-radius: 18px;
+      padding: 36px;
     }
 
     .tags {
-      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 20px;
     }
 
     .tag {
       display: inline-block;
       border: 1px solid #40536b;
-      padding: 4px 12px;
       border-radius: 30px;
-      margin: 5px 5px 5px 0;
+      padding: 5px 13px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(270px, 1fr));
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      padding: 27px;
+      display: flex;
+      flex-direction: column;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .card-icon {
+      font-size: 31px;
+      margin-bottom: 20px;
+    }
+
+    .card-description {
+      flex-grow: 1;
+      font-size: 14px;
+      line-height: 1.8;
     }
 
     .status {
-      display: block;
-      margin-top: 22px;
+      display: inline-block;
+      color: var(--accent);
       font-size: 13px;
       font-weight: bold;
-      color: var(--accent);
+      margin-top: 24px;
     }
 
     .project-button {
       display: block;
-      margin-top: 20px;
-      margin-right: 0;
-      text-align: center;
+      width: 100%;
+      margin: 22px 0 0;
+      padding: 12px 18px;
     }
 
     .links {
       display: flex;
       align-items: center;
-      gap: 12px;
       flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
     }
 
     footer {
       border-top: 1px solid var(--border);
-      padding: 28px 0;
       margin-top: 50px;
+      padding: 30px 0;
       color: var(--muted);
       font-size: 14px;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
       .container {
         padding: 20px;
       }
 
-      .hero {
-        padding: 65px 0 45px;
+      header {
+        align-items: flex-start;
       }
 
       nav {
-        gap: 16px;
+        gap: 17px;
       }
 
-      .card {
-        padding: 22px;
+      .hero {
+        padding: 70px 0 55px;
       }
 
       section {
-        padding: 32px 0;
+        padding: 38px 0;
       }
 
-      .button {
-        margin-right: 8px;
+      .card {
+        padding: 23px;
+      }
+
+      .about-panel,
+      .contact-panel {
+        padding: 24px;
       }
     }
 
@@ -265,236 +296,307 @@
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
 
-    <!-- HEADER -->
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo">
+      VISWAVISNUS.
+    </a>
 
-    <header>
-      <div class="logo">VISWAVISNUS.</div>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#technology">Technology</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-      <nav aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+  <main>
 
-    <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="eyebrow">
+        AI • AUTOMATION • BUSINESS OPERATIONS
+      </div>
 
-      <!-- HERO -->
+      <h1>
+        Building smarter<br>
+        digital workflows.
+      </h1>
 
-      <section class="hero">
+      <p>
+        I'm Viswanathan Selvaraj, a Berlin-based
+        business operations professional combining
+        real-world industry experience with AI,
+        workflow automation, analytics, and
+        digital transformation.
+      </p>
 
-        <div class="eyebrow">
-          AI • Automation • Operations
-        </div>
+      <a class="button primary" href="#projects">
+        Explore Projects
+      </a>
 
-        <h1>
-          Building smarter<br>
-          digital workflows.
-        </h1>
+      <a class="button secondary"
+         href="https://github.com/viswavisnus8"
+         target="_blank"
+         rel="noopener noreferrer">
+        GitHub Profile
+      </a>
+    </section>
 
-        <p>
-          I'm Viswanathan Selvaraj, a Berlin-based
-          business operations professional combining
-          practical industry experience with AI,
-          automation, analytics, and scalable
-          digital systems.
-        </p>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-panel">
 
-        <a class="button primary" href="#projects">
-          Explore Projects
-        </a>
+        <div class="eyebrow">ABOUT ME</div>
 
-        <a
-          class="button"
-          href="https://github.com/viswavisnus8"
-          target="_blank"
-          rel="noopener noreferrer">
-          GitHub Profile
-        </a>
-
-      </section>
-
-      <!-- ABOUT -->
-
-      <section id="about">
-
-        <h2>About Me</h2>
+        <h2>
+          Operations experience meets technology.
+        </h2>
 
         <p>
           My professional background spans retail
-          management, business development, facility
-          services, and workplace operations.
+          management, business development,
+          workplace operations, facility management,
+          and team leadership.
         </p>
 
         <p>
-          I explore how technologies such as n8n,
-          GitHub Actions, Power BI, Python, and
-          AI-powered tools can make everyday business
-          processes more efficient and scalable.
+          I explore practical ways to use AI,
+          automation, business intelligence,
+          and structured workflows to improve
+          everyday business processes.
         </p>
 
         <div class="tags">
           <span class="tag">Business Operations</span>
           <span class="tag">Retail Management</span>
+          <span class="tag">Business Development</span>
           <span class="tag">n8n</span>
           <span class="tag">GitHub Actions</span>
-          <span class="tag">Power BI</span>
           <span class="tag">Python</span>
+          <span class="tag">Power BI</span>
           <span class="tag">Applied AI</span>
         </div>
 
-      </section>
+      </div>
+    </section>
 
-      <!-- PROJECTS -->
+    <!-- PROJECTS -->
+    <section id="projects">
 
-      <section id="projects">
+      <div class="eyebrow">SELECTED WORK</div>
 
-        <h2>Automation Projects</h2>
+      <h2>Automation Projects</h2>
+
+      <p class="section-description">
+        Practical projects exploring AI-generated
+        content, automated publishing, intelligent
+        job discovery, analytics, and digital workflows.
+      </p>
+
+      <div class="grid">
+
+        <!-- PROJECT 1 -->
+        <article class="card">
+
+          <div class="card-icon">🎬</div>
+
+          <h3>German Decode</h3>
+
+          <p class="card-description">
+            An AI-powered educational video automation
+            project exploring topic selection, scripting,
+            narration, visual production, and
+            YouTube Shorts workflows.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">AI Automation</span>
+            <span class="tag">YouTube Shorts</span>
+            <span class="tag">Video Production</span>
+          </div>
+
+          <span class="status">
+            ● In Development
+          </span>
+
+          <a
+            href="projects/german-decode.html"
+            class="button project-button secondary"
+            aria-label="View German Decode project">
+            View Project &rarr;
+          </a>
+
+        </article>
+
+        <!-- PROJECT 2 -->
+        <article class="card">
+
+          <div class="card-icon">🤖</div>
+
+          <h3>LinkedIn Content Automation</h3>
+
+          <p class="card-description">
+            An AI-assisted publishing workflow
+            combining business content generation,
+            topic-specific photographs,
+            executive infographics, LinkedIn uploads,
+            and post-history tracking.
+          </p>
+
+          <div class="tags">
+            <span class="tag">n8n</span>
+            <span class="tag">Gemini</span>
+            <span class="tag">Cloudflare Workers AI</span>
+            <span class="tag">LinkedIn API</span>
+            <span class="tag">Google Sheets</span>
+          </div>
+
+          <span class="status">
+            ● Working Prototype
+          </span>
+
+          <a
+            href="projects/linkedin-automation.html"
+            class="button project-button secondary"
+            aria-label="View LinkedIn Automation project">
+            View Project &rarr;
+          </a>
+
+        </article>
+
+        <!-- PROJECT 3 -->
+        <article class="card">
+
+          <div class="card-icon">📊</div>
+
+          <h3>Job Discovery Automation</h3>
+
+          <p class="card-description">
+            An AI-assisted job research project
+            focused on discovering opportunities,
+            evaluating role compatibility,
+            generating relevance scores,
+            and tracking applications.
+          </p>
+
+          <div class="tags">
+            <span class="tag">n8n</span>
+            <span class="tag">Adzuna</span>
+            <span class="tag">AI Matching</span>
+            <span class="tag">Google Sheets</span>
+          </div>
+
+          <span class="status">
+            ● In Development
+          </span>
+
+          <a
+            href="projects/job-discovery.html"
+            class="button project-button secondary"
+            aria-label="View Job Discovery project">
+            View Project &rarr;
+          </a>
+
+        </article>
+
+      </div>
+    </section>
+
+    <!-- TECHNOLOGIES -->
+    <section id="technology">
+
+      <div class="eyebrow">TECHNOLOGY</div>
+
+      <h2>Tools I Work With</h2>
+
+      <p class="section-description">
+        Combining automation platforms,
+        programming tools, AI models,
+        and business analytics.
+      </p>
+
+      <div class="grid">
+
+        <article class="card">
+          <h3>Workflow Automation</h3>
+          <p>
+            n8n, GitHub Actions, REST APIs,
+            webhooks, and process orchestration.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>AI & Content</h3>
+          <p>
+            Gemini, Cloudflare Workers AI,
+            AI-assisted scripting, image generation,
+            and structured content pipelines.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Data & Analytics</h3>
+          <p>
+            Power BI, Excel, Google Sheets,
+            reporting dashboards, and
+            data-driven decision-making.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+      <div class="contact-panel">
+
+        <div class="eyebrow">CONNECT</div>
+
+        <h2>Let's build smarter processes.</h2>
 
         <p>
-          Practical experiments in AI-powered content
-          creation, process automation, analytics,
-          and digital operations.
-        </p>
-
-        <div class="grid">
-
-          <!-- PROJECT 1: GERMAN DECODE -->
-
-          <article class="card">
-
-            <h3>🎬 German Decode</h3>
-
-            <p>
-              An AI-powered educational video
-              automation project exploring automated
-              topic selection, scripting, narration,
-              visual production, and YouTube Shorts
-              workflows.
-            </p>
-
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">AI Automation</span>
-              <span class="tag">YouTube Shorts</span>
-              <span class="tag">Video Production</span>
-            </div>
-
-            <span class="status">
-              ● In Development
-            </span>
-
-            <a
-              href="projects/german-decode.html"
-              class="button project-button"
-              aria-label="View German Decode project details">
-              View Project &rarr;
-            </a>
-
-          </article>
-
-          <!-- PROJECT 2: LINKEDIN AUTOMATION -->
-
-          <article class="card">
-
-            <h3>🤖 LinkedIn Content Automation</h3>
-
-            <p>
-              A workflow combining AI-generated
-              business insights, professional image
-              generation, scheduled publishing,
-              and post-history tracking.
-            </p>
-
-            <div class="tags">
-              <span class="tag">n8n</span>
-              <span class="tag">Gemini</span>
-              <span class="tag">Cloudflare Workers AI</span>
-              <span class="tag">LinkedIn API</span>
-              <span class="tag">Google Sheets</span>
-            </div>
-
-            <span class="status">
-              ● Working Prototype
-            </span>
-
-          </article>
-
-          <!-- PROJECT 3: JOB DISCOVERY -->
-
-          <article class="card">
-
-            <h3>📊 Job Discovery Automation</h3>
-
-            <p>
-              An automation project exploring job
-              discovery, intelligent role matching,
-              relevance scoring, and application
-              tracking to simplify career research.
-            </p>
-
-            <div class="tags">
-              <span class="tag">n8n</span>
-              <span class="tag">Job APIs</span>
-              <span class="tag">AI Matching</span>
-              <span class="tag">Google Sheets</span>
-            </div>
-
-            <span class="status">
-              ● In Development
-            </span>
-
-          </article>
-
-        </div>
-
-      </section>
-
-      <!-- CONTACT -->
-
-      <section id="contact">
-
-        <h2>Let's Connect</h2>
-
-        <p>
-          Interested in AI automation, digital
-          workflows, business operations,
+          Interested in AI-powered business processes,
+          digital operations, automation,
           or professional collaboration?
         </p>
 
         <div class="links">
 
-          <a
-            class="button primary"
-            href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/"
-            target="_blank"
-            rel="noopener noreferrer">
+          <a class="button primary"
+             href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/"
+             target="_blank"
+             rel="noopener noreferrer">
             Connect on LinkedIn
           </a>
 
-          <a
-            class="button"
-            href="https://github.com/viswavisnus8"
-            target="_blank"
-            rel="noopener noreferrer">
+          <a class="button secondary"
+             href="https://github.com/viswavisnus8"
+             target="_blank"
+             rel="noopener noreferrer">
             Explore GitHub
           </a>
 
         </div>
 
-      </section>
+      </div>
 
-    </main>
+    </section>
 
-    <!-- FOOTER -->
+  </main>
 
-    <footer>
-      © 2026 Viswanathan Selvaraj.
-      Built with GitHub Pages.
-    </footer>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Viswanathan Selvaraj.
+    All rights reserved.
+    Built with GitHub Pages.
+  </footer>
 
-  </div>
+</div>
 </body>
 </html>
