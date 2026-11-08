@@ -3,267 +3,543 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080e1c">
-<meta name="description" content="Viswanathan Selvaraj — Business Operations, AI automation, analytics and real-world digital workflows.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080f1e">
+<meta name="description" content="Viswanathan Selvaraj — Business Operations, Applied AI, Automation and Analytics. Explore real-world automation projects.">
 <title>Viswa Visnus | AI Automation & Operations</title>
+
 <style>
 :root{
-  --bg:#080e1c;
-  --panel:#101a2c;
-  --panel2:#152239;
-  --border:#293950;
-  --text:#f4f7ff;
-  --muted:#a7b7ca;
-  --accent:#64e0bc;
-  --blue:#8daeff;
+  color-scheme:dark;
+  --bg:#080f1e;
+  --surface:#101c30;
+  --surface2:#16263b;
+  --line:#263c52;
+  --text:#f4f8ff;
+  --muted:#a0b2c8;
+  --teal:#64e0bc;
+  --blue:#88acd9;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
+  background:var(--bg);
   color:var(--text);
-  background:radial-gradient(
-    ellipse at 85% 4%,#153344 0%,transparent 35%
-  ),var(--bg);
   font-family:Inter,"Segoe UI",Arial,sans-serif;
-  line-height:1.7;
+  line-height:1.65;
 }
 a{color:inherit;text-decoration:none}
+button{font:inherit}
 a:focus-visible{
-  outline:2px solid var(--accent);
-  outline-offset:4px;
+  outline:2px solid var(--teal);
+  outline-offset:5px;
 }
+::selection{background:var(--teal);color:var(--bg)}
 .container{width:min(1160px,calc(100% - 40px));margin:auto}
-header{
+.ambient{
+  position:absolute;
+  z-index:-1;
+  top:0;left:0;right:0;
+  height:850px;
+  background:
+    radial-gradient(ellipse at 83% 19%,#17605b45,transparent 48%),
+    radial-gradient(ellipse at 18% 60%,#233e8030,transparent 46%);
+  pointer-events:none;
+}
+.eyebrow{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:2.2px;
+  text-transform:uppercase;
+  color:var(--teal);
+}
+h1,h2,h3{line-height:1.16}
+h1{
+  font-size:clamp(42px,5.5vw,76px);
+  letter-spacing:-3px;
+  margin:20px 0 26px;
+  font-weight:800;
+}
+h2{
+  font-size:clamp(29px,3.6vw,44px);
+  letter-spacing:-1.5px;
+  margin:13px 0 20px;
+}
+h3{font-size:21px;letter-spacing:-.4px}
+p{color:var(--muted);margin:0 0 18px}
+.text-teal{color:var(--teal)}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+
+/* NAVIGATION */
+.site-header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  flex-wrap:wrap;
-  gap:20px;
-  padding:25px 0;
-  border-bottom:1px solid var(--border);
+  gap:25px;
+  padding:24px 0;
+  border-bottom:1px solid #ffffff13;
 }
-.brand{font-size:20px;font-weight:800;letter-spacing:1px}
-.brand span{color:var(--accent)}
-nav{display:flex;flex-wrap:wrap;gap:23px}
-nav a{font-size:14px;color:var(--muted)}
-nav a:hover{color:var(--accent)}
-section{padding:72px 0;scroll-margin-top:30px}
-.eyebrow{
-  color:var(--accent);
-  letter-spacing:2.5px;
-  font-size:12px;
-  font-weight:800;
-  text-transform:uppercase;
+.logo{
+  font-size:19px;
+  font-weight:850;
+  letter-spacing:1px;
+  white-space:nowrap;
 }
-h1{
-  font-size:clamp(40px,5.5vw,70px);
-  line-height:1.1;
-  letter-spacing:-2px;
-  margin:18px 0 24px;
-}
-h1 em{color:var(--accent);font-style:normal}
-h2{
-  font-size:clamp(28px,3.5vw,41px);
-  line-height:1.2;
-  letter-spacing:-1px;
-  margin:12px 0 19px;
-}
-h3{margin:0 0 12px;font-size:21px}
-p{color:var(--muted);margin:0 0 18px}
-.lead{font-size:18px;max-width:610px}
-.hero{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
+.logo span{color:var(--teal)}
+.nav-links{
+  display:flex;
   align-items:center;
-  gap:50px;
-  padding:100px 0;
+  gap:27px;
+  flex-wrap:wrap;
 }
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.nav-links a{
+  color:#c6d4e3;
+  font-size:14px;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--teal)}
+
+/* BUTTONS */
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:13px 21px;
-  border-radius:10px;
-  border:1px solid var(--accent);
+  gap:10px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  padding:14px 21px;
   font-size:14px;
   font-weight:750;
-  transition:transform .2s,border-color .2s;
+  transition:transform .2s,border-color .2s,background .2s;
 }
-.btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--accent);color:var(--bg)}
-.btn-outline{color:var(--accent)}
-.hero-art{
-  border:1px solid #375168;
-  background:linear-gradient(145deg,#1a3040,#0d1628);
-  border-radius:22px;
-  padding:22px;
-  box-shadow:0 25px 75px #0005;
+.btn:hover{transform:translateY(-3px)}
+.btn-primary{
+  background:var(--teal);
+  border-color:var(--teal);
+  color:#071a20;
 }
-.art-top{
+.btn-outline{
+  border-color:#457269;
+  color:var(--teal);
+  background:#11272a55;
+}
+.btn-outline:hover{border-color:var(--teal)}
+.actions{
   display:flex;
-  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1.06fr .94fr;
+  gap:52px;
+  align-items:center;
+  min-height:660px;
+  padding:90px 0 65px;
+}
+.available{
+  display:inline-flex;
   align-items:center;
   gap:10px;
+  border:1px solid #3a665c;
+  border-radius:40px;
+  background:#15342e90;
+  padding:8px 14px;
+  color:#b9f5df;
   font-size:12px;
-  color:var(--muted);
-  border-bottom:1px solid var(--border);
-  padding-bottom:16px;
+  font-weight:700;
 }
-.dots{display:flex;gap:6px}
-.dots i{
-  width:9px;height:9px;
-  border-radius:50%;background:#50667c;
+.dot{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--teal);
+  box-shadow:0 0 13px var(--teal);
 }
-.dots i:first-child{background:#64e0bc}
-.art-flow{padding:22px 12px 8px}
-.art-node{
-  padding:14px 16px;
-  background:#17283b;
-  border:1px solid #365369;
-  border-radius:12px;
+.hero-copy .lead{
+  max-width:570px;
+  font-size:17px;
+  line-height:1.8;
+}
+.hero-sub{
+  margin-top:20px;
+  color:#d4e1ed;
+  font-size:13px;
+}
+.hero-sub span{color:var(--teal)}
+
+/* INTERACTIVE-STYLE WORKFLOW VISUAL */
+.workflow{
+  position:relative;
+  overflow:hidden;
+  padding:25px;
+  background:linear-gradient(145deg,#17283c,#0e192b);
+  border:1px solid #39556a;
+  border-radius:23px;
+  box-shadow:0 30px 90px #0006,0 0 60px #64e0bc0c;
+}
+.workflow:before{
+  content:"";
+  position:absolute;
+  right:-90px;top:-100px;
+  width:260px;height:260px;
+  border-radius:50%;
+  background:#64e0bc14;
+  filter:blur(45px);
+}
+.window-header{
+  position:relative;
   display:flex;
   align-items:center;
-  gap:13px;
+  justify-content:space-between;
+  gap:12px;
+  padding-bottom:19px;
+  border-bottom:1px solid var(--line);
+  font-size:11px;
+  color:#a7bdd0;
+  letter-spacing:1px;
 }
-.art-node b{
+.window-dots{display:flex;gap:6px}
+.window-dots i{
+  width:9px;height:9px;
+  background:#52667b;
+  border-radius:50%;
+}
+.window-dots i:first-child{background:#ed857b}
+.window-dots i:nth-child(2){background:#e4bc67}
+.window-dots i:last-child{background:#64e0bc}
+.workflow-body{position:relative;padding:28px 8px 12px}
+.workflow-node{
+  display:flex;
+  gap:15px;
+  align-items:center;
+  background:#1b3145;
+  border:1px solid #3b5870;
+  border-radius:13px;
+  padding:17px;
+}
+.workflow-node strong{
   display:block;
   font-size:14px;
 }
-.art-node small{
-  color:var(--muted);
+.workflow-node small{
   display:block;
+  margin-top:2px;
   font-size:11px;
+  color:#acc0d0;
 }
 .node-icon{
-  display:grid;place-items:center;
-  width:38px;height:38px;
   flex:none;
-  border-radius:10px;
-  background:#254e53;
-  color:var(--accent);
+  display:grid;
+  place-items:center;
+  width:43px;height:43px;
+  background:#28524e;
+  border-radius:11px;
+  color:var(--teal);
+  font-size:12px;
   font-weight:800;
 }
-.flow-line{
-  width:2px;height:26px;
-  background:var(--accent);
-  opacity:.55;
+.connector{
+  height:30px;width:2px;
   margin:auto;
+  background:linear-gradient(var(--teal),#476c85);
+  position:relative;
 }
-.art-footer{
-  margin-top:15px;
-  font-size:12px;
-  color:var(--accent);
+.connector:after{
+  content:"";
+  position:absolute;
+  width:7px;height:7px;
+  left:-2.5px;top:0;
+  background:var(--teal);
+  border-radius:50%;
+  box-shadow:0 0 12px var(--teal);
+  animation:travel 2.6s linear infinite;
 }
-.stats{
+@keyframes travel{
+  from{transform:translateY(0)}
+  to{transform:translateY(28px)}
+}
+.workflow-bottom{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:22px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+  font-size:11px;
+  color:#acc0d0;
+}
+.workflow-bottom strong{color:var(--teal)}
+
+/* METRICS */
+.metrics{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:14px;
-  margin-top:12px;
+  gap:16px;
+  margin-bottom:38px;
 }
-.stat{
-  padding:21px 24px;
-  border:1px solid var(--border);
-  background:var(--panel);
-  border-radius:13px;
+.metric{
+  padding:25px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:linear-gradient(135deg,#142337,#101a2b);
 }
-.stat strong{
-  font-size:25px;color:var(--accent);display:block
+.metric strong{
+  display:block;
+  color:var(--teal);
+  font-size:26px;
+  letter-spacing:-1px;
 }
-.stat span{font-size:13px;color:var(--muted)}
-.section-head{max-width:760px;margin-bottom:30px}
+.metric span{
+  display:block;
+  color:#aabed0;
+  font-size:13px;
+  margin-top:5px;
+}
+
+/* GENERAL SECTIONS */
+section{scroll-margin-top:35px}
+.content-section{padding:76px 0}
+.section-heading{
+  max-width:760px;
+  margin-bottom:35px;
+}
+.section-heading p{font-size:16px}
 .panel{
-  background:var(--panel);
-  border:1px solid var(--border);
+  border:1px solid var(--line);
+  background:linear-gradient(135deg,#122236,#0e1b2b);
   border-radius:20px;
-  padding:34px;
+  padding:38px;
 }
-.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
-.tag{
-  font-size:12px;
-  color:#bdcde0;
-  padding:6px 11px;
-  border:1px solid #40546b;
-  border-radius:25px;
+.about-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:35px;
+  align-items:center;
 }
-.grid{
+.about-grid p{font-size:15px}
+.highlight-list{
+  display:grid;
+  gap:13px;
+}
+.highlight{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px 16px;
+  border:1px solid #345266;
+  border-radius:11px;
+  background:#182c3c;
+  color:#e0edf5;
+  font-size:13px;
+}
+.highlight b{
+  color:var(--teal);
+  font-size:16px;
+}
+
+/* PROJECTS */
+.projects-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:20px;
 }
-.card{
+.project{
   display:flex;
   flex-direction:column;
   min-width:0;
-  padding:28px;
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:18px;
-  transition:border-color .2s,transform .2s;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:var(--surface);
+  border-radius:19px;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
 }
-.card:hover{
-  border-color:var(--accent);
-  transform:translateY(-3px);
+.project:hover{
+  transform:translateY(-6px);
+  border-color:#4f9988;
+  box-shadow:0 22px 55px #0004;
 }
-.card-icon{
-  display:grid;place-items:center;
-  width:52px;height:52px;
-  border-radius:13px;
-  background:#213e46;
-  font-size:25px;
-  margin-bottom:25px;
+.project-visual{
+  height:180px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:23px;
+  border-bottom:1px solid #ffffff16;
 }
-.card p{font-size:14px;flex-grow:1}
-.status{
-  color:var(--accent);
+.visual-blue{
+  background:radial-gradient(circle at 65% 30%,#296e85,#10283b 65%);
+}
+.visual-purple{
+  background:radial-gradient(circle at 65% 30%,#645388,#231d3a 65%);
+}
+.visual-green{
+  background:radial-gradient(circle at 65% 30%,#427e68,#122b2b 65%);
+}
+.mini-screen{
+  width:100%;
+  max-width:255px;
+  border:1px solid #ffffff40;
+  background:#0d1829dd;
+  border-radius:11px;
+  padding:13px 16px;
+  box-shadow:0 15px 30px #0005;
+}
+.mini-title{
+  font-size:10px;
+  font-weight:800;
+  color:#d6e9f4;
+  letter-spacing:1px;
+  margin-bottom:13px;
+}
+.mini-line{
+  height:7px;
+  width:72%;
+  border-radius:8px;
+  background:#ffffff30;
+  margin-bottom:8px;
+}
+.mini-line.short{width:45%}
+.mini-line.wide{width:94%}
+.mini-accent{
+  width:40%;
+  height:7px;
+  background:var(--teal);
+  border-radius:8px;
+  margin-top:16px;
+}
+.visual-purple .mini-accent{background:#d8a0ff}
+.visual-green .mini-accent{background:#f3c56d}
+.project-body{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  padding:26px;
+}
+.project-body h3{margin:0 0 13px}
+.project-body p{
+  font-size:14px;
+  flex:1;
+}
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:15px 0;
+}
+.tag{
+  font-size:11px;
+  color:#bcd2e2;
+  border:1px solid #355169;
+  border-radius:30px;
+  padding:5px 10px;
+}
+.project-status{
   font-size:12px;
-  margin:17px 0;
-  font-weight:700;
+  color:var(--teal);
+  font-weight:750;
+  margin:13px 0 19px;
 }
-.card .btn{margin-top:auto}
-.tools .card{min-height:190px}
+.project-body .btn{width:100%}
+
+/* TECHNOLOGY */
+.tech-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+.tech-card{
+  padding:27px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--surface);
+}
+.tech-card .tech-icon{
+  font-size:25px;
+  margin-bottom:15px;
+}
+.tech-card h3{margin:0 0 11px}
+.tech-card p{font-size:14px;margin:0}
+
+/* CONTACT */
 .contact{
-  background:linear-gradient(135deg,#142c3d,#10192d);
-  border:1px solid #31526a;
-  border-radius:22px;
-  padding:44px;
+  position:relative;
+  overflow:hidden;
+  padding:55px;
+  background:linear-gradient(120deg,#173c40,#122238 75%);
+  border:1px solid #386f69;
+  border-radius:23px;
 }
+.contact:after{
+  content:"";
+  position:absolute;
+  height:260px;width:260px;
+  border:1px solid #64e0bc20;
+  border-radius:50%;
+  right:-80px;top:-80px;
+  pointer-events:none;
+}
+.contact>*{position:relative;z-index:1}
+.contact p{max-width:650px}
 footer{
-  border-top:1px solid var(--border);
+  margin-top:75px;
+  border-top:1px solid var(--line);
   padding:30px 0;
   color:var(--muted);
   font-size:13px;
 }
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr;padding:65px 0}
-  .hero-art{max-width:650px;width:100%}
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
 }
-@media(max-width:600px){
+.footer-inner a{color:var(--teal)}
+
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr;gap:35px;padding:80px 0}
+  .workflow{max-width:650px;width:100%;margin:auto}
+  .projects-grid,.tech-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .about-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
   .container{width:calc(100% - 32px)}
-  section{padding:45px 0}
-  .grid,.stats{grid-template-columns:1fr}
-  .panel,.contact{padding:24px}
-  .card{padding:23px}
-  .hero{gap:30px}
-  h1{letter-spacing:-1px}
+  .site-header{justify-content:center}
+  .nav-links{justify-content:center;gap:17px}
+  .hero{padding:60px 0;min-height:auto}
+  h1{letter-spacing:-1.5px}
+  .metrics,.projects-grid,.tech-grid{grid-template-columns:1fr}
+  .metric{padding:20px}
+  .content-section{padding:50px 0}
+  .panel,.contact{padding:25px}
+  .workflow{padding:17px}
+  .project-visual{height:170px}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .btn,.card{transition:none}
+  *,*:before,*:after{
+    animation:none!important;
+    transition:none!important;
+  }
 }
 </style>
 </head>
+
 <body>
+<div class="ambient" aria-hidden="true"></div>
 <div class="container">
 
-<header>
-  <a class="brand" href="index.html">
+<header class="site-header">
+  <a href="/" class="logo" aria-label="Viswa Visnus Home">
     VISWAVISNUS<span>.</span>
   </a>
-  <nav aria-label="Main navigation">
+  <nav class="nav-links" aria-label="Main navigation">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#technology">Technology</a>
@@ -273,240 +549,350 @@ footer{
 
 <main>
 
+<!-- HERO -->
 <section class="hero">
-  <div>
-    <div class="eyebrow">
-      Business Operations · AI · Automation
+  <div class="hero-copy">
+    <div class="available">
+      <span class="dot" aria-hidden="true"></span>
+      Exploring AI-Driven Business Solutions
     </div>
+
     <h1>
-      Turning complex<br>
-      processes into<br>
-      <em>smarter systems.</em>
+      Building smarter<br>
+      systems for a<br>
+      <span class="text-teal">digital world.</span>
     </h1>
+
     <p class="lead">
-      I'm Viswanathan Selvaraj, a Berlin-based
-      operations professional exploring how AI,
-      automation, and analytics can solve
-      real business challenges.
+      I'm Viswanathan Selvaraj — a Berlin-based
+      business operations professional combining
+      real-world management experience with AI,
+      automation, and analytics.
     </p>
-    <div class="hero-actions">
+
+    <p class="hero-sub">
+      Business Operations
+      <span>✦</span>
+      Applied AI
+      <span>✦</span>
+      Workflow Automation
+    </p>
+
+    <div class="actions">
       <a href="#projects" class="btn btn-primary">
-        Explore My Projects
+        Explore My Projects →
       </a>
       <a href="https://github.com/viswavisnus8"
+         class="btn btn-outline"
          target="_blank"
-         rel="noopener noreferrer"
-         class="btn btn-outline">
+         rel="noopener noreferrer">
         View GitHub
       </a>
     </div>
   </div>
 
-  <div class="hero-art" aria-label="Illustrative automation workflow">
-    <div class="art-top">
-      <span class="dots" aria-hidden="true">
+  <div class="workflow"
+       aria-label="Illustrative data to outcome automation workflow">
+
+    <div class="window-header">
+      <div class="window-dots" aria-hidden="true">
         <i></i><i></i><i></i>
-      </span>
-      <span>WORKFLOW / SYSTEM OVERVIEW</span>
+      </div>
+      <span>AUTOMATION ENGINE</span>
       <span>●</span>
     </div>
-    <div class="art-flow">
-      <div class="art-node">
+
+    <div class="workflow-body">
+
+      <div class="workflow-node">
         <div class="node-icon">01</div>
         <div>
-          <b>Data & Inputs</b>
-          <small>APIs · Events · Business requirements</small>
+          <strong>Data Collection</strong>
+          <small>APIs · Sources · Operational Inputs</small>
         </div>
       </div>
-      <div class="flow-line"></div>
-      <div class="art-node">
+
+      <div class="connector" aria-hidden="true"></div>
+
+      <div class="workflow-node">
         <div class="node-icon">02</div>
         <div>
-          <b>AI & Automation</b>
-          <small>Analysis · Decisions · n8n workflows</small>
+          <strong>Intelligent Processing</strong>
+          <small>AI Models · Logic · Data Transformation</small>
         </div>
       </div>
-      <div class="flow-line"></div>
-      <div class="art-node">
+
+      <div class="connector" aria-hidden="true"></div>
+
+      <div class="workflow-node">
         <div class="node-icon">03</div>
         <div>
-          <b>Business Outcomes</b>
-          <small>Content · Reports · Actionable results</small>
+          <strong>Automated Execution</strong>
+          <small>n8n · Python · Integrated Services</small>
         </div>
       </div>
-      <div class="art-footer">
-        SYSTEM THINKING → AUTOMATED EXECUTION
+
+      <div class="connector" aria-hidden="true"></div>
+
+      <div class="workflow-node">
+        <div class="node-icon">04</div>
+        <div>
+          <strong>Measurable Outcomes</strong>
+          <small>Content · Reports · Business Insights</small>
+        </div>
+      </div>
+
+      <div class="workflow-bottom">
+        <span>SYSTEM ARCHITECTURE</span>
+        <strong>DESIGNED FOR AUTOMATION</strong>
       </div>
     </div>
   </div>
 </section>
 
-<div class="stats" aria-label="Professional focus">
-  <div class="stat">
+<!-- PROFESSIONAL HIGHLIGHTS -->
+<div class="metrics" aria-label="Professional highlights">
+  <div class="metric">
     <strong>6+ Years</strong>
-    <span>Operations & leadership experience</span>
+    <span>Business operations and leadership</span>
   </div>
-  <div class="stat">
+  <div class="metric">
     <strong>3 Projects</strong>
     <span>Featured automation initiatives</span>
   </div>
-  <div class="stat">
+  <div class="metric">
     <strong>AI + BI</strong>
-    <span>Automation and analytical thinking</span>
+    <span>Technology and business intelligence</span>
   </div>
 </div>
 
-<section id="about">
-  <div class="section-head">
-    <div class="eyebrow">About Me</div>
-    <h2>Operational experience meets technology.</h2>
+<!-- ABOUT -->
+<section id="about" class="content-section">
+  <div class="section-heading">
+    <div class="eyebrow">01 / About Me</div>
+    <h2>Technology backed by<br>
+      <span class="text-teal">real business experience.</span>
+    </h2>
   </div>
-  <div class="panel">
-    <p>
-      My professional experience includes retail management,
-      business development, team leadership, and workplace
-      operations across different business environments.
-    </p>
-    <p>
-      I apply operational thinking to digital workflows:
-      understanding problems, structuring data, removing
-      repetitive steps, and designing more scalable processes.
-    </p>
-    <div class="tags">
-      <span class="tag">Business Operations</span>
-      <span class="tag">Retail Leadership</span>
-      <span class="tag">Business Development</span>
-      <span class="tag">n8n</span>
-      <span class="tag">Power BI</span>
-      <span class="tag">Python</span>
-      <span class="tag">GitHub Actions</span>
-      <span class="tag">Applied AI</span>
+
+  <div class="panel about-grid">
+    <div>
+      <p>
+        My background spans retail leadership,
+        business development, workplace operations,
+        process improvement, and team management.
+      </p>
+      <p>
+        I bring that experience into digital solutions.
+        Rather than automating for the sake of automation,
+        I focus on identifying repetitive work,
+        structuring information, and creating systems
+        that solve practical problems.
+      </p>
+      <p>
+        My current interests include AI content pipelines,
+        workflow orchestration, intelligent job discovery,
+        and data-driven operational decision-making.
+      </p>
+    </div>
+    <div class="highlight-list">
+      <div class="highlight"><b>✓</b> Operations & Process Optimization</div>
+      <div class="highlight"><b>✓</b> Workflow Automation with n8n</div>
+      <div class="highlight"><b>✓</b> AI-Assisted Content Production</div>
+      <div class="highlight"><b>✓</b> Power BI & Business Analytics</div>
+      <div class="highlight"><b>✓</b> Python & API Integrations</div>
     </div>
   </div>
 </section>
 
-<section id="projects">
-  <div class="section-head">
-    <div class="eyebrow">Selected Work</div>
-    <h2>Automation Projects</h2>
+<!-- PROJECTS -->
+<section id="projects" class="content-section">
+  <div class="section-heading">
+    <div class="eyebrow">02 / Featured Work</div>
+    <h2>From ideas to<br>
+      <span class="text-teal">working workflows.</span>
+    </h2>
     <p>
-      Practical projects exploring AI-driven content,
-      intelligent data processing, and efficient workflows.
+      Three practical projects exploring how AI,
+      automation, and data can improve digital
+      processes and content production.
     </p>
   </div>
 
-  <div class="grid">
+  <div class="projects-grid">
 
-    <article class="card">
-      <div class="card-icon">🎬</div>
-      <h3>German Decode</h3>
-      <p>
-        Educational video automation exploring
-        AI-assisted scripting, narration,
-        visual production, and YouTube Shorts.
-      </p>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Video Automation</span>
-        <span class="tag">AI</span>
+    <!-- PROJECT 1 -->
+    <article class="project">
+      <div class="project-visual visual-blue"
+           aria-hidden="true">
+        <div class="mini-screen">
+          <div class="mini-title">GERMAN DECODE / VIDEO ENGINE</div>
+          <div class="mini-line wide"></div>
+          <div class="mini-line"></div>
+          <div class="mini-line short"></div>
+          <div class="mini-accent"></div>
+        </div>
       </div>
-      <div class="status">● In Development</div>
-      <a class="btn btn-outline"
-         href="projects/german-decode.html">
-        View Project →
-      </a>
+      <div class="project-body">
+        <h3>German Decode</h3>
+        <p>
+          An automated educational video pipeline
+          combining German language content,
+          AI-assisted scripts, audio generation,
+          and vertical video rendering.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">YouTube API</span>
+          <span class="tag">GitHub Actions</span>
+        </div>
+        <div class="project-status">
+          ● Active Automation
+        </div>
+        <a href="projects/german-decode.html"
+           class="btn btn-outline">
+          View Project →
+        </a>
+      </div>
     </article>
 
-    <article class="card">
-      <div class="card-icon">🤖</div>
-      <h3>LinkedIn Content Automation</h3>
-      <p>
-        AI-generated business content and visuals,
-        LinkedIn media publishing, and post-history
-        tracking through an integrated n8n workflow.
-      </p>
-      <div class="tags">
-        <span class="tag">n8n</span>
-        <span class="tag">Gemini</span>
-        <span class="tag">Cloudflare AI</span>
+    <!-- PROJECT 2 -->
+    <article class="project">
+      <div class="project-visual visual-purple"
+           aria-hidden="true">
+        <div class="mini-screen">
+          <div class="mini-title">LINKEDIN / CONTENT PIPELINE</div>
+          <div class="mini-line"></div>
+          <div class="mini-line wide"></div>
+          <div class="mini-line short"></div>
+          <div class="mini-accent"></div>
+        </div>
       </div>
-      <div class="status">● Working Prototype</div>
-      <a class="btn btn-outline"
-         href="projects/linkedin-automation.html">
-        View Project →
-      </a>
+      <div class="project-body">
+        <h3>LinkedIn Content Automation</h3>
+        <p>
+          AI-assisted professional content,
+          visual generation, LinkedIn API
+          publishing, and structured tracking
+          through an integrated n8n workflow.
+        </p>
+        <div class="tags">
+          <span class="tag">n8n</span>
+          <span class="tag">Gemini</span>
+          <span class="tag">Cloudflare AI</span>
+        </div>
+        <div class="project-status">
+          ● Working Prototype
+        </div>
+        <a href="projects/linkedin-automation.html"
+           class="btn btn-outline">
+          View Project →
+        </a>
+      </div>
     </article>
 
-    <article class="card">
-      <div class="card-icon">📊</div>
-      <h3>Job Discovery Automation</h3>
-      <p>
-        Automated job discovery, role matching,
-        relevance scoring, and structured
-        application tracking.
-      </p>
-      <div class="tags">
-        <span class="tag">Job APIs</span>
-        <span class="tag">AI Matching</span>
-        <span class="tag">Google Sheets</span>
+    <!-- PROJECT 3 -->
+    <article class="project">
+      <div class="project-visual visual-green"
+           aria-hidden="true">
+        <div class="mini-screen">
+          <div class="mini-title">JOB DISCOVERY / AI MATCHING</div>
+          <div class="mini-line wide"></div>
+          <div class="mini-line short"></div>
+          <div class="mini-line"></div>
+          <div class="mini-accent"></div>
+        </div>
       </div>
-      <div class="status">● In Development</div>
-      <a class="btn btn-outline"
-         href="projects/job-discovery.html">
-        View Project →
-      </a>
+      <div class="project-body">
+        <h3>Job Discovery Automation</h3>
+        <p>
+          Automated opportunity discovery,
+          AI-assisted job matching,
+          relevance scoring, and structured
+          application tracking.
+        </p>
+        <div class="tags">
+          <span class="tag">Job APIs</span>
+          <span class="tag">AI Matching</span>
+          <span class="tag">Google Sheets</span>
+        </div>
+        <div class="project-status">
+          ● In Development
+        </div>
+        <a href="projects/job-discovery.html"
+           class="btn btn-outline">
+          View Project →
+        </a>
+      </div>
     </article>
 
   </div>
 </section>
 
-<section id="technology" class="tools">
-  <div class="section-head">
-    <div class="eyebrow">Technology Stack</div>
-    <h2>The tools behind the workflows.</h2>
+<!-- TECHNOLOGY -->
+<section id="technology" class="content-section">
+  <div class="section-heading">
+    <div class="eyebrow">03 / Technology Stack</div>
+    <h2>Tools that turn ideas<br>
+      <span class="text-teal">into execution.</span>
+    </h2>
   </div>
-  <div class="grid">
-    <div class="card">
+
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-icon">⚙️</div>
       <h3>Automation</h3>
       <p>
-        n8n, GitHub Actions, HTTP APIs,
-        webhooks, and workflow orchestration.
+        n8n, GitHub Actions, Python,
+        webhooks, HTTP APIs,
+        and workflow orchestration.
       </p>
     </div>
-    <div class="card">
+    <div class="tech-card">
+      <div class="tech-icon">🧠</div>
       <h3>AI & Content</h3>
       <p>
         Gemini, Cloudflare Workers AI,
-        structured prompting, and media pipelines.
+        prompt engineering, media pipelines,
+        and AI-assisted processes.
       </p>
     </div>
-    <div class="card">
-      <h3>Business Analytics</h3>
+    <div class="tech-card">
+      <div class="tech-icon">📈</div>
+      <h3>Analytics</h3>
       <p>
         Power BI, Excel, Google Sheets,
-        reporting, and operational decision support.
+        business performance reporting,
+        and operational analysis.
       </p>
     </div>
   </div>
 </section>
 
-<section id="contact">
+<!-- CONTACT -->
+<section id="contact" class="content-section">
   <div class="contact">
-    <div class="eyebrow">Let's Connect</div>
-    <h2>Interested in building smarter processes?</h2>
+    <div class="eyebrow">04 / Get In Touch</div>
+    <h2>Let's build something<br>
+      <span class="text-teal">more efficient.</span>
+    </h2>
     <p>
-      Connect with me to discuss business operations,
-      automation, AI applications, and digital workflows.
+      Interested in business operations, intelligent
+      automation, practical AI applications,
+      or professional collaboration?
+      I'd be glad to connect.
     </p>
-    <div class="hero-actions">
+    <div class="actions">
       <a class="btn btn-primary"
          href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/"
-         target="_blank" rel="noopener noreferrer">
-        Connect on LinkedIn
+         target="_blank"
+         rel="noopener noreferrer">
+        Connect on LinkedIn →
       </a>
       <a class="btn btn-outline"
          href="https://github.com/viswavisnus8"
-         target="_blank" rel="noopener noreferrer">
+         target="_blank"
+         rel="noopener noreferrer">
         Explore GitHub
       </a>
     </div>
@@ -516,9 +902,16 @@ footer{
 </main>
 
 <footer>
-  © 2026 Viswanathan Selvaraj ·
-  AI, Automation & Business Operations ·
-  Built with GitHub Pages
+  <div class="footer-inner">
+    <span>
+      © 2026 Viswanathan Selvaraj.
+      Built with purpose.
+    </span>
+    <span>
+      <a href="/privacy.html">Privacy Policy</a>
+      · Berlin, Germany
+    </span>
+  </div>
 </footer>
 
 </div>
