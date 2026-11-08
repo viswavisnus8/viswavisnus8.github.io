@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta name="description"
-        content="Explore AI automation, digital workflows,
-        GitHub projects and business operations by
-        Viswanathan Selvaraj.">
+        content="Explore AI automation, digital workflows, GitHub projects and business operations by Viswanathan Selvaraj.">
 
   <meta name="theme-color" content="#0b1020">
 
@@ -131,7 +129,7 @@
       border: 1px solid var(--accent);
       border-radius: 9px;
       font-weight: bold;
-      transition: 0.2s ease;
+      transition: transform 0.2s ease;
     }
 
     .button:hover {
@@ -164,7 +162,9 @@
       border: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      transition: 0.2s ease;
+      transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
     }
 
     .card:hover {
@@ -196,11 +196,18 @@
     }
 
     .status {
-      display: inline-block;
+      display: block;
       margin-top: 22px;
       font-size: 13px;
       font-weight: bold;
       color: var(--accent);
+    }
+
+    .project-button {
+      display: block;
+      margin-top: 20px;
+      margin-right: 0;
+      text-align: center;
     }
 
     .links {
@@ -354,7 +361,7 @@
 
         <div class="grid">
 
-          <!-- PROJECT 1 -->
+          <!-- PROJECT 1: GERMAN DECODE -->
 
           <article class="card">
 
@@ -379,9 +386,16 @@
               ● In Development
             </span>
 
+            <a
+              href="projects/german-decode.html"
+              class="button project-button"
+              aria-label="View German Decode project details">
+              View Project &rarr;
+            </a>
+
           </article>
 
-          <!-- PROJECT 2 -->
+          <!-- PROJECT 2: LINKEDIN AUTOMATION -->
 
           <article class="card">
 
@@ -408,7 +422,7 @@
 
           </article>
 
-          <!-- PROJECT 3 -->
+          <!-- PROJECT 3: JOB DISCOVERY -->
 
           <article class="card">
 
