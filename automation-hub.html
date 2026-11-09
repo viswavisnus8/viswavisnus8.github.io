@@ -20,6 +20,39 @@
 @media(max-width:760px){.shell{display:block}.side{position:static;height:auto;padding:16px;gap:15px}.logo{padding:0}.navlabel,.side-bottom{display:none}.sidenav{display:flex;overflow-x:auto;gap:3px;padding-bottom:4px}.sidenav a{white-space:nowrap;padding:9px 12px}.main{padding:0 15px 35px}.topbar{height:61px}.topright .public{display:none}.hero{padding-top:30px}.hero-mark{display:none}.flowgraph{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.flowstep:after{display:none}.projects{grid-template-columns:1fr}.stack{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:420px){.cards{grid-template-columns:1fr 1fr;gap:9px}.metric{padding:14px;min-height:146px}.metric strong{font-size:20px}.metric .label{font-size:11px}.pill{padding:6px 10px}.panel{padding:15px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+/* Final responsive and readability refinements */
+html{scroll-padding-top:20px}
+.project p{font-size:14px;line-height:1.65;min-height:0}
+.project a{font-size:13px}
+.tags span{font-size:11px}
+.metric .label,.metric small,.panel p,.flowstep p,.stackitem small{font-size:12px;line-height:1.55}
+.disclosure{font-size:13px;line-height:1.65}
+.footer{font-size:12px}
+.sidenav a{min-height:40px}
+:focus-visible{outline:2px solid #76b5ff;outline-offset:3px}
+@media(max-width:760px){
+ .shell,.main,.content{max-width:100%;min-width:0}
+ .side{border-right:0;border-bottom:1px solid #283f3d}
+ .sidenav{scrollbar-width:thin}
+ .hero h1{font-size:clamp(28px,8vw,44px);overflow-wrap:break-word}
+ .dashboard-grid,.projects,.cards{min-width:0}
+ .flowgraph{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:420px){
+ .main{padding-left:12px;padding-right:12px}
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .metric{min-width:0;padding:13px}
+ .metric strong{font-size:18px;overflow-wrap:anywhere}
+ .metric .label{font-size:12px}
+ .flowgraph{grid-template-columns:1fr}
+ .flowstep{min-width:0}
+ .stack{grid-template-columns:1fr 1fr}
+ .topbar{gap:8px}
+ .crumb{font-size:12px}
+ .pill{font-size:11px}
+}
+
 </style>
 </head>
 <body>

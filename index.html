@@ -1247,6 +1247,24 @@ footer {
   }
 }
 
+
+/* Final responsive and readability refinements */
+html{scroll-padding-top:94px}
+.nav a{min-height:36px;display:inline-flex;align-items:center}
+.hero-copy p,.about-card p,.experience-card p,.project-card p,.tech-card p{font-size:max(14px,1em);line-height:1.7}
+:focus-visible{outline:2px solid #76b5ff;outline-offset:4px}
+@media(max-width:650px){
+ .site-header{display:flex;flex-direction:column;gap:12px;padding:13px 14px}
+ .nav{width:100%;display:flex;overflow-x:auto;justify-content:flex-start;gap:14px;scrollbar-width:thin;padding-bottom:4px}
+ .nav a{white-space:nowrap;flex:0 0 auto;font-size:12px}
+ .hero{padding-top:48px}
+ .hero-copy h1{overflow-wrap:break-word}
+ .hero-actions{display:flex;flex-wrap:wrap}
+ .engine{max-width:100%;overflow:hidden}
+ .contact-panel,.about-card{padding:22px}
+}
+@media(max-width:380px){.nav{gap:11px}.hero-copy h1{font-size:clamp(32px,10vw,48px)}}
+
 </style>
 <style>
 /* Website 2.0 — hybrid portfolio + operations dashboard */
@@ -1283,7 +1301,7 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
      NAVIGATION
 ================================== -->
 <header class="site-header">
-<a aria-label="Viswa Visnus homepage" class="logo" href="/">
+<a aria-label="Viswa Visnus homepage" class="logo" href="index.html">
     VISWAVISNUS<span>.</span>
 </a>
 <nav aria-label="Main navigation" class="nav">
@@ -1969,7 +1987,7 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
       Built with purpose.
     </span>
 <span>
-<a href="/privacy.html">
+<a href="privacy.html">
         Privacy Policy
       </a>
       · Berlin, Germany
