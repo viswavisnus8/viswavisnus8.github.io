@@ -1,407 +1,832 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head> <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#080f1e">
-<meta name="description" content="LinkedIn Content Automation — an AI-assisted content and publishing workflow built with n8n, Gemini, Cloudflare Workers AI, and LinkedIn API.">
-<title>LinkedIn Automation | Viswa Visnus</title>
 
-<style>
-:root{
-  color-scheme:dark;
-  --bg:#080f1e;
-  --surface:#101e30;
-  --surface2:#17283c;
-  --border:#2b4259;
-  --text:#f4f8ff;
-  --muted:#a9bbce;
-  --teal:#64e0bc;
-  --purple:#caa5ff;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:
-    radial-gradient(ellipse at 85% 5%,#49336955,transparent 33%),
-    radial-gradient(ellipse at 5% 45%,#164a4940,transparent 35%),
-    var(--bg);
-  color:var(--text);
-  font-family:Inter,"Segoe UI",Arial,sans-serif;
-  line-height:1.7;
-}
-a{color:inherit;text-decoration:none}
-a:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
-.container{width:min(1120px,calc(100% - 36px));margin:auto}
-h1,h2,h3{line-height:1.18}
-h1{font-size:clamp(38px,5vw,66px);letter-spacing:-2px;margin:16px 0 22px}
-h2{font-size:clamp(27px,3.2vw,39px);letter-spacing:-1px;margin:12px 0 22px}
-h3{font-size:19px;margin:0 0 12px}
-p{color:var(--muted);margin:0 0 17px}
-.accent{color:var(--teal)}
-.eyebrow{
-  color:var(--teal);
-  font-size:11px;
-  font-weight:850;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-section{padding:70px 0;scroll-margin-top:30px}
-.section-intro{max-width:760px;margin-bottom:28px}
-.section-intro p{font-size:15px}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
 
-/* NAV */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:15px;
-  padding:23px 0;
-  border-bottom:1px solid #ffffff18;
-}
-.logo{font-size:18px;font-weight:850;letter-spacing:1px}
-.logo span{color:var(--teal)}
-nav{display:flex;flex-wrap:wrap;gap:22px}
-nav a{color:#ccdaea;font-size:13px}
-nav a:hover{color:var(--teal)}
-.btn{
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  padding:13px 20px;
-  border-radius:10px;
-  border:1px solid #4d847b;
-  color:var(--teal);
-  font-size:13px;
-  font-weight:750;
-  transition:transform .2s,border-color .2s;
-}
-.btn:hover{transform:translateY(-2px);border-color:var(--teal)}
-.btn-primary{background:var(--teal);color:#091e23;border-color:var(--teal)}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+  <meta name="theme-color" content="#080f1e">
 
-/* HERO */
-.hero{
-  display:grid;
-  grid-template-columns:1fr .95fr;
-  gap:48px;
-  align-items:center;
-  padding:92px 0 65px;
-}
-.hero-lead{font-size:17px;max-width:570px;line-height:1.8}
-.status{
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  border:1px solid #427368;
-  padding:8px 13px;
-  background:#17372f;
-  border-radius:25px;
-  font-size:11px;
-  color:#b7f6dc;
-  font-weight:750;
-}
-.status-dot{
-  width:8px;height:8px;border-radius:50%;
-  background:var(--teal);
-}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:19px}
-.tag{
-  border:1px solid #3c526b;
-  border-radius:30px;
-  padding:5px 11px;
-  color:#c2d5e9;
-  font-size:11px;
-}
+  <meta name="description"
+        content="LinkedIn Content Automation — an AI-assisted content creation and publishing workflow using n8n, Gemini, Cloudflare Workers AI and LinkedIn API.">
 
-/* HERO VISUAL */
-.visual-panel{
-  padding:22px;
-  border:1px solid #665881;
-  border-radius:21px;
-  background:linear-gradient(140deg,#27213e,#131b2e);
-  box-shadow:0 25px 80px #0006;
-}
-.panel-header{
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  padding-bottom:17px;
-  margin-bottom:23px;
-  border-bottom:1px solid #ffffff1b;
-  font-size:10px;
-  color:#d0c0eb;
-  letter-spacing:1px;
-}
-.dots{display:flex;gap:6px}
-.dots i{width:8px;height:8px;background:#6f6884;border-radius:50%}
-.dots i:first-child{background:#cc9bff}
-.dots i:last-child{background:#64e0bc}
-.visual-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.visual-node{
-  background:#1d2940;
-  border:1px solid #665987;
-  border-radius:11px;
-  padding:15px;
-}
-.visual-node small{
-  display:block;
-  color:var(--purple);
-  font-size:10px;
-  font-weight:800;
-  margin-bottom:6px;
-}
-.visual-node strong{font-size:13px;display:block}
-.visual-node span{color:#b4bdd6;font-size:10px}
-.visual-arrow{
-  text-align:center;
-  color:var(--purple);
-  font-size:23px;
-  padding:6px;
-}
-.visual-result{
-  background:#142e32;
-  border:1px solid #52877a;
-  border-radius:12px;
-  padding:17px;
-}
-.result-top{
-  display:flex;
-  justify-content:space-between;
-  gap:8px;
-  font-size:11px;
-  font-weight:800;
-}
-.result-top span{color:var(--teal)}
-.result-lines{margin-top:15px}
-.result-lines i{
-  display:block;
-  width:88%;
-  height:7px;
-  border-radius:8px;
-  margin-bottom:9px;
-  background:#547271;
-}
-.result-lines i:nth-child(2){width:69%}
-.result-lines i:nth-child(3){width:49%}
-.visual-foot{
-  margin-top:14px;
-  text-align:center;
-  color:#b8adc9;
-  font-size:10px;
-}
+  <link rel="icon"
+        type="image/svg+xml"
+        href="/favicon.svg?v=2">
 
-/* METRICS */
-.facts{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:15px;
-}
-.fact{
-  padding:24px;
-  border:1px solid var(--border);
-  background:var(--surface);
-  border-radius:14px;
-}
-.fact strong{display:block;color:var(--teal);font-size:20px;margin-bottom:5px}
-.fact span{font-size:12px;color:var(--muted)}
+  <title>LinkedIn Automation | Viswa Visnus</title>
 
-/* STORY */
-.story{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-.story-card{
-  border:1px solid var(--border);
-  border-radius:17px;
-  padding:29px;
-  background:var(--surface);
-}
-.story-card p{font-size:14px}
-.story-card.highlight{
-  background:linear-gradient(140deg,#183e40,#151f34);
-  border-color:#47746d;
-}
+  <style>
 
-/* PROCESS */
-.process{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:15px;
-}
-.step{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:15px;
-  padding:23px;
-  position:relative;
-}
-.step-num{
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  height:36px;
-  width:36px;
-  border-radius:10px;
-  background:#2e3150;
-  color:var(--purple);
-  font-size:12px;
-  font-weight:850;
-  margin-bottom:17px;
-}
-.step h3{font-size:16px}
-.step p{font-size:13px;margin:0}
+    /* ========== DESIGN SYSTEM ========== */
 
-/* CONTENT DEMO */
-.demo{
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:24px;
-  border:1px solid #5b5579;
-  background:linear-gradient(135deg,#241e39,#121e30);
-  border-radius:21px;
-  padding:28px;
-  align-items:stretch;
-}
-.demo-art{
-  min-height:285px;
-  border:1px solid #8c71b1;
-  border-radius:16px;
-  background:
-    radial-gradient(circle at 70% 20%,#664b91,#2e2950 55%,#191d33);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:25px;
-}
-.demo-art small{color:#d8beff;font-size:11px;letter-spacing:1.5px}
-.demo-art strong{
-  font-size:clamp(25px,3vw,36px);
-  line-height:1.22;
-  margin:21px 0;
-}
-.demo-art span{font-size:12px;color:#d4c7e8}
-.demo-copy{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-.demo-copy p{font-size:14px}
-.demo-label{
-  color:var(--purple);
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1px;
-}
-.demo-note{font-size:11px!important;color:#a9b4c7}
+    :root {
+      color-scheme: dark;
+      --bg: #080f1e;
+      --surface: #101e30;
+      --surface2: #17283c;
+      --border: #2b4259;
+      --text: #f4f8ff;
+      --muted: #a9bbce;
+      --teal: #64e0bc;
+      --purple: #caa5ff;
+    }
 
-/* TECH */
-.tech-grid{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:14px;
-}
-.tech{
-  border:1px solid var(--border);
-  background:var(--surface);
-  padding:23px;
-  border-radius:15px;
-}
-.tech b{display:block;font-size:16px;margin-bottom:9px}
-.tech p{font-size:12px;margin:0}
+    * {
+      box-sizing: border-box;
+    }
 
-/* STATUS */
-.progress-panel{
-  padding:30px;
-  border-radius:20px;
-  border:1px solid #427769;
-  background:linear-gradient(135deg,#143533,#141e31);
-}
-.progress-panel p{font-size:14px}
-.progress-panel ul{
-  color:#bed0de;
-  font-size:13px;
-  padding-left:20px;
-  line-height:2;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* CONTACT */
-.cta{
-  background:linear-gradient(120deg,#183f40,#151c34);
-  padding:45px;
-  border:1px solid #45766e;
-  border-radius:21px;
-}
-.cta p{max-width:680px}
+    body {
+      margin: 0;
+      background:
+        radial-gradient(
+          ellipse at 85% 5%,
+          #49336955,
+          transparent 33%
+        ),
+        radial-gradient(
+          ellipse at 5% 45%,
+          #164a4940,
+          transparent 35%
+        ),
+        var(--bg);
 
-footer{
-  margin-top:40px;
-  border-top:1px solid var(--border);
-  padding:28px 0;
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:12px;
-  color:var(--muted);
-  font-size:12px;
-}
-footer a{color:var(--teal)}
+      color: var(--text);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.7;
+    }
 
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .visual-panel{max-width:680px;width:100%}
-  .tech-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media(max-width:650px){
-  .container{width:calc(100% - 32px)}
-  header{justify-content:center}
-  nav{justify-content:center;gap:15px}
-  .hero{padding:58px 0 45px}
-  section{padding:48px 0}
-  h1{letter-spacing:-1px}
-  .facts,.story,.process,.demo,.tech-grid{grid-template-columns:1fr}
-  .visual-panel{padding:15px}
-  .story-card,.demo,.progress-panel,.cta{padding:24px}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *{transition:none!important}
-}
-</style>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.18;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 66px);
+      letter-spacing: -2px;
+      margin: 16px 0 22px;
+    }
+
+    h2 {
+      font-size: clamp(27px, 3.2vw, 39px);
+      letter-spacing: -1px;
+      margin: 12px 0 22px;
+    }
+
+    h3 {
+      font-size: 19px;
+      margin: 0 0 12px;
+    }
+
+    p {
+      color: var(--muted);
+      margin: 0 0 17px;
+    }
+
+    .accent {
+      color: var(--teal);
+    }
+
+    .eyebrow {
+      color: var(--teal);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    section {
+      padding: 70px 0;
+      scroll-margin-top: 30px;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-intro p {
+      font-size: 15px;
+    }
+
+
+    /* ========== HEADER ========== */
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 23px 0;
+      border-bottom: 1px solid #ffffff18;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 850;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--teal);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    nav a {
+      color: #ccdaea;
+      font-size: 13px;
+    }
+
+    nav a:hover {
+      color: var(--teal);
+    }
+
+
+    /* ========== BUTTONS ========== */
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 20px;
+      border-radius: 10px;
+      border: 1px solid #4d847b;
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 750;
+      transition:
+        transform .2s,
+        border-color .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--teal);
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: #091e23;
+      border-color: var(--teal);
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 27px;
+    }
+
+
+    /* ========== HERO ========== */
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr .95fr;
+      gap: 48px;
+      align-items: center;
+      padding: 92px 0 65px;
+    }
+
+    .hero-lead {
+      font-size: 17px;
+      max-width: 570px;
+      line-height: 1.8;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid #427368;
+      padding: 8px 13px;
+      background: #17372f;
+      border-radius: 25px;
+      font-size: 11px;
+      color: #b7f6dc;
+      font-weight: 750;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 10px #64e0bc70;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 19px;
+    }
+
+    .tag {
+      border: 1px solid #3c526b;
+      border-radius: 30px;
+      padding: 5px 11px;
+      color: #c2d5e9;
+      font-size: 11px;
+    }
+
+
+    /* ========== HERO VISUAL ========== */
+
+    .visual-panel {
+      padding: 22px;
+      border: 1px solid #665881;
+      border-radius: 21px;
+      background: linear-gradient(
+        140deg,
+        #27213e,
+        #131b2e
+      );
+      box-shadow: 0 25px 80px #0006;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 17px;
+      margin-bottom: 23px;
+      border-bottom: 1px solid #ffffff1b;
+      font-size: 10px;
+      color: #d0c0eb;
+      letter-spacing: 1px;
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dots i {
+      width: 8px;
+      height: 8px;
+      background: #6f6884;
+      border-radius: 50%;
+    }
+
+    .dots i:first-child {
+      background: #cc9bff;
+    }
+
+    .dots i:last-child {
+      background: #64e0bc;
+    }
+
+    .visual-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .visual-node {
+      background: #1d2940;
+      border: 1px solid #665987;
+      border-radius: 11px;
+      padding: 15px;
+    }
+
+    .visual-node small {
+      display: block;
+      color: var(--purple);
+      font-size: 10px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .visual-node strong {
+      font-size: 13px;
+      display: block;
+    }
+
+    .visual-node span {
+      color: #b4bdd6;
+      font-size: 10px;
+    }
+
+    .visual-arrow {
+      text-align: center;
+      color: var(--purple);
+      font-size: 23px;
+      padding: 6px;
+    }
+
+    .visual-result {
+      background: #142e32;
+      border: 1px solid #52877a;
+      border-radius: 12px;
+      padding: 17px;
+    }
+
+    .result-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .result-top span {
+      color: var(--teal);
+    }
+
+    .result-lines {
+      margin-top: 15px;
+    }
+
+    .result-lines i {
+      display: block;
+      width: 88%;
+      height: 7px;
+      border-radius: 8px;
+      margin-bottom: 9px;
+      background: #547271;
+    }
+
+    .result-lines i:nth-child(2) {
+      width: 69%;
+    }
+
+    .result-lines i:nth-child(3) {
+      width: 49%;
+    }
+
+    .visual-foot {
+      margin-top: 14px;
+      text-align: center;
+      color: #b8adc9;
+      font-size: 10px;
+    }
+
+
+    /* ========== PROJECT FACTS ========== */
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .fact {
+      padding: 24px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 14px;
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--teal);
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .fact span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+
+    /* ========== PROJECT STORY ========== */
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .story-card {
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      padding: 29px;
+      background: var(--surface);
+    }
+
+    .story-card p {
+      font-size: 14px;
+    }
+
+    .story-card.highlight {
+      background: linear-gradient(
+        140deg,
+        #183e40,
+        #151f34
+      );
+      border-color: #47746d;
+    }
+
+
+    /* ========== WORKFLOW PROCESS ========== */
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 23px;
+    }
+
+    .step-num {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      height: 36px;
+      width: 36px;
+      border-radius: 10px;
+      background: #2e3150;
+      color: var(--purple);
+      font-size: 12px;
+      font-weight: 850;
+      margin-bottom: 17px;
+    }
+
+    .step h3 {
+      font-size: 16px;
+    }
+
+    .step p {
+      font-size: 13px;
+      margin: 0;
+    }
+
+
+    /* ========== REAL LINKEDIN SHOWCASE ========== */
+
+    .post-showcase {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 28px;
+      padding: 32px;
+      align-items: stretch;
+
+      border: 1px solid #5b5579;
+      border-radius: 21px;
+
+      background: linear-gradient(
+        135deg,
+        #241e39,
+        #121e30
+      );
+    }
+
+    .post-preview {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      min-height: 340px;
+      padding: 27px;
+
+      border-radius: 17px;
+      border: 1px solid #8c71b1;
+
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          #5b438b,
+          transparent 60%
+        ),
+        linear-gradient(
+          140deg,
+          #2e2950,
+          #191d33
+        );
+    }
+
+    .post-preview-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .post-symbol {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #0a66c2;
+      color: white;
+      font-size: 24px;
+      font-weight: 850;
+    }
+
+    .post-type {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      color: #e0cbff;
+      text-transform: uppercase;
+    }
+
+    .post-preview-main small {
+      display: block;
+      color: #d7c5ee;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      margin-bottom: 17px;
+    }
+
+    .post-preview-main strong {
+      display: block;
+      font-size: clamp(27px, 3vw, 39px);
+      line-height: 1.2;
+      letter-spacing: -.7px;
+    }
+
+    .post-preview-main strong span {
+      color: var(--teal);
+    }
+
+    .post-preview-bottom {
+      border-top: 1px solid #ffffff28;
+      padding-top: 16px;
+      color: #ccc1de;
+      font-size: 11px;
+    }
+
+    .post-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .post-label {
+      color: var(--purple);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .post-details h3 {
+      font-size: clamp(26px, 3vw, 37px);
+      margin: 16px 0 22px;
+    }
+
+    .post-details p {
+      font-size: 14px;
+    }
+
+    .post-note {
+      font-size: 11px !important;
+      color: #9faec0;
+      margin-top: 18px;
+    }
+
+
+    /* ========== TECHNOLOGY ========== */
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .tech {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 23px;
+      border-radius: 15px;
+    }
+
+    .tech b {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 9px;
+    }
+
+    .tech p {
+      font-size: 12px;
+      margin: 0;
+    }
+
+
+    /* ========== PROJECT PROGRESS ========== */
+
+    .progress-panel {
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid #427769;
+
+      background: linear-gradient(
+        135deg,
+        #143533,
+        #141e31
+      );
+    }
+
+    .progress-panel p {
+      font-size: 14px;
+    }
+
+    .progress-panel ul {
+      color: #bed0de;
+      font-size: 13px;
+      padding-left: 20px;
+      line-height: 2;
+    }
+
+
+    /* ========== CONTACT ========== */
+
+    .cta {
+      background: linear-gradient(
+        120deg,
+        #183f40,
+        #151c34
+      );
+
+      padding: 45px;
+      border: 1px solid #45766e;
+      border-radius: 21px;
+    }
+
+    .cta p {
+      max-width: 680px;
+    }
+
+
+    /* ========== FOOTER ========== */
+
+    footer {
+      margin-top: 40px;
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer a {
+      color: var(--teal);
+    }
+
+
+    /* ========== RESPONSIVE DESIGN ========== */
+
+    @media (max-width: 900px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-panel {
+        max-width: 680px;
+        width: 100%;
+      }
+
+      .tech-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      header {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .hero {
+        padding: 58px 0 45px;
+      }
+
+      section {
+        padding: 48px 0;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .facts,
+      .story,
+      .process,
+      .post-showcase,
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-panel {
+        padding: 15px;
+      }
+
+      .story-card,
+      .post-showcase,
+      .progress-panel,
+      .cta {
+        padding: 24px;
+      }
+
+      .post-preview {
+        min-height: 300px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
+
+  </style>
 </head>
 
+
 <body>
+
 <div class="container">
 
+
+<!-- ========== HEADER ========== -->
+
 <header>
+
   <a class="logo" href="../index.html">
     VISWAVISNUS<span>.</span>
   </a>
+
   <nav aria-label="Main navigation">
     <a href="../index.html#about">About</a>
     <a href="../index.html#projects">Projects</a>
     <a href="#workflow">Workflow</a>
+    <a href="#output">Published Post</a>
     <a href="#technology">Technology</a>
   </nav>
+
 </header>
+
 
 <main>
 
-<!-- PROJECT HERO -->
+
+<!-- ========== HERO ========== -->
+
 <section class="hero">
+
   <div>
+
     <div class="status">
       <span class="status-dot"></span>
       Working Prototype
     </div>
 
-    <div class="eyebrow" style="margin-top:25px">
+    <div class="eyebrow"
+         style="margin-top:25px">
       AI Automation / Project Case Study
     </div>
 
@@ -432,283 +857,477 @@ footer a{color:var(--teal)}
     </div>
 
     <div class="actions">
-      <a class="btn btn-primary" href="#workflow">
-        Explore Workflow →
+
+      <a class="btn btn-primary"
+         href="#output">
+        View Published Post →
       </a>
-      <a class="btn" href="../index.html#projects">
+
+      <a class="btn"
+         href="#workflow">
+        Explore Workflow
+      </a>
+
+      <a class="btn"
+         href="../index.html#projects">
         ← All Projects
       </a>
+
     </div>
+
   </div>
+
+
+  <!-- HERO AUTOMATION ILLUSTRATION -->
 
   <div class="visual-panel"
        aria-label="Illustrative LinkedIn publishing architecture">
+
     <div class="panel-header">
-      <div class="dots"><i></i><i></i><i></i></div>
+      <div class="dots">
+        <i></i><i></i><i></i>
+      </div>
+
       <span>CONTENT AUTOMATION ENGINE</span>
       <span>●</span>
     </div>
 
+
     <div class="visual-row">
+
       <div class="visual-node">
         <small>01 / INPUT</small>
         <strong>Content Topic</strong>
         <span>Business & AI</span>
       </div>
+
       <div class="visual-node">
         <small>02 / WRITING</small>
         <strong>Gemini AI</strong>
         <span>Post generation</span>
       </div>
+
       <div class="visual-node">
         <small>03 / VISUAL</small>
         <strong>Cloudflare AI</strong>
         <span>Media generation</span>
       </div>
+
       <div class="visual-node">
         <small>04 / CONTROL</small>
         <strong>n8n Workflow</strong>
         <span>Orchestration</span>
       </div>
+
     </div>
+
 
     <div class="visual-arrow">↓</div>
 
+
     <div class="visual-result">
+
       <div class="result-top">
         <strong>Publishing & Tracking</strong>
         <span>LinkedIn API</span>
       </div>
+
       <div class="result-lines">
-        <i></i><i></i><i></i>
+        <i></i>
+        <i></i>
+        <i></i>
       </div>
+
     </div>
+
 
     <div class="visual-foot">
       Illustrative architecture · Not a live dashboard
     </div>
+
   </div>
+
 </section>
 
-<!-- PROJECT FACTS -->
+
+
+<!-- ========== PROJECT FACTS ========== -->
+
 <div class="facts">
+
   <div class="fact">
     <strong>n8n</strong>
     <span>Workflow orchestration</span>
   </div>
+
   <div class="fact">
     <strong>AI + Visuals</strong>
     <span>Content and image generation</span>
   </div>
+
   <div class="fact">
     <strong>API Publishing</strong>
     <span>LinkedIn integration</span>
   </div>
+
 </div>
 
-<!-- PROBLEM AND SOLUTION -->
+
+
+<!-- ========== PROJECT OVERVIEW ========== -->
+
 <section id="overview">
+
   <div class="section-intro">
-    <div class="eyebrow">01 / Project Overview</div>
+
+    <div class="eyebrow">
+      01 / Project Overview
+    </div>
+
     <h2>
       Why automate<br>
-      <span class="accent">content production?</span>
+      <span class="accent">
+        content production?
+      </span>
     </h2>
+
   </div>
 
+
   <div class="story">
+
     <div class="story-card">
+
       <h3>The Challenge</h3>
+
       <p>
         Producing consistent professional content
         involves researching ideas, drafting posts,
         creating relevant visuals, preparing media,
         publishing, and recording outcomes.
       </p>
+
       <p>
         When these tasks are handled manually,
         the process becomes repetitive and
         difficult to scale consistently.
       </p>
+
     </div>
 
+
     <div class="story-card highlight">
+
       <h3>The Approach</h3>
+
       <p>
         Build an integrated workflow that connects
         AI-assisted writing, visual production,
         LinkedIn API publishing, and Google Sheets
         tracking.
       </p>
+
       <p>
         The goal is to reduce repetitive work
         while maintaining control over the
         quality and relevance of each post.
       </p>
+
     </div>
+
   </div>
+
 </section>
 
-<!-- WORKFLOW ARCHITECTURE -->
+
+
+<!-- ========== WORKFLOW ========== -->
+
 <section id="workflow">
+
   <div class="section-intro">
-    <div class="eyebrow">02 / System Architecture</div>
+
+    <div class="eyebrow">
+      02 / System Architecture
+    </div>
+
     <h2>
-      How the <span class="accent">automation works.</span>
+      How the
+      <span class="accent">
+        automation works.
+      </span>
     </h2>
+
     <p>
       The workflow combines content generation,
       visual creation, publishing, and logging
       into a repeatable pipeline.
     </p>
+
   </div>
 
+
   <div class="process">
+
+
     <div class="step">
       <div class="step-num">01</div>
+
       <h3>Topic & Input</h3>
+
       <p>
         A selected topic provides the context
         for the professional content.
       </p>
     </div>
 
+
     <div class="step">
       <div class="step-num">02</div>
+
       <h3>AI Content Generation</h3>
+
       <p>
         Gemini produces structured captions
         tailored to the topic and content style.
       </p>
     </div>
 
+
     <div class="step">
       <div class="step-num">03</div>
+
       <h3>Visual Production</h3>
+
       <p>
-        Cloudflare Workers AI generates images.
-        The workflow also supports infographic-style
-        content.
+        Cloudflare Workers AI generates images
+        used alongside the post content.
       </p>
     </div>
+
 
     <div class="step">
       <div class="step-num">04</div>
+
       <h3>Workflow Processing</h3>
+
       <p>
-        n8n coordinates the services, prepares
-        the output, and handles the relevant
-        processing steps.
+        n8n coordinates connected services,
+        prepares the output, and handles
+        processing and routing.
       </p>
     </div>
 
+
     <div class="step">
       <div class="step-num">05</div>
+
       <h3>LinkedIn Publishing</h3>
+
       <p>
         Authorized LinkedIn API operations
         handle media uploads and post creation.
       </p>
     </div>
 
+
     <div class="step">
       <div class="step-num">06</div>
+
       <h3>Tracking & Logging</h3>
+
       <p>
         Google Sheets records workflow activity
         and publishing information for
         monitoring and review.
       </p>
     </div>
+
   </div>
+
 </section>
 
-<!-- ILLUSTRATIVE OUTPUT -->
+
+
+<!-- ========== PUBLISHED LINKEDIN POST ========== -->
+
 <section id="output">
+
   <div class="section-intro">
-    <div class="eyebrow">03 / Visual Output</div>
+
+    <div class="eyebrow">
+      03 / Published Content
+    </div>
+
     <h2>
-      From a topic to<br>
-      <span class="accent">professional content.</span>
-    </h2>
-    <p>
-      An example of the style of content
-      the workflow is designed to produce.
-    </p>
-  </div>
-
-  <div class="demo">
-    <div class="demo-art">
-      <small>BUSINESS × AUTOMATION</small>
-      <strong>
-        Less manual work.<br>
-        More meaningful outcomes.
-      </strong>
-      <span>
-        Consistency · Data · Execution
+      From automation to<br>
+      <span class="accent">
+        real LinkedIn content.
       </span>
+    </h2>
+
+    <p>
+      Explore an actual LinkedIn post shared
+      as a real-world example alongside
+      this automation project.
+    </p>
+
+  </div>
+
+
+  <div class="post-showcase">
+
+
+    <!-- PREMIUM POST PREVIEW -->
+
+    <div class="post-preview">
+
+      <div class="post-preview-top">
+
+        <div class="post-symbol"
+             aria-label="LinkedIn">
+          in
+        </div>
+
+        <div class="post-type">
+          Published Content
+        </div>
+
+      </div>
+
+
+      <div class="post-preview-main">
+
+        <small>
+          BUSINESS × TECHNOLOGY
+        </small>
+
+        <strong>
+          From Ideas.<br>
+          To <span>Execution.</span><br>
+          To Impact.
+        </strong>
+
+      </div>
+
+
+      <div class="post-preview-bottom">
+        AI-Assisted Content · Workflow Automation
+      </div>
+
     </div>
 
-    <div class="demo-copy">
-      <div class="demo-label">
-        ILLUSTRATIVE POST EXAMPLE
+
+
+    <!-- REAL LINKEDIN POST -->
+
+    <div class="post-details">
+
+      <div class="post-label">
+        LinkedIn / Real Post Example
       </div>
-      <h3 style="margin-top:13px">
-        Automation is more than connecting tools.
+
+      <h3>
+        See the output,<br>
+        not just the workflow.
       </h3>
+
       <p>
-        It starts with identifying patterns,
-        collecting reliable data, and building
-        processes that can be repeated.
+        An automation project becomes more
+        meaningful when visitors can explore
+        a real published example.
       </p>
+
       <p>
-        The technology matters, but the
-        real value comes from improving how
-        the work gets done.
+        This workflow brings together AI-assisted
+        content writing, image generation,
+        publishing integration, and structured
+        activity tracking.
       </p>
-      <p class="demo-note">
-        This mockup demonstrates the intended
-        presentation style. It is not represented
-        as a real published post or measured result.
+
+      <p>
+        Open the LinkedIn post below to see
+        the original published content.
       </p>
+
+
+      <div class="actions">
+
+        <a
+          class="btn btn-primary"
+          href="https://lnkd.in/p/dBbJgKZe"
+          target="_blank"
+          rel="noopener noreferrer">
+          View Published Post →
+        </a>
+
+      </div>
+
+
+      <p class="post-note">
+        The visual on the left is a
+        branded illustration, not a screenshot
+        of the original LinkedIn post.
+        The button opens the actual post.
+      </p>
+
     </div>
+
   </div>
+
 </section>
 
-<!-- TECHNOLOGY -->
+
+
+<!-- ========== TECHNOLOGY ========== -->
+
 <section id="technology">
+
   <div class="section-intro">
-    <div class="eyebrow">04 / Technology Stack</div>
+
+    <div class="eyebrow">
+      04 / Technology Stack
+    </div>
+
     <h2>
       The tools behind<br>
-      <span class="accent">the workflow.</span>
+      <span class="accent">
+        the workflow.
+      </span>
     </h2>
+
   </div>
 
+
   <div class="tech-grid">
+
+
     <div class="tech">
       <b>n8n</b>
       <p>
-        Automation orchestration,
+        Workflow orchestration,
         triggers and integrations.
       </p>
     </div>
 
+
     <div class="tech">
       <b>Gemini</b>
       <p>
-        Structured professional
-        post generation.
+        AI-assisted professional
+        content creation.
       </p>
     </div>
+
 
     <div class="tech">
       <b>Cloudflare AI</b>
       <p>
-        AI image generation
+        Image generation
         for content visuals.
       </p>
     </div>
+
 
     <div class="tech">
       <b>LinkedIn API</b>
@@ -718,13 +1337,15 @@ footer a{color:var(--teal)}
       </p>
     </div>
 
+
     <div class="tech">
       <b>Google Sheets</b>
       <p>
-        History, tracking and
+        History, tracking, and
         publishing records.
       </p>
     </div>
+
 
     <div class="tech">
       <b>API Integration</b>
@@ -734,6 +1355,7 @@ footer a{color:var(--teal)}
       </p>
     </div>
 
+
     <div class="tech">
       <b>Visual Templates</b>
       <p>
@@ -742,86 +1364,154 @@ footer a{color:var(--teal)}
       </p>
     </div>
 
+
     <div class="tech">
       <b>Workflow Logic</b>
       <p>
-        Error handling, content
-        routing and execution steps.
+        Content routing, processing,
+        and error handling.
       </p>
     </div>
+
+
   </div>
+
 </section>
 
-<!-- PROJECT STATUS -->
+
+
+<!-- ========== PROJECT STATUS ========== -->
+
 <section id="progress">
+
   <div class="progress-panel">
-    <div class="eyebrow">05 / Project Status</div>
+
+    <div class="eyebrow">
+      05 / Project Status
+    </div>
+
     <h2>
       Working prototype.<br>
-      <span class="accent">Ongoing refinement.</span>
+      <span class="accent">
+        Ongoing refinement.
+      </span>
     </h2>
 
     <p>
       The workflow has completed a successful
-      end-to-end LinkedIn publishing test.
-      This validates the core integration
-      without implying that every scheduled
-      run or failure scenario has been proven.
+      end-to-end LinkedIn publishing test,
+      validating its core integrations.
+    </p>
+
+    <p>
+      The next development focus is improving
+      reliability, output quality, and
+      repeatability across scheduled executions.
     </p>
 
     <ul>
-      <li>Core AI content-generation integration tested</li>
-      <li>AI visual-production pipeline implemented</li>
-      <li>LinkedIn media publishing tested successfully</li>
-      <li>Publishing history tracking integrated</li>
-      <li>Further work focuses on reliability, quality and repeatability</li>
+      <li>
+        AI content-generation integration tested
+      </li>
+
+      <li>
+        AI visual-production pipeline implemented
+      </li>
+
+      <li>
+        LinkedIn media publishing tested successfully
+      </li>
+
+      <li>
+        Publishing history tracking integrated
+      </li>
+
+      <li>
+        Further improvements focus on
+        automation quality and reliability
+      </li>
     </ul>
+
   </div>
+
 </section>
 
-<!-- CONTACT -->
+
+
+<!-- ========== CONTACT ========== -->
+
 <section>
+
   <div class="cta">
-    <div class="eyebrow">Let's Connect</div>
+
+    <div class="eyebrow">
+      Let's Connect
+    </div>
+
     <h2>
       Interested in<br>
-      <span class="accent">AI-driven workflows?</span>
+      <span class="accent">
+        AI-driven workflows?
+      </span>
     </h2>
 
     <p>
-      This project represents my approach
-      to combining business process thinking
-      with practical AI automation.
+      This project represents my approach to
+      combining business process thinking with
+      practical AI automation and digital
+      content production.
     </p>
 
+
     <div class="actions">
-      <a class="btn btn-primary"
-         href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/"
-         target="_blank"
-         rel="noopener noreferrer">
+
+      <a
+        class="btn btn-primary"
+        href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/"
+        target="_blank"
+        rel="noopener noreferrer">
         Connect on LinkedIn →
       </a>
 
-      <a class="btn" href="../index.html#projects">
+      <a
+        class="btn"
+        href="../index.html#projects">
         Explore Other Projects
       </a>
+
     </div>
+
   </div>
+
 </section>
+
 
 </main>
 
+
+
+<!-- ========== FOOTER ========== -->
+
 <footer>
+
   <span>
     © 2026 Viswanathan Selvaraj · AI & Automation
   </span>
+
   <span>
-    <a href="../privacy.html">Privacy Policy</a>
+    <a href="../privacy.html">
+      Privacy Policy
+    </a>
     ·
-    <a href="../index.html">Back to Homepage</a>
+    <a href="../index.html">
+      Back to Homepage
+    </a>
   </span>
+
 </footer>
 
+
 </div>
+
 </body>
 </html>
