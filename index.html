@@ -1294,6 +1294,23 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
 @media(max-width:980px){.site-header{border-radius:22px;position:relative;top:0}.hero{grid-template-columns:1fr;min-height:auto;gap:32px}.engine{transform:none;max-width:680px;width:100%;margin:auto}.showcase-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.container{width:min(100% - 30px,1240px)}.site-header{padding:14px;gap:12px}.nav{gap:13px}.nav a{font-size:11px}.nav .nav-contact{padding:8px 12px}.hero{padding-top:45px}.hero h1{font-size:clamp(39px,10vw,55px);letter-spacing:-2px}.hero-copy>p{font-size:14px}.showcase-shell{padding:16px}.showcase-heading{align-items:flex-start;flex-direction:column}.showcase-stats{grid-template-columns:1fr 1fr}.showcase-stats>div{padding:13px;min-height:130px}.showcase-stats strong{font-size:18px}.showcase-bottom a{margin-left:0}.section{padding:58px 0}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Make the Automation Hub easy to find in the main menu. */
+.nav a.nav-automation {
+  color: #bcdcff;
+  font-weight: 750;
+  padding: 7px 11px;
+  border: 1px solid #436796;
+  border-radius: 999px;
+  background: #1a3454;
+  white-space: nowrap;
+}
+.nav a.nav-automation:hover,
+.nav a.nav-automation:focus-visible {
+  color: #fff;
+  background: #245087;
+  border-color: #7db7ff;
+}
 </style></head>
 <body>
 <div class="container">
@@ -1306,11 +1323,13 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
 </a>
 <nav aria-label="Main navigation" class="nav">
 <a href="#about">About</a>
-<a href="automation-hub.html">Automation Hub</a><a href="#experience">Experience</a>
+<a href="#experience">Experience</a>
 <a href="#projects">Projects</a>
+<a class="nav-automation" href="/automation-hub.html" aria-label="Open Automation Hub">Automation Hub</a>
 <a href="#technology">Technology</a>
 <a href="#contact">Contact</a>
-<a class="nav-contact" href="#contact">Let's connect ↗</a></nav>
+<a class="nav-contact" href="#contact">Let's connect ↗</a>
+</nav>
 </header>
 <main>
 <!-- =================================
@@ -1339,7 +1358,7 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
       <span>✦</span>
       AI &amp; Power BI
     </div>
-<div class="buttons"><a class="btn btn-primary" href="#projects">Explore my work ↗</a><a class="btn btn-outline" href="automation-hub.html">Automation Hub →</a><a class="btn btn-outline" href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/" rel="noopener noreferrer" target="_blank">Connect on LinkedIn ↗</a></div>
+<div class="buttons"><a class="btn btn-primary" href="#projects">Explore my work ↗</a><a class="btn btn-outline" href="/automation-hub.html">Automation Hub →</a><a class="btn btn-outline" href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/" rel="noopener noreferrer" target="_blank">Connect on LinkedIn ↗</a></div>
 </div>
 <!-- AUTOMATION ENGINE -->
 <div aria-label="Illustrative automation workflow" class="engine">
@@ -1880,14 +1899,14 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
 <p>Explore the systems behind content production, operational tracking, and AI-assisted work. This is a public project showcase—not a live administrative dashboard.</p>
 </div>
 <div class="showcase-shell">
-<div class="showcase-heading"><div><span class="showcase-kicker">VISWAVISNUS / SYSTEM OVERVIEW</span><h3>Automation Command Center</h3></div><a class="btn btn-primary" href="automation-hub.html">Open the Hub ↗</a></div>
+<div class="showcase-heading"><div><span class="showcase-kicker">VISWAVISNUS / SYSTEM OVERVIEW</span><h3>Automation Command Center</h3></div><a class="btn btn-primary" href="/automation-hub.html">Open the Hub ↗</a></div>
 <div class="showcase-stats">
 <div><span>VIDEO AUTOMATION</span><strong>02</strong><small>Axiom Mind · German Decode</small></div>
 <div><span>CONTENT OPERATIONS</span><strong>LinkedIn</strong><small>Creative workflow experiments</small></div>
 <div><span>CAREER INTELLIGENCE</span><strong>Job discovery</strong><small>AI-assisted matching &amp; tracking</small></div>
 <div><span>WORKFLOW STACK</span><strong>n8n + Python</strong><small>APIs · GitHub Actions · data</small></div>
 </div>
-<div class="showcase-bottom"><span class="signal-dot"></span> Project architecture showcase · No live production metrics or private access exposed <a href="automation-hub.html">View all systems →</a></div>
+<div class="showcase-bottom"><span class="signal-dot"></span> Project architecture showcase · No live production metrics or private access exposed <a href="/automation-hub.html">View all systems →</a></div>
 </div>
 </section><section class="section" id="technology">
 <div class="section-heading">
