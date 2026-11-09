@@ -2,682 +2,826 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080f1e">
+<meta name="description" content="LinkedIn Content Automation — an AI-assisted content and publishing workflow built with n8n, Gemini, Cloudflare Workers AI, and LinkedIn API.">
+<title>LinkedIn Automation | Viswa Visnus</title>
 
-  <meta name="description"
-    content="Viswa Visnus — AI automation, GitHub projects,
-    digital workflows, analytics and business operations.">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#080f1e;
+  --surface:#101e30;
+  --surface2:#17283c;
+  --border:#2b4259;
+  --text:#f4f8ff;
+  --muted:#a9bbce;
+  --teal:#64e0bc;
+  --purple:#caa5ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(ellipse at 85% 5%,#49336955,transparent 33%),
+    radial-gradient(ellipse at 5% 45%,#164a4940,transparent 35%),
+    var(--bg);
+  color:var(--text);
+  font-family:Inter,"Segoe UI",Arial,sans-serif;
+  line-height:1.7;
+}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
+.container{width:min(1120px,calc(100% - 36px));margin:auto}
+h1,h2,h3{line-height:1.18}
+h1{font-size:clamp(38px,5vw,66px);letter-spacing:-2px;margin:16px 0 22px}
+h2{font-size:clamp(27px,3.2vw,39px);letter-spacing:-1px;margin:12px 0 22px}
+h3{font-size:19px;margin:0 0 12px}
+p{color:var(--muted);margin:0 0 17px}
+.accent{color:var(--teal)}
+.eyebrow{
+  color:var(--teal);
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+section{padding:70px 0;scroll-margin-top:30px}
+.section-intro{max-width:760px;margin-bottom:28px}
+.section-intro p{font-size:15px}
 
-  <meta name="theme-color" content="#0b1020">
+/* NAV */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
+  padding:23px 0;
+  border-bottom:1px solid #ffffff18;
+}
+.logo{font-size:18px;font-weight:850;letter-spacing:1px}
+.logo span{color:var(--teal)}
+nav{display:flex;flex-wrap:wrap;gap:22px}
+nav a{color:#ccdaea;font-size:13px}
+nav a:hover{color:var(--teal)}
+.btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  padding:13px 20px;
+  border-radius:10px;
+  border:1px solid #4d847b;
+  color:var(--teal);
+  font-size:13px;
+  font-weight:750;
+  transition:transform .2s,border-color .2s;
+}
+.btn:hover{transform:translateY(-2px);border-color:var(--teal)}
+.btn-primary{background:var(--teal);color:#091e23;border-color:var(--teal)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
 
-  <title>Viswa Visnus | AI & Automation</title>
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1fr .95fr;
+  gap:48px;
+  align-items:center;
+  padding:92px 0 65px;
+}
+.hero-lead{font-size:17px;max-width:570px;line-height:1.8}
+.status{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  border:1px solid #427368;
+  padding:8px 13px;
+  background:#17372f;
+  border-radius:25px;
+  font-size:11px;
+  color:#b7f6dc;
+  font-weight:750;
+}
+.status-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--teal);
+}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:19px}
+.tag{
+  border:1px solid #3c526b;
+  border-radius:30px;
+  padding:5px 11px;
+  color:#c2d5e9;
+  font-size:11px;
+}
 
-  <style>
-    :root {
-      --bg: #0b1020;
-      --surface: #121a2d;
-      --card: #161e32;
-      --text: #f3f6ff;
-      --muted: #a9b5ca;
-      --accent: #64e0bc;
-      --border: #28334b;
-    }
+/* HERO VISUAL */
+.visual-panel{
+  padding:22px;
+  border:1px solid #665881;
+  border-radius:21px;
+  background:linear-gradient(140deg,#27213e,#131b2e);
+  box-shadow:0 25px 80px #0006;
+}
+.panel-header{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding-bottom:17px;
+  margin-bottom:23px;
+  border-bottom:1px solid #ffffff1b;
+  font-size:10px;
+  color:#d0c0eb;
+  letter-spacing:1px;
+}
+.dots{display:flex;gap:6px}
+.dots i{width:8px;height:8px;background:#6f6884;border-radius:50%}
+.dots i:first-child{background:#cc9bff}
+.dots i:last-child{background:#64e0bc}
+.visual-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.visual-node{
+  background:#1d2940;
+  border:1px solid #665987;
+  border-radius:11px;
+  padding:15px;
+}
+.visual-node small{
+  display:block;
+  color:var(--purple);
+  font-size:10px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+.visual-node strong{font-size:13px;display:block}
+.visual-node span{color:#b4bdd6;font-size:10px}
+.visual-arrow{
+  text-align:center;
+  color:var(--purple);
+  font-size:23px;
+  padding:6px;
+}
+.visual-result{
+  background:#142e32;
+  border:1px solid #52877a;
+  border-radius:12px;
+  padding:17px;
+}
+.result-top{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  font-size:11px;
+  font-weight:800;
+}
+.result-top span{color:var(--teal)}
+.result-lines{margin-top:15px}
+.result-lines i{
+  display:block;
+  width:88%;
+  height:7px;
+  border-radius:8px;
+  margin-bottom:9px;
+  background:#547271;
+}
+.result-lines i:nth-child(2){width:69%}
+.result-lines i:nth-child(3){width:49%}
+.visual-foot{
+  margin-top:14px;
+  text-align:center;
+  color:#b8adc9;
+  font-size:10px;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+/* METRICS */
+.facts{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px;
+}
+.fact{
+  padding:24px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:14px;
+}
+.fact strong{display:block;color:var(--teal);font-size:20px;margin-bottom:5px}
+.fact span{font-size:12px;color:var(--muted)}
 
-    html {
-      scroll-behavior: smooth;
-    }
+/* STORY */
+.story{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.story-card{
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:29px;
+  background:var(--surface);
+}
+.story-card p{font-size:14px}
+.story-card.highlight{
+  background:linear-gradient(140deg,#183e40,#151f34);
+  border-color:#47746d;
+}
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.7;
-    }
+/* PROCESS */
+.process{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px;
+}
+.step{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:23px;
+  position:relative;
+}
+.step-num{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  height:36px;
+  width:36px;
+  border-radius:10px;
+  background:#2e3150;
+  color:var(--purple);
+  font-size:12px;
+  font-weight:850;
+  margin-bottom:17px;
+}
+.step h3{font-size:16px}
+.step p{font-size:13px;margin:0}
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+/* CONTENT DEMO */
+.demo{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:24px;
+  border:1px solid #5b5579;
+  background:linear-gradient(135deg,#241e39,#121e30);
+  border-radius:21px;
+  padding:28px;
+  align-items:stretch;
+}
+.demo-art{
+  min-height:285px;
+  border:1px solid #8c71b1;
+  border-radius:16px;
+  background:
+    radial-gradient(circle at 70% 20%,#664b91,#2e2950 55%,#191d33);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+}
+.demo-art small{color:#d8beff;font-size:11px;letter-spacing:1.5px}
+.demo-art strong{
+  font-size:clamp(25px,3vw,36px);
+  line-height:1.22;
+  margin:21px 0;
+}
+.demo-art span{font-size:12px;color:#d4c7e8}
+.demo-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.demo-copy p{font-size:14px}
+.demo-label{
+  color:var(--purple);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+.demo-note{font-size:11px!important;color:#a9b4c7}
 
-    a:hover {
-      opacity: 0.9;
-    }
+/* TECH */
+.tech-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.tech{
+  border:1px solid var(--border);
+  background:var(--surface);
+  padding:23px;
+  border-radius:15px;
+}
+.tech b{display:block;font-size:16px;margin-bottom:9px}
+.tech p{font-size:12px;margin:0}
 
-    a:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 4px;
-    }
+/* STATUS */
+.progress-panel{
+  padding:30px;
+  border-radius:20px;
+  border:1px solid #427769;
+  background:linear-gradient(135deg,#143533,#141e31);
+}
+.progress-panel p{font-size:14px}
+.progress-panel ul{
+  color:#bed0de;
+  font-size:13px;
+  padding-left:20px;
+  line-height:2;
+}
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 28px;
-    }
+/* CONTACT */
+.cta{
+  background:linear-gradient(120deg,#183f40,#151c34);
+  padding:45px;
+  border:1px solid #45766e;
+  border-radius:21px;
+}
+.cta p{max-width:680px}
 
-    /* HEADER */
+footer{
+  margin-top:40px;
+  border-top:1px solid var(--border);
+  padding:28px 0;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  color:var(--muted);
+  font-size:12px;
+}
+footer a{color:var(--teal)}
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      color: var(--accent);
-      font-size: 23px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: var(--text);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    /* HERO */
-
-    .hero {
-      padding: 115px 0 95px;
-    }
-
-    .eyebrow {
-      color: var(--accent);
-      font-size: 13px;
-      letter-spacing: 3px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      font-size: clamp(40px, 6vw, 72px);
-      line-height: 1.12;
-      letter-spacing: -1.5px;
-      margin: 20px 0;
-    }
-
-    h2 {
-      font-size: clamp(28px, 4vw, 34px);
-      margin: 0 0 16px;
-    }
-
-    h3 {
-      font-size: 21px;
-      margin: 0 0 14px;
-    }
-
-    p {
-      color: var(--muted);
-    }
-
-    .hero p {
-      max-width: 720px;
-      font-size: 19px;
-      margin-bottom: 25px;
-    }
-
-    /* BUTTONS */
-
-    .button {
-      display: inline-block;
-      padding: 13px 23px;
-      margin: 10px 12px 0 0;
-      border: 1px solid var(--accent);
-      border-radius: 9px;
-      font-size: 14px;
-      font-weight: bold;
-      text-align: center;
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      text-decoration: none;
-    }
-
-    .primary {
-      background: var(--accent);
-      color: var(--bg);
-    }
-
-    .secondary {
-      background: transparent;
-      color: var(--accent);
-    }
-
-    .project-button {
-      display: block;
-      width: 100%;
-      margin: 22px 0 0;
-      padding: 12px 18px;
-    }
-
-    /* SECTIONS */
-
-    section {
-      padding: 55px 0;
-      scroll-margin-top: 30px;
-    }
-
-    .section-description {
-      max-width: 750px;
-      font-size: 16px;
-    }
-
-    /* TECH TAGS */
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 20px;
-    }
-
-    .tag {
-      display: inline-block;
-      border: 1px solid #40536b;
-      background: rgba(255,255,255,0.02);
-      border-radius: 30px;
-      padding: 5px 13px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* PROJECT GRID */
-
-    .grid {
-      display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(270px, 1fr));
-      gap: 22px;
-      margin-top: 34px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 17px;
-      padding: 27px;
-      display: flex;
-      flex-direction: column;
-      transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
-    }
-
-    .card-icon {
-      font-size: 31px;
-      margin-bottom: 20px;
-    }
-
-    .card-description {
-      flex-grow: 1;
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .status {
-      display: inline-block;
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: bold;
-      margin-top: 24px;
-    }
-
-    /* ABOUT */
-
-    .about-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 34px;
-    }
-
-    /* CONTACT */
-
-    .contact-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 36px;
-    }
-
-    .links {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      border-top: 1px solid var(--border);
-      margin-top: 50px;
-      padding: 30px 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 650px) {
-      .container {
-        padding: 20px;
-      }
-
-      header {
-        align-items: flex-start;
-      }
-
-      nav {
-        gap: 17px;
-      }
-
-      .hero {
-        padding: 70px 0 55px;
-      }
-
-      section {
-        padding: 38px 0;
-      }
-
-      .card {
-        padding: 23px;
-      }
-
-      .about-panel,
-      .contact-panel {
-        padding: 24px;
-      }
-
-      .button {
-        margin-right: 8px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .button,
-      .card {
-        transition: none;
-      }
-    }
-  </style>
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .visual-panel{max-width:680px;width:100%}
+  .tech-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:650px){
+  .container{width:calc(100% - 32px)}
+  header{justify-content:center}
+  nav{justify-content:center;gap:15px}
+  .hero{padding:58px 0 45px}
+  section{padding:48px 0}
+  h1{letter-spacing:-1px}
+  .facts,.story,.process,.demo,.tech-grid{grid-template-columns:1fr}
+  .visual-panel{padding:15px}
+  .story-card,.demo,.progress-panel,.cta{padding:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
 </head>
 
 <body>
-
 <div class="container">
 
-  <!-- HEADER -->
+<header>
+  <a class="logo" href="../index.html">
+    VISWAVISNUS<span>.</span>
+  </a>
+  <nav aria-label="Main navigation">
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#projects">Projects</a>
+    <a href="#workflow">Workflow</a>
+    <a href="#technology">Technology</a>
+  </nav>
+</header>
 
-  <header>
+<main>
 
-    <a href="index.html" class="logo">
-      VISWAVISNUS.
-    </a>
+<!-- PROJECT HERO -->
+<section class="hero">
+  <div>
+    <div class="status">
+      <span class="status-dot"></span>
+      Working Prototype
+    </div>
 
-    <nav aria-label="Main navigation">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="eyebrow" style="margin-top:25px">
+      AI Automation / Project Case Study
+    </div>
 
-  </header>
+    <h1>
+      LinkedIn Content<br>
+      <span class="accent">Automation.</span>
+    </h1>
 
-  <main>
+    <p class="hero-lead">
+      A practical AI-powered content production
+      and publishing workflow built with n8n,
+      Gemini, Cloudflare Workers AI, and the
+      LinkedIn API.
+    </p>
 
-    <!-- HERO -->
+    <p>
+      Connecting business content creation,
+      image generation, media publishing,
+      and structured workflow tracking.
+    </p>
 
-    <section class="hero">
+    <div class="tags">
+      <span class="tag">n8n</span>
+      <span class="tag">Gemini</span>
+      <span class="tag">Cloudflare Workers AI</span>
+      <span class="tag">LinkedIn API</span>
+      <span class="tag">Google Sheets</span>
+    </div>
 
-      <div class="eyebrow">
-        AI • AUTOMATION • BUSINESS OPERATIONS
-      </div>
-
-      <h1>
-        Building smarter<br>
-        digital workflows.
-      </h1>
-
-      <p>
-        I'm Viswanathan Selvaraj, a Berlin-based
-        business operations professional combining
-        real-world industry experience with AI,
-        workflow automation, analytics, and
-        digital transformation.
-      </p>
-
-      <a class="button primary" href="#projects">
-        Explore Projects
+    <div class="actions">
+      <a class="btn btn-primary" href="#workflow">
+        Explore Workflow →
       </a>
-
-      <a class="button secondary"
-         href="https://github.com/viswavisnus8"
-         target="_blank"
-         rel="noopener noreferrer">
-        GitHub Profile
+      <a class="btn" href="../index.html#projects">
+        ← All Projects
       </a>
+    </div>
+  </div>
 
-    </section>
+  <div class="visual-panel"
+       aria-label="Illustrative LinkedIn publishing architecture">
+    <div class="panel-header">
+      <div class="dots"><i></i><i></i><i></i></div>
+      <span>CONTENT AUTOMATION ENGINE</span>
+      <span>●</span>
+    </div>
 
-    <!-- ABOUT -->
-
-    <section id="about">
-
-      <div class="about-panel">
-
-        <div class="eyebrow">
-          ABOUT ME
-        </div>
-
-        <h2>
-          Operations experience meets technology.
-        </h2>
-
-        <p>
-          My professional background spans retail
-          management, business development,
-          workplace operations, facility management,
-          and team leadership.
-        </p>
-
-        <p>
-          I explore practical ways to use AI,
-          automation, business intelligence,
-          and structured workflows to improve
-          daily business processes.
-        </p>
-
-        <p>
-          My projects focus on combining business
-          requirements with technology to reduce
-          repetitive tasks and make processes
-          more scalable.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Business Operations</span>
-          <span class="tag">Retail Management</span>
-          <span class="tag">Business Development</span>
-          <span class="tag">n8n</span>
-          <span class="tag">GitHub Actions</span>
-          <span class="tag">Python</span>
-          <span class="tag">Power BI</span>
-          <span class="tag">Applied AI</span>
-        </div>
-
+    <div class="visual-row">
+      <div class="visual-node">
+        <small>01 / INPUT</small>
+        <strong>Content Topic</strong>
+        <span>Business & AI</span>
       </div>
-
-    </section>
-
-    <!-- PROJECTS -->
-
-    <section id="projects">
-
-      <div class="eyebrow">
-        SELECTED WORK
+      <div class="visual-node">
+        <small>02 / WRITING</small>
+        <strong>Gemini AI</strong>
+        <span>Post generation</span>
       </div>
-
-      <h2>
-        Automation Projects
-      </h2>
-
-      <p class="section-description">
-        A collection of practical projects exploring
-        AI-generated content, automated publishing,
-        data-driven decision-making, and efficient
-        digital workflows.
-      </p>
-
-      <div class="grid">
-
-        <!-- GERMAN DECODE -->
-
-        <article class="card">
-
-          <div class="card-icon">🎬</div>
-
-          <h3>
-            German Decode
-          </h3>
-
-          <p class="card-description">
-            An AI-powered educational video
-            automation project exploring
-            topic selection, script generation,
-            narration, visual production,
-            and YouTube Shorts workflows.
-          </p>
-
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">AI Automation</span>
-            <span class="tag">YouTube Shorts</span>
-            <span class="tag">Video Production</span>
-          </div>
-
-          <span class="status">
-            ● In Development
-          </span>
-
-          <a
-            href="projects/german-decode.html"
-            class="button project-button secondary"
-            aria-label="View German Decode project">
-            View Project &rarr;
-          </a>
-
-        </article>
-
-        <!-- LINKEDIN AUTOMATION -->
-
-        <article class="card">
-
-          <div class="card-icon">🤖</div>
-
-          <h3>
-            LinkedIn Content Automation
-          </h3>
-
-          <p class="card-description">
-            An AI-assisted LinkedIn publishing
-            workflow combining business content
-            generation, topic-specific photographs,
-            executive infographics, media uploads,
-            and post-history tracking.
-          </p>
-
-          <div class="tags">
-            <span class="tag">n8n</span>
-            <span class="tag">Gemini</span>
-            <span class="tag">Cloudflare Workers AI</span>
-            <span class="tag">LinkedIn API</span>
-            <span class="tag">Google Sheets</span>
-          </div>
-
-          <span class="status">
-            ● Working Prototype
-          </span>
-
-          <a
-            href="projects/linkedin-automation.html"
-            class="button project-button secondary"
-            aria-label="View LinkedIn Automation project">
-            View Project &rarr;
-          </a>
-
-        </article>
-
-        <!-- JOB AUTOMATION -->
-
-        <article class="card">
-
-          <div class="card-icon">📊</div>
-
-          <h3>
-            Job Discovery Automation
-          </h3>
-
-          <p class="card-description">
-            An automation project focused on
-            discovering relevant job opportunities,
-            evaluating role compatibility,
-            generating AI-based match scores,
-            and tracking applications.
-          </p>
-
-          <div class="tags">
-            <span class="tag">n8n</span>
-            <span class="tag">Job APIs</span>
-            <span class="tag">AI Matching</span>
-            <span class="tag">Google Sheets</span>
-          </div>
-
-          <span class="status">
-            ● In Development
-          </span>
-
-        </article>
-
+      <div class="visual-node">
+        <small>03 / VISUAL</small>
+        <strong>Cloudflare AI</strong>
+        <span>Media generation</span>
       </div>
-
-    </section>
-
-    <!-- TECHNOLOGY -->
-
-    <section id="technology">
-
-      <div class="eyebrow">
-        TECHNOLOGY
+      <div class="visual-node">
+        <small>04 / CONTROL</small>
+        <strong>n8n Workflow</strong>
+        <span>Orchestration</span>
       </div>
+    </div>
 
-      <h2>
-        Tools I Work With
-      </h2>
+    <div class="visual-arrow">↓</div>
 
-      <p class="section-description">
-        Combining automation platforms,
-        programming tools, AI models,
-        and business analytics.
-      </p>
-
-      <div class="grid">
-
-        <div class="card">
-          <h3>Workflow Automation</h3>
-          <p>
-            n8n, GitHub Actions,
-            REST APIs, webhooks,
-            and process orchestration.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>AI & Content</h3>
-          <p>
-            Gemini, Cloudflare Workers AI,
-            AI-assisted scripting, image generation,
-            and structured content pipelines.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Data & Analytics</h3>
-          <p>
-            Power BI, Excel, Google Sheets,
-            reporting dashboards,
-            and data-driven decision-making.
-          </p>
-        </div>
-
+    <div class="visual-result">
+      <div class="result-top">
+        <strong>Publishing & Tracking</strong>
+        <span>LinkedIn API</span>
       </div>
-
-    </section>
-
-    <!-- CONTACT -->
-
-    <section id="contact">
-
-      <div class="contact-panel">
-
-        <div class="eyebrow">
-          CONNECT
-        </div>
-
-        <h2>
-          Let's build smarter processes.
-        </h2>
-
-        <p>
-          Interested in automation,
-          AI-powered business processes,
-          digital operations, or professional
-          collaboration?
-        </p>
-
-        <div class="links">
-
-          <a
-            class="button primary"
-            href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/"
-            target="_blank"
-            rel="noopener noreferrer">
-            Connect on LinkedIn
-          </a>
-
-          <a
-            class="button secondary"
-            href="https://github.com/viswavisnus8"
-            target="_blank"
-            rel="noopener noreferrer">
-            Explore GitHub
-          </a>
-
-        </div>
-
+      <div class="result-lines">
+        <i></i><i></i><i></i>
       </div>
+    </div>
 
-    </section>
+    <div class="visual-foot">
+      Illustrative architecture · Not a live dashboard
+    </div>
+  </div>
+</section>
 
-  </main>
-
-  <!-- FOOTER -->
-
-  <footer>
-    © 2026 Viswanathan Selvaraj.
-    All rights reserved.
-    Built with GitHub Pages.
-  </footer>
-
+<!-- PROJECT FACTS -->
+<div class="facts">
+  <div class="fact">
+    <strong>n8n</strong>
+    <span>Workflow orchestration</span>
+  </div>
+  <div class="fact">
+    <strong>AI + Visuals</strong>
+    <span>Content and image generation</span>
+  </div>
+  <div class="fact">
+    <strong>API Publishing</strong>
+    <span>LinkedIn integration</span>
+  </div>
 </div>
 
+<!-- PROBLEM AND SOLUTION -->
+<section id="overview">
+  <div class="section-intro">
+    <div class="eyebrow">01 / Project Overview</div>
+    <h2>
+      Why automate<br>
+      <span class="accent">content production?</span>
+    </h2>
+  </div>
+
+  <div class="story">
+    <div class="story-card">
+      <h3>The Challenge</h3>
+      <p>
+        Producing consistent professional content
+        involves researching ideas, drafting posts,
+        creating relevant visuals, preparing media,
+        publishing, and recording outcomes.
+      </p>
+      <p>
+        When these tasks are handled manually,
+        the process becomes repetitive and
+        difficult to scale consistently.
+      </p>
+    </div>
+
+    <div class="story-card highlight">
+      <h3>The Approach</h3>
+      <p>
+        Build an integrated workflow that connects
+        AI-assisted writing, visual production,
+        LinkedIn API publishing, and Google Sheets
+        tracking.
+      </p>
+      <p>
+        The goal is to reduce repetitive work
+        while maintaining control over the
+        quality and relevance of each post.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW ARCHITECTURE -->
+<section id="workflow">
+  <div class="section-intro">
+    <div class="eyebrow">02 / System Architecture</div>
+    <h2>
+      How the <span class="accent">automation works.</span>
+    </h2>
+    <p>
+      The workflow combines content generation,
+      visual creation, publishing, and logging
+      into a repeatable pipeline.
+    </p>
+  </div>
+
+  <div class="process">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Topic & Input</h3>
+      <p>
+        A selected topic provides the context
+        for the professional content.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>AI Content Generation</h3>
+      <p>
+        Gemini produces structured captions
+        tailored to the topic and content style.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Visual Production</h3>
+      <p>
+        Cloudflare Workers AI generates images.
+        The workflow also supports infographic-style
+        content.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Workflow Processing</h3>
+      <p>
+        n8n coordinates the services, prepares
+        the output, and handles the relevant
+        processing steps.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">05</div>
+      <h3>LinkedIn Publishing</h3>
+      <p>
+        Authorized LinkedIn API operations
+        handle media uploads and post creation.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">06</div>
+      <h3>Tracking & Logging</h3>
+      <p>
+        Google Sheets records workflow activity
+        and publishing information for
+        monitoring and review.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ILLUSTRATIVE OUTPUT -->
+<section id="output">
+  <div class="section-intro">
+    <div class="eyebrow">03 / Visual Output</div>
+    <h2>
+      From a topic to<br>
+      <span class="accent">professional content.</span>
+    </h2>
+    <p>
+      An example of the style of content
+      the workflow is designed to produce.
+    </p>
+  </div>
+
+  <div class="demo">
+    <div class="demo-art">
+      <small>BUSINESS × AUTOMATION</small>
+      <strong>
+        Less manual work.<br>
+        More meaningful outcomes.
+      </strong>
+      <span>
+        Consistency · Data · Execution
+      </span>
+    </div>
+
+    <div class="demo-copy">
+      <div class="demo-label">
+        ILLUSTRATIVE POST EXAMPLE
+      </div>
+      <h3 style="margin-top:13px">
+        Automation is more than connecting tools.
+      </h3>
+      <p>
+        It starts with identifying patterns,
+        collecting reliable data, and building
+        processes that can be repeated.
+      </p>
+      <p>
+        The technology matters, but the
+        real value comes from improving how
+        the work gets done.
+      </p>
+      <p class="demo-note">
+        This mockup demonstrates the intended
+        presentation style. It is not represented
+        as a real published post or measured result.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section id="technology">
+  <div class="section-intro">
+    <div class="eyebrow">04 / Technology Stack</div>
+    <h2>
+      The tools behind<br>
+      <span class="accent">the workflow.</span>
+    </h2>
+  </div>
+
+  <div class="tech-grid">
+    <div class="tech">
+      <b>n8n</b>
+      <p>
+        Automation orchestration,
+        triggers and integrations.
+      </p>
+    </div>
+
+    <div class="tech">
+      <b>Gemini</b>
+      <p>
+        Structured professional
+        post generation.
+      </p>
+    </div>
+
+    <div class="tech">
+      <b>Cloudflare AI</b>
+      <p>
+        AI image generation
+        for content visuals.
+      </p>
+    </div>
+
+    <div class="tech">
+      <b>LinkedIn API</b>
+      <p>
+        Authorized media upload
+        and publishing.
+      </p>
+    </div>
+
+    <div class="tech">
+      <b>Google Sheets</b>
+      <p>
+        History, tracking and
+        publishing records.
+      </p>
+    </div>
+
+    <div class="tech">
+      <b>API Integration</b>
+      <p>
+        Data exchange between
+        connected services.
+      </p>
+    </div>
+
+    <div class="tech">
+      <b>Visual Templates</b>
+      <p>
+        Consistent business graphics
+        and infographic layouts.
+      </p>
+    </div>
+
+    <div class="tech">
+      <b>Workflow Logic</b>
+      <p>
+        Error handling, content
+        routing and execution steps.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT STATUS -->
+<section id="progress">
+  <div class="progress-panel">
+    <div class="eyebrow">05 / Project Status</div>
+    <h2>
+      Working prototype.<br>
+      <span class="accent">Ongoing refinement.</span>
+    </h2>
+
+    <p>
+      The workflow has completed a successful
+      end-to-end LinkedIn publishing test.
+      This validates the core integration
+      without implying that every scheduled
+      run or failure scenario has been proven.
+    </p>
+
+    <ul>
+      <li>Core AI content-generation integration tested</li>
+      <li>AI visual-production pipeline implemented</li>
+      <li>LinkedIn media publishing tested successfully</li>
+      <li>Publishing history tracking integrated</li>
+      <li>Further work focuses on reliability, quality and repeatability</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <div class="cta">
+    <div class="eyebrow">Let's Connect</div>
+    <h2>
+      Interested in<br>
+      <span class="accent">AI-driven workflows?</span>
+    </h2>
+
+    <p>
+      This project represents my approach
+      to combining business process thinking
+      with practical AI automation.
+    </p>
+
+    <div class="actions">
+      <a class="btn btn-primary"
+         href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Connect on LinkedIn →
+      </a>
+
+      <a class="btn" href="../index.html#projects">
+        Explore Other Projects
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>
+    © 2026 Viswanathan Selvaraj · AI & Automation
+  </span>
+  <span>
+    <a href="../privacy.html">Privacy Policy</a>
+    ·
+    <a href="../index.html">Back to Homepage</a>
+  </span>
+</footer>
+
+</div>
 </body>
 </html>
