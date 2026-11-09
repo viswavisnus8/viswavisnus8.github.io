@@ -1,17 +1,25 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head> <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080f1e">
-<meta name="description" content="Viswanathan Selvaraj — Business Operations, AI Automation, Workflow Engineering and Analytics.">
-<title>Viswa Visnus | AI Automation & Operations</title>
+
+<title>Viswanathan Selvaraj | Business Operations & AI Automation</title>
+
+<meta name="description"
+content="Viswanathan Selvaraj — Berlin-based Business Operations, Retail Management and AI Automation professional with 6+ years of experience. Explore career achievements, automation projects and business solutions.">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
 
 <style>
+
 /* =====================================
    DESIGN SYSTEM
 ===================================== */
+
 :root {
   color-scheme: dark;
   --bg: #080f1e;
@@ -25,48 +33,88 @@
   --purple: #cda6ff;
   --gold: #f2cc82;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(ellipse at 85% 5%, #143d474d, transparent 27%),
-    radial-gradient(ellipse at 4% 27%, #202b5930, transparent 28%),
+    radial-gradient(
+      ellipse at 85% 5%,
+      #143d474d,
+      transparent 27%
+    ),
+    radial-gradient(
+      ellipse at 4% 27%,
+      #202b5930,
+      transparent 28%
+    ),
     var(--bg);
+
   color: var(--text);
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   line-height: 1.65;
 }
-a { color: inherit; text-decoration: none; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 a:focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 4px;
 }
-::selection { background: var(--teal); color: var(--bg); }
+
+::selection {
+  background: var(--teal);
+  color: var(--bg);
+}
+
 .container {
   width: min(1200px, calc(100% - 40px));
   margin: auto;
 }
-h1, h2, h3 { line-height: 1.14; }
+
+h1, h2, h3 {
+  line-height: 1.14;
+}
+
 h1 {
-  font-size: clamp(42px, 5.6vw, 75px);
-  letter-spacing: -2.8px;
+  font-size: clamp(37px, 4.7vw, 64px);
+  letter-spacing: -2px;
   margin: 22px 0 24px;
   font-weight: 800;
 }
+
 h2 {
   font-size: clamp(30px, 3.8vw, 46px);
   letter-spacing: -1.5px;
   margin: 14px 0 18px;
 }
+
 h3 {
   font-size: 21px;
   letter-spacing: -.45px;
   margin: 0 0 14px;
 }
-p { color: var(--muted); margin: 0 0 19px; }
-.accent { color: var(--teal); }
+
+p {
+  color: var(--muted);
+  margin: 0 0 19px;
+}
+
+.accent {
+  color: var(--teal);
+}
+
 .eyebrow {
   color: var(--teal);
   font-size: 12px;
@@ -74,19 +122,26 @@ p { color: var(--muted); margin: 0 0 19px; }
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
 .section {
   padding: 82px 0;
   scroll-margin-top: 35px;
 }
+
 .section-heading {
-  max-width: 740px;
+  max-width: 790px;
   margin-bottom: 35px;
 }
-.section-heading p { font-size: 16px; }
+
+.section-heading p {
+  font-size: 16px;
+}
+
 
 /* =====================================
    HEADER & NAVIGATION
 ===================================== */
+
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -96,34 +151,46 @@ p { color: var(--muted); margin: 0 0 19px; }
   padding: 26px 0;
   border-bottom: 1px solid #ffffff14;
 }
+
 .logo {
   font-size: 20px;
   font-weight: 850;
   letter-spacing: 1px;
 }
-.logo span { color: var(--teal); }
+
+.logo span {
+  color: var(--teal);
+}
+
 .nav {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 27px;
+  gap: 24px;
 }
+
 .nav a {
   font-size: 14px;
   color: #c8d6e5;
   transition: color .2s;
 }
-.nav a:hover { color: var(--teal); }
+
+.nav a:hover {
+  color: var(--teal);
+}
+
 
 /* =====================================
    BUTTONS
 ===================================== */
+
 .buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 30px;
 }
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -140,35 +207,50 @@ p { color: var(--muted); margin: 0 0 19px; }
     transform .2s,
     border-color .2s;
 }
-.btn:hover { transform: translateY(-3px); }
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
 .btn-primary {
   background: var(--teal);
   border-color: var(--teal);
   color: #071b1e;
 }
+
 .btn-outline {
   background: #14302d66;
   color: var(--teal);
 }
-.btn-outline:hover { border-color: var(--teal); }
+
+.btn-outline:hover {
+  border-color: var(--teal);
+}
+
 
 /* =====================================
    HERO
 ===================================== */
+
 .hero {
   display: grid;
-  grid-template-columns: 1.06fr .94fr;
-  gap: 55px;
-  min-height: 660px;
+  grid-template-columns: 1.08fr .92fr;
+  gap: 52px;
+  min-height: 650px;
   align-items: center;
   padding: 95px 0 70px;
 }
-.hero-copy { min-width: 0; }
+
+.hero-copy {
+  min-width: 0;
+}
+
 .hero-copy p {
-  max-width: 580px;
+  max-width: 590px;
   font-size: 17px;
   line-height: 1.82;
 }
+
 .top-pill {
   display: inline-flex;
   align-items: center;
@@ -181,6 +263,7 @@ p { color: var(--muted); margin: 0 0 19px; }
   font-weight: 750;
   color: #bdf6e2;
 }
+
 .pulse {
   width: 8px;
   height: 8px;
@@ -189,34 +272,48 @@ p { color: var(--muted); margin: 0 0 19px; }
   box-shadow: 0 0 15px #64e0bc88;
   animation: breathe 2.5s infinite;
 }
+
 @keyframes breathe {
-  50% { opacity: .5; box-shadow: 0 0 3px var(--teal); }
+  50% {
+    opacity: .5;
+    box-shadow: 0 0 3px var(--teal);
+  }
 }
+
 .hero-skills {
   font-size: 12px;
   color: #d5e2eb;
   margin-top: 22px;
+  line-height: 2;
 }
+
 .hero-skills span {
   color: var(--teal);
   padding: 0 5px;
 }
 
+
 /* =====================================
-   HERO WORKFLOW ENGINE
+   ANIMATED AUTOMATION ENGINE
 ===================================== */
+
 .engine {
   position: relative;
   overflow: hidden;
   border: 1px solid #39566c;
   border-radius: 23px;
   padding: 25px;
-  background:
-    linear-gradient(145deg, #192f42, #0d182a);
+  background: linear-gradient(
+    145deg,
+    #192f42,
+    #0d182a
+  );
+
   box-shadow:
     0 28px 80px #0007,
     0 0 70px #64e0bc0c;
 }
+
 .engine:before {
   content: "";
   position: absolute;
@@ -229,6 +326,7 @@ p { color: var(--muted); margin: 0 0 19px; }
   filter: blur(45px);
   pointer-events: none;
 }
+
 .engine-top {
   position: relative;
   display: flex;
@@ -241,19 +339,32 @@ p { color: var(--muted); margin: 0 0 19px; }
   font-size: 10px;
   letter-spacing: 1px;
 }
-.window-dots { display: flex; gap: 6px; }
+
+.window-dots {
+  display: flex;
+  gap: 6px;
+}
+
 .window-dots span {
   width: 9px;
   height: 9px;
   background: #d9887f;
   border-radius: 50%;
 }
-.window-dots span:nth-child(2) { background: #e2bd69; }
-.window-dots span:nth-child(3) { background: var(--teal); }
+
+.window-dots span:nth-child(2) {
+  background: #e2bd69;
+}
+
+.window-dots span:nth-child(3) {
+  background: var(--teal);
+}
+
 .engine-body {
   position: relative;
   padding: 26px 7px 12px;
 }
+
 .engine-node {
   display: flex;
   align-items: center;
@@ -263,16 +374,19 @@ p { color: var(--muted); margin: 0 0 19px; }
   border: 1px solid #406078;
   border-radius: 13px;
 }
+
 .engine-node strong {
   display: block;
   font-size: 14px;
 }
+
 .engine-node small {
   display: block;
   margin-top: 3px;
   color: #aac0d4;
   font-size: 11px;
 }
+
 .engine-num {
   display: grid;
   place-items: center;
@@ -285,6 +399,7 @@ p { color: var(--muted); margin: 0 0 19px; }
   font-size: 12px;
   border-radius: 11px;
 }
+
 .engine-line {
   position: relative;
   width: 2px;
@@ -292,6 +407,7 @@ p { color: var(--muted); margin: 0 0 19px; }
   margin: auto;
   background: #4c8e89;
 }
+
 .engine-line:after {
   content: "";
   position: absolute;
@@ -304,10 +420,17 @@ p { color: var(--muted); margin: 0 0 19px; }
   box-shadow: 0 0 12px var(--teal);
   animation: signal 2.5s linear infinite;
 }
+
 @keyframes signal {
-  from { transform: translateY(0); }
-  to { transform: translateY(26px); }
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(26px);
+  }
 }
+
 .engine-bottom {
   display: flex;
   justify-content: space-between;
@@ -320,54 +443,75 @@ p { color: var(--muted); margin: 0 0 19px; }
   color: #b4c8dc;
   letter-spacing: .5px;
 }
-.engine-bottom strong { color: var(--teal); }
+
+.engine-bottom strong {
+  color: var(--teal);
+}
+
 
 /* =====================================
    PROFESSIONAL METRICS
 ===================================== */
+
 .metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 17px;
 }
+
 .metric {
   padding: 26px;
   border: 1px solid var(--border);
   border-radius: 15px;
-  background:
-    linear-gradient(135deg, #15263a, #0f1b2d);
+  background: linear-gradient(
+    135deg,
+    #15263a,
+    #0f1b2d
+  );
 }
+
 .metric strong {
   display: block;
   color: var(--teal);
-  font-size: 27px;
+  font-size: 29px;
   line-height: 1.25;
   margin-bottom: 9px;
 }
+
 .metric span {
   color: var(--muted);
   font-size: 13px;
 }
 
+
 /* =====================================
-   ABOUT
+   ABOUT SECTION
 ===================================== */
+
 .about-card {
   display: grid;
   grid-template-columns: 1.12fr .88fr;
   gap: 35px;
   padding: 38px;
-  background:
-    linear-gradient(125deg, #14263a, #0e192a);
+  background: linear-gradient(
+    125deg,
+    #14263a,
+    #0e192a
+  );
   border: 1px solid var(--border);
   border-radius: 20px;
 }
-.about-card p { font-size: 15px; }
+
+.about-card p {
+  font-size: 15px;
+}
+
 .capability-list {
   display: grid;
   align-content: center;
   gap: 12px;
 }
+
 .capability {
   display: flex;
   align-items: center;
@@ -379,44 +523,124 @@ p { color: var(--muted); margin: 0 0 19px; }
   color: #e2edf6;
   font-size: 13px;
 }
-.capability b { color: var(--teal); }
+
+.capability b {
+  color: var(--teal);
+}
+
 .approach {
   display: grid;
   grid-template-columns: repeat(3, minmax(0,1fr));
   gap: 16px;
   margin-top: 20px;
 }
+
 .approach-item {
   padding: 22px;
   border: 1px solid var(--border);
   border-radius: 14px;
   background: #101d2f;
 }
+
 .approach-item small {
   display: block;
   color: var(--teal);
   font-weight: 800;
   margin-bottom: 8px;
 }
+
 .approach-item strong {
   display: block;
   font-size: 15px;
   margin-bottom: 6px;
 }
+
 .approach-item p {
   font-size: 12px;
   margin: 0;
 }
 
+
+/* =====================================
+   PROFESSIONAL EXPERIENCE
+===================================== */
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 18px;
+}
+
+.experience-card {
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    #142538,
+    #101c2e
+  );
+
+  transition:
+    transform .25s,
+    border-color .25s;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  border-color: #548e85;
+}
+
+.experience-category {
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 1.4px;
+  margin-bottom: 15px;
+}
+
+.experience-card h3 {
+  font-size: 21px;
+  margin-bottom: 14px;
+}
+
+.experience-card p {
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.achievement-tag {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 7px 12px;
+  border: 1px solid #3a6d63;
+  border-radius: 25px;
+  color: var(--teal);
+  background: #183b36;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.experience-note {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 19px;
+}
+
+
 /* =====================================
    PROJECT CARDS
 ===================================== */
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
+  grid-template-columns: repeat(3, minmax(0,1fr));
   gap: 18px;
   align-items: stretch;
 }
+
 .project {
   --pc: var(--teal);
   min-width: 0;
@@ -426,40 +650,56 @@ p { color: var(--muted); margin: 0 0 19px; }
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 19px;
+
   transition:
     transform .25s,
     border-color .25s,
     box-shadow .25s;
 }
+
 .project:hover {
   transform: translateY(-6px);
   border-color: var(--pc);
   box-shadow: 0 24px 55px #0005;
 }
-.project.german { --pc: var(--blue); }
-.project.linkedin { --pc: var(--purple); }
-.project.jobs { --pc: var(--gold); }
+
+.project.german {
+  --pc: var(--blue);
+}
+
+.project.linkedin {
+  --pc: var(--purple);
+}
+
+.project.jobs {
+  --pc: var(--gold);
+}
+
 .project-content {
   display: flex;
   flex: 1;
   flex-direction: column;
   padding: 24px;
 }
+
 .project-title {
   font-size: 20px;
   margin: 0 0 13px;
 }
+
 .project-desc {
   font-size: 13px;
   line-height: 1.75;
   flex: 1;
 }
+
 .project-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
   margin: 15px 0;
 }
+
 .tag {
   display: inline-block;
   padding: 5px 9px;
@@ -468,20 +708,24 @@ p { color: var(--muted); margin: 0 0 19px; }
   font-size: 10px;
   color: #c4d7e6;
 }
+
 .project-status {
   color: var(--teal);
   font-size: 12px;
   font-weight: 750;
   margin: 12px 0 19px;
 }
+
 .project-content .btn {
   width: 100%;
   margin-top: auto;
 }
 
+
 /* =====================================
-   PROJECT VISUALS — SHARED
+   PROJECT VISUALS
 ===================================== */
+
 .project-visual {
   position: relative;
   height: 232px;
@@ -489,21 +733,37 @@ p { color: var(--muted); margin: 0 0 19px; }
   padding: 34px 15px 24px;
   border-bottom: 1px solid #ffffff1d;
 }
+
 .german .project-visual {
   background:
-    radial-gradient(circle at 74% 35%, #256b83,transparent 68%),
+    radial-gradient(
+      circle at 74% 35%,
+      #256b83,
+      transparent 68%
+    ),
     #102b3e;
 }
+
 .linkedin .project-visual {
   background:
-    radial-gradient(circle at 74% 28%, #695288,transparent 68%),
+    radial-gradient(
+      circle at 74% 28%,
+      #695288,
+      transparent 68%
+    ),
     #241c38;
 }
+
 .jobs .project-visual {
   background:
-    radial-gradient(circle at 74% 28%, #3f7863,transparent 68%),
+    radial-gradient(
+      circle at 74% 28%,
+      #3f7863,
+      transparent 68%
+    ),
     #102c2a;
 }
+
 .preview-label {
   position: absolute;
   left: 15px;
@@ -513,6 +773,7 @@ p { color: var(--muted); margin: 0 0 19px; }
   font-weight: 850;
   letter-spacing: 1.1px;
 }
+
 .preview-disclaimer {
   position: absolute;
   bottom: 9px;
@@ -522,9 +783,11 @@ p { color: var(--muted); margin: 0 0 19px; }
   letter-spacing: .3px;
 }
 
+
 /* =====================================
-   GERMAN DECODE VISUAL
+   GERMAN DECODE PREVIEW
 ===================================== */
+
 .german-preview {
   height: 100%;
   display: flex;
@@ -532,6 +795,7 @@ p { color: var(--muted); margin: 0 0 19px; }
   align-items: center;
   gap: 14px;
 }
+
 .video-phone {
   position: relative;
   flex: none;
@@ -539,30 +803,40 @@ p { color: var(--muted); margin: 0 0 19px; }
   height: 166px;
   border: 2px solid #89dcf1;
   border-radius: 13px;
-  background:
-    linear-gradient(155deg,#194967,#0b1b32);
+  background: linear-gradient(
+    155deg,
+    #194967,
+    #0b1b32
+  );
+
   box-shadow: 0 15px 35px #0007;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   padding: 10px;
   text-align: center;
 }
+
 .video-phone small {
   font-size: 7px;
   letter-spacing: 1px;
   color: #a8eaf8;
 }
+
 .video-phone strong {
   font-size: 13px;
   margin: 14px 0 8px;
   line-height: 1.2;
 }
+
 .video-phone span {
   font-size: 9px;
   color: #d4e5ef;
 }
+
 .video-progress {
   position: absolute;
   left: 9px;
@@ -572,6 +846,7 @@ p { color: var(--muted); margin: 0 0 19px; }
   background: #4e7289;
   border-radius: 4px;
 }
+
 .video-progress:after {
   content: "";
   display: block;
@@ -580,11 +855,13 @@ p { color: var(--muted); margin: 0 0 19px; }
   background: #67e4cd;
   border-radius: 4px;
 }
+
 .video-steps {
   display: grid;
   gap: 7px;
   min-width: 0;
 }
+
 .video-step {
   font-size: 10px;
   font-weight: 750;
@@ -594,14 +871,17 @@ p { color: var(--muted); margin: 0 0 19px; }
   border-radius: 7px;
   padding: 7px 9px;
 }
+
 .video-step b {
   color: #72d5f3;
   margin-right: 5px;
 }
 
+
 /* =====================================
-   LINKEDIN AUTOMATION VISUAL
+   LINKEDIN PREVIEW
 ===================================== */
+
 .linkedin-preview {
   height: 100%;
   display: flex;
@@ -609,11 +889,13 @@ p { color: var(--muted); margin: 0 0 19px; }
   justify-content: center;
   gap: 14px;
 }
+
 .linkedin-flow {
   display: flex;
   align-items: center;
   gap: 4px;
 }
+
 .flow-node {
   min-width: 0;
   flex: 1;
@@ -623,28 +905,33 @@ p { color: var(--muted); margin: 0 0 19px; }
   border-radius: 8px;
   text-align: center;
 }
+
 .flow-node b {
   display: block;
   font-size: 10px;
   color: #f4eaff;
   overflow-wrap: anywhere;
 }
+
 .flow-node small {
   display: block;
   font-size: 8px;
   color: #d8c3eb;
 }
+
 .flow-arrow {
   flex: none;
   color: #e2b8ff;
   font-size: 15px;
 }
+
 .post-mini {
   border: 1px solid #8165a7;
   border-radius: 10px;
   background: #171629dd;
   padding: 13px;
 }
+
 .post-user {
   display: flex;
   align-items: center;
@@ -654,19 +941,26 @@ p { color: var(--muted); margin: 0 0 19px; }
   font-weight: 700;
   color: #eae0f5;
 }
+
 .post-avatar {
   width: 22px;
   height: 22px;
   flex: none;
   border-radius: 50%;
-  background: linear-gradient(135deg,#d2adff,#6553a3);
+  background: linear-gradient(
+    135deg,
+    #d2adff,
+    #6553a3
+  );
 }
+
 .post-mini p {
   font-size: 11px;
   line-height: 1.45;
   margin: 0;
   color: #ebdff5;
 }
+
 .post-mini em {
   display: block;
   font-size: 9px;
@@ -675,9 +969,11 @@ p { color: var(--muted); margin: 0 0 19px; }
   font-style: normal;
 }
 
+
 /* =====================================
-   JOB DISCOVERY VISUAL
+   JOB DISCOVERY PREVIEW
 ===================================== */
+
 .job-preview {
   height: 100%;
   display: flex;
@@ -685,6 +981,7 @@ p { color: var(--muted); margin: 0 0 19px; }
   justify-content: center;
   gap: 12px;
 }
+
 .job-flow {
   display: flex;
   justify-content: space-between;
@@ -695,12 +992,14 @@ p { color: var(--muted); margin: 0 0 19px; }
   letter-spacing: .2px;
   color: #f5d693;
 }
+
 .job-board {
   padding: 13px;
   border: 1px solid #5d997d;
   border-radius: 11px;
   background: #0c2423ed;
 }
+
 .board-title {
   display: flex;
   justify-content: space-between;
@@ -710,11 +1009,13 @@ p { color: var(--muted); margin: 0 0 19px; }
   font-size: 11px;
   margin-bottom: 10px;
 }
+
 .board-title span {
   color: #f5d38b;
   font-weight: 500;
   font-size: 9px;
 }
+
 .job-entry {
   display: flex;
   align-items: center;
@@ -723,18 +1024,24 @@ p { color: var(--muted); margin: 0 0 19px; }
   padding: 9px 0;
   border-top: 1px solid #3c6656;
 }
-.job-entry:last-child { padding-bottom: 0; }
+
+.job-entry:last-child {
+  padding-bottom: 0;
+}
+
 .job-entry b {
   display: block;
   font-size: 10px;
   font-weight: 750;
   color: #effaf2;
 }
+
 .job-entry small {
   display: block;
   color: #abcab8;
   font-size: 9px;
 }
+
 .job-fit {
   flex: none;
   padding: 4px 6px;
@@ -744,26 +1051,31 @@ p { color: var(--muted); margin: 0 0 19px; }
   color: #d3ffe4;
   font-size: 9px;
 }
+
 .job-fit.review {
   border-color: #997b45;
   background: #51462e;
   color: #ffe3a9;
 }
 
+
 /* =====================================
    TECHNOLOGY CARDS
 ===================================== */
+
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
+  grid-template-columns: repeat(3, minmax(0,1fr));
   gap: 18px;
 }
+
 .tech-card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 17px;
   padding: 28px;
 }
+
 .tech-icon {
   display: grid;
   place-items: center;
@@ -777,22 +1089,30 @@ p { color: var(--muted); margin: 0 0 19px; }
   font-size: 14px;
   font-weight: 800;
 }
+
 .tech-card p {
   font-size: 14px;
   margin: 0;
 }
 
+
 /* =====================================
    CONTACT & FOOTER
 ===================================== */
+
 .contact-panel {
   position: relative;
   overflow: hidden;
   padding: 55px;
   border: 1px solid #39756a;
   border-radius: 23px;
-  background: linear-gradient(120deg,#173d40,#112138 78%);
+  background: linear-gradient(
+    120deg,
+    #173d40,
+    #112138 78%
+  );
 }
+
 .contact-panel:after {
   content: "";
   position: absolute;
@@ -804,8 +1124,16 @@ p { color: var(--muted); margin: 0 0 19px; }
   border: 1px solid #64e0bc30;
   pointer-events: none;
 }
-.contact-panel > * { position: relative; z-index: 1; }
-.contact-panel p { max-width: 650px; }
+
+.contact-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-panel p {
+  max-width: 680px;
+}
+
 footer {
   margin-top: 40px;
   padding: 32px 0;
@@ -813,59 +1141,109 @@ footer {
   font-size: 13px;
   color: var(--muted);
 }
+
 .footer-inner {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 16px;
 }
-.footer-inner a { color: var(--teal); }
+
+.footer-inner a {
+  color: var(--teal);
+}
+
 
 /* =====================================
    RESPONSIVE LAYOUT
 ===================================== */
-@media (max-width: 980px) {
+
+@media (max-width: 1050px) {
   .hero {
     grid-template-columns: 1fr;
     gap: 35px;
     min-height: auto;
     padding: 75px 0;
   }
+
   .engine {
     width: 100%;
     max-width: 650px;
     margin: auto;
   }
-  .about-card { grid-template-columns: 1fr; }
-}
-@media (max-width: 850px) {
-  .projects-grid {
-    grid-template-columns: repeat(2,minmax(0,1fr));
+
+  .about-card {
+    grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 850px) {
+
+  .projects-grid,
   .tech-grid {
     grid-template-columns: repeat(2,minmax(0,1fr));
   }
 }
+
 @media (max-width: 650px) {
-  .container { width: calc(100% - 32px); }
-  .site-header { justify-content: center; }
-  .nav { justify-content: center; gap: 16px; }
-  .hero { padding: 62px 0 55px; }
-  h1 { letter-spacing: -1.5px; }
+
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  .site-header {
+    justify-content: center;
+  }
+
+  .nav {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .hero {
+    padding: 62px 0 55px;
+  }
+
+  h1 {
+    letter-spacing: -1.5px;
+  }
+
   .metrics,
   .approach,
+  .experience-grid,
   .projects-grid,
   .tech-grid {
     grid-template-columns: 1fr;
   }
-  .section { padding: 52px 0; }
+
+  .section {
+    padding: 52px 0;
+  }
+
   .about-card,
-  .contact-panel { padding: 26px; }
-  .engine { padding: 18px; }
-  .project-visual { height: 235px; }
+  .contact-panel {
+    padding: 26px;
+  }
+
+  .engine {
+    padding: 18px;
+  }
+
+  .project-visual {
+    height: 235px;
+  }
+
+  .experience-card {
+    padding: 25px;
+  }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *:before,
   *:after {
@@ -873,212 +1251,335 @@ footer {
     transition: none !important;
   }
 }
+
 </style>
 </head>
+
 
 <body>
 <div class="container">
 
+
 <!-- =================================
      NAVIGATION
 ================================== -->
+
 <header class="site-header">
-  <a class="logo" href="/" aria-label="Viswa Visnus homepage">
+
+  <a class="logo"
+     href="/"
+     aria-label="Viswa Visnus homepage">
     VISWAVISNUS<span>.</span>
   </a>
+
   <nav class="nav" aria-label="Main navigation">
     <a href="#about">About</a>
+    <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#technology">Technology</a>
     <a href="#contact">Contact</a>
   </nav>
+
 </header>
 
+
 <main>
+
 
 <!-- =================================
      HERO SECTION
 ================================== -->
+
 <section class="hero">
+
   <div class="hero-copy">
+
     <div class="top-pill">
-      <span class="pulse" aria-hidden="true"></span>
-      Exploring AI-Driven Business Solutions
+      <span class="pulse"
+            aria-hidden="true"></span>
+      Berlin-Based · Operations & Automation
     </div>
 
     <h1>
-      Building smarter<br>
-      systems for a<br>
-      <span class="accent">digital world.</span>
+      Business Operations.<br>
+      Measurable Results.<br>
+      <span class="accent">
+        Intelligent Automation.
+      </span>
     </h1>
 
     <p>
-      I'm Viswanathan Selvaraj — a Berlin-based
-      business operations professional combining
-      real-world management experience with AI,
-      automation, and analytics.
+      I'm Viswanathan Selvaraj, a Berlin-based
+      Business Operations and Retail Management
+      professional with 6+ years of experience.
+    </p>
+
+    <p>
+      I combine operational leadership,
+      commercial performance improvement,
+      Power BI analytics, and practical
+      AI automation to build more
+      efficient business processes.
     </p>
 
     <div class="hero-skills">
-      Business Operations
+      Retail & Workplace Operations
       <span>✦</span>
-      Applied AI
+      Business Development
       <span>✦</span>
-      Workflow Automation
+      AI & Power BI
     </div>
 
     <div class="buttons">
-      <a href="#projects" class="btn btn-primary">
-        Explore My Projects →
+
+      <a href="#experience"
+         class="btn btn-primary">
+        View My Experience →
       </a>
 
-      <a href="https://github.com/viswavisnus8"
-         target="_blank"
-         rel="noopener noreferrer"
+      <a href="#projects"
          class="btn btn-outline">
-        View GitHub
+        See My Projects
       </a>
+
+      <a
+        href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-outline">
+        LinkedIn Profile
+      </a>
+
     </div>
+
   </div>
 
+
   <!-- AUTOMATION ENGINE -->
-  <div class="engine" aria-label="Illustrative four-stage automation pipeline">
+
+  <div class="engine"
+       aria-label="Illustrative automation workflow">
+
     <div class="engine-top">
-      <div class="window-dots" aria-hidden="true">
-        <span></span><span></span><span></span>
+
+      <div class="window-dots"
+           aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
+
       <span>AUTOMATION ENGINE</span>
       <span>◉</span>
+
     </div>
 
+
     <div class="engine-body">
+
       <div class="engine-node">
         <div class="engine-num">01</div>
         <div>
           <strong>Data Collection</strong>
-          <small>APIs · Sources · Operational Inputs</small>
+          <small>
+            APIs · Sources · Operational Inputs
+          </small>
         </div>
       </div>
 
-      <div class="engine-line" aria-hidden="true"></div>
+      <div class="engine-line"
+           aria-hidden="true"></div>
 
       <div class="engine-node">
         <div class="engine-num">02</div>
         <div>
           <strong>Intelligent Processing</strong>
-          <small>AI Models · Logic · Data Transformation</small>
+          <small>
+            AI Models · Logic · Data Transformation
+          </small>
         </div>
       </div>
 
-      <div class="engine-line" aria-hidden="true"></div>
+      <div class="engine-line"
+           aria-hidden="true"></div>
 
       <div class="engine-node">
         <div class="engine-num">03</div>
         <div>
           <strong>Automated Execution</strong>
-          <small>n8n · Python · Integrated Services</small>
+          <small>
+            n8n · Python · Integrated Services
+          </small>
         </div>
       </div>
 
-      <div class="engine-line" aria-hidden="true"></div>
+      <div class="engine-line"
+           aria-hidden="true"></div>
 
       <div class="engine-node">
         <div class="engine-num">04</div>
         <div>
           <strong>Measurable Outcomes</strong>
-          <small>Content · Reports · Business Insights</small>
+          <small>
+            Content · Reports · Business Insights
+          </small>
         </div>
       </div>
+
 
       <div class="engine-bottom">
         <span>SYSTEM ARCHITECTURE</span>
         <strong>DESIGNED FOR AUTOMATION</strong>
       </div>
+
     </div>
   </div>
+
 </section>
 
+
+
 <!-- =================================
-     PROFESSIONAL HIGHLIGHTS
+     PROFESSIONAL ACHIEVEMENTS
 ================================== -->
-<div class="metrics">
+
+<div class="metrics"
+     aria-label="Professional achievements">
+
   <div class="metric">
     <strong>6+ Years</strong>
-    <span>Operations and leadership experience</span>
+    <span>
+      Operations, retail and business
+      leadership experience
+    </span>
   </div>
 
   <div class="metric">
-    <strong>3 Projects</strong>
-    <span>Featured automation initiatives</span>
+    <strong>+30% Sales</strong>
+    <span>
+      Retail sales growth achieved
+      through store management
+    </span>
   </div>
 
   <div class="metric">
-    <strong>AI + BI</strong>
-    <span>Technology meets business intelligence</span>
+    <strong>−15% OpEx</strong>
+    <span>
+      Operating expense reduction
+      through vendor negotiations
+    </span>
   </div>
+
 </div>
+
+
 
 <!-- =================================
      ABOUT ME
 ================================== -->
+
 <section id="about" class="section">
+
   <div class="section-heading">
-    <div class="eyebrow">01 / About Me</div>
+
+    <div class="eyebrow">
+      01 / About Me
+    </div>
+
     <h2>
       Technology backed by<br>
-      <span class="accent">real business experience.</span>
+      <span class="accent">
+        real business experience.
+      </span>
     </h2>
+
   </div>
+
 
   <div class="about-card">
+
     <div>
+
       <p>
-        My background spans retail leadership,
-        business development, workplace operations,
-        process improvement, and team management.
+        My professional background spans
+        retail management, business development,
+        facility operations, customer experience,
+        process improvement, and team leadership.
       </p>
 
       <p>
-        I bring that experience into digital solutions.
-        Rather than automating for the sake of automation,
-        I focus on repetitive work, structured data,
-        and practical operational challenges.
+        I've managed business performance,
+        supported P&amp;L responsibilities,
+        led teams of more than 25 employees,
+        improved sales, and negotiated vendor
+        contracts to reduce costs.
       </p>
 
       <p>
-        My current interests include AI-assisted
-        content pipelines, workflow orchestration,
-        intelligent job discovery, and data-driven
-        decision-making.
+        Today, I connect that experience
+        with technology — using AI,
+        n8n automation, Power BI,
+        Python, and APIs to solve practical
+        operational problems.
       </p>
+
+      <p>
+        I believe technology delivers
+        the greatest value when it makes
+        everyday business operations
+        more efficient, consistent,
+        and measurable.
+      </p>
+
     </div>
+
 
     <div class="capability-list">
+
       <div class="capability">
-        <b>✓</b> Operations & Process Optimization
+        <b>✓</b>
+        Business Operations & Leadership
       </div>
+
       <div class="capability">
-        <b>✓</b> Workflow Automation with n8n
+        <b>✓</b>
+        Retail & Facility Management
       </div>
+
       <div class="capability">
-        <b>✓</b> AI-Assisted Content Production
+        <b>✓</b>
+        Business Development & Sales
       </div>
+
       <div class="capability">
-        <b>✓</b> Power BI & Business Analytics
+        <b>✓</b>
+        Workflow Automation with n8n
       </div>
+
       <div class="capability">
-        <b>✓</b> Python & API Integrations
+        <b>✓</b>
+        Power BI & Business Analytics
       </div>
+
+      <div class="capability">
+        <b>✓</b>
+        Python, AI & API Integrations
+      </div>
+
     </div>
+
   </div>
 
+
   <div class="approach">
+
     <div class="approach-item">
       <small>01 / UNDERSTAND</small>
       <strong>Identify the Problem</strong>
       <p>
-        Understand the process, bottlenecks,
-        and requirements before automating.
+        Understand business processes,
+        bottlenecks, and requirements
+        before designing a solution.
       </p>
     </div>
 
@@ -1086,8 +1587,9 @@ footer {
       <small>02 / BUILD</small>
       <strong>Design the Workflow</strong>
       <p>
-        Combine APIs, AI, and structured
-        logic into repeatable processes.
+        Combine business knowledge,
+        automation tools, and data
+        into repeatable processes.
       </p>
     </div>
 
@@ -1095,69 +1597,308 @@ footer {
       <small>03 / IMPROVE</small>
       <strong>Measure & Refine</strong>
       <p>
-        Review outcomes, detect failures,
-        and continuously improve the system.
+        Track outcomes, identify
+        improvements, and continuously
+        optimize performance.
       </p>
     </div>
+
   </div>
+
 </section>
+
+
+
+<!-- =================================
+     PROFESSIONAL EXPERIENCE
+================================== -->
+
+<section id="experience" class="section">
+
+  <div class="section-heading">
+
+    <div class="eyebrow">
+      02 / Professional Experience
+    </div>
+
+    <h2>
+      Business leadership with<br>
+      <span class="accent">
+        measurable impact.
+      </span>
+    </h2>
+
+    <p>
+      My experience combines commercial
+      management, operational excellence,
+      customer service, and digital
+      process improvement.
+    </p>
+
+  </div>
+
+
+  <div class="experience-grid">
+
+
+    <!-- EXPERIENCE 1 -->
+
+    <article class="experience-card">
+
+      <div class="experience-category">
+        RETAIL MANAGEMENT
+      </div>
+
+      <h3>
+        Store Manager · Sony Center
+      </h3>
+
+      <p>
+        Led retail operations with
+        responsibility for sales performance,
+        customer experience, inventory
+        management, and a team of
+        more than 25 employees.
+      </p>
+
+      <p>
+        Improved sales performance,
+        optimized supplier relationships,
+        and introduced Power BI
+        inventory dashboards.
+      </p>
+
+      <span class="achievement-tag">
+        +30% Sales Growth
+      </span>
+
+      <span class="achievement-tag">
+        ~20% Fewer Stockouts
+      </span>
+
+    </article>
+
+
+
+    <!-- EXPERIENCE 2 -->
+
+    <article class="experience-card">
+
+      <div class="experience-category">
+        FACILITY OPERATIONS
+      </div>
+
+      <h3>
+        Center Manager · Cultfit
+      </h3>
+
+      <p>
+        Managed multi-functional
+        facility operations, vendor
+        coordination, service delivery,
+        and operational standards.
+      </p>
+
+      <p>
+        Renegotiated vendor agreements
+        and improved operating processes
+        to achieve more efficient
+        cost management.
+      </p>
+
+      <span class="achievement-tag">
+        −15% Operating Expenses
+      </span>
+
+    </article>
+
+
+
+    <!-- EXPERIENCE 3 -->
+
+    <article class="experience-card">
+
+      <div class="experience-category">
+        BUSINESS DEVELOPMENT
+      </div>
+
+      <h3>
+        Head of Business Development
+        · Rio Business Solutions
+      </h3>
+
+      <p>
+        Worked across B2B client acquisition,
+        market research, relationship management,
+        contract negotiations, and
+        commercial growth strategies.
+      </p>
+
+      <p>
+        Expanded the client portfolio
+        through targeted outreach and
+        structured business
+        development activities.
+      </p>
+
+      <span class="achievement-tag">
+        +40% Client Portfolio Expansion
+      </span>
+
+    </article>
+
+
+
+    <!-- EXPERIENCE 4 -->
+
+    <article class="experience-card">
+
+      <div class="experience-category">
+        CURRENT ROLE · BERLIN
+      </div>
+
+      <h3>
+        Facility Services Associate
+        · Sodexo
+      </h3>
+
+      <p>
+        Supporting daily workplace
+        operations in a corporate
+        environment in Berlin.
+      </p>
+
+      <p>
+        Responsibilities include facility
+        readiness, workplace services,
+        hygiene and safety compliance,
+        inventory coordination,
+        and vendor support.
+      </p>
+
+      <span class="achievement-tag">
+        Workplace Operations
+      </span>
+
+      <span class="achievement-tag">
+        Service Delivery
+      </span>
+
+    </article>
+
+  </div>
+
+  <p class="experience-note">
+    Performance figures represent reported
+    achievements from previous professional
+    roles and are not future projections.
+  </p>
+
+</section>
+
+
 
 <!-- =================================
      FEATURED PROJECTS
 ================================== -->
+
 <section id="projects" class="section">
 
   <div class="section-heading">
-    <div class="eyebrow">02 / Featured Work</div>
+
+    <div class="eyebrow">
+      03 / Featured Automation Projects
+    </div>
+
     <h2>
       From ideas to<br>
-      <span class="accent">working workflows.</span>
+      <span class="accent">
+        working workflows.
+      </span>
     </h2>
+
     <p>
-      Practical automation projects combining
-      intelligent processing, content production,
-      and data-driven workflows.
+      Practical AI and automation projects
+      demonstrating how business problems
+      can be approached through structured
+      digital solutions.
     </p>
+
   </div>
+
 
   <div class="projects-grid">
 
+
     <!-- PROJECT 1: GERMAN DECODE -->
+
     <article class="project german">
 
-      <div class="project-visual" aria-label="Illustrative German Decode video automation preview">
+      <div class="project-visual"
+           aria-label="German Decode video workflow illustration">
+
         <div class="preview-label">
           GERMAN DECODE / VIDEO ENGINE
         </div>
 
+
         <div class="german-preview">
+
           <div class="video-phone">
+
             <small>GERMAN DECODE</small>
+
             <strong>Feierabend</strong>
+
             <span>Time after work</span>
+
             <div class="video-progress"></div>
+
           </div>
 
+
           <div class="video-steps">
-            <div class="video-step"><b>01</b> Script</div>
-            <div class="video-step"><b>02</b> Voice</div>
-            <div class="video-step"><b>03</b> Render</div>
-            <div class="video-step"><b>04</b> Upload</div>
+
+            <div class="video-step">
+              <b>01</b> Script
+            </div>
+
+            <div class="video-step">
+              <b>02</b> Voice
+            </div>
+
+            <div class="video-step">
+              <b>03</b> Render
+            </div>
+
+            <div class="video-step">
+              <b>04</b> Upload
+            </div>
+
           </div>
+
         </div>
+
 
         <div class="preview-disclaimer">
           ILLUSTRATIVE PIPELINE
         </div>
+
       </div>
 
+
       <div class="project-content">
-        <h3 class="project-title">German Decode</h3>
+
+        <h3 class="project-title">
+          German Decode
+        </h3>
+
         <p class="project-desc">
-          Automated educational video production
-          combining AI-assisted scripts, narration,
-          vertical rendering, and scheduled
-          YouTube publishing.
+          Automated educational YouTube Shorts
+          production combining AI-assisted
+          scripts, narration, vertical
+          video rendering, and scheduled
+          publishing.
         </p>
 
         <div class="project-meta">
@@ -1170,71 +1911,105 @@ footer {
           ● Active Automation
         </div>
 
-        <a class="btn btn-outline"
-           href="projects/german-decode.html">
+        <a
+          class="btn btn-outline"
+          href="projects/german-decode.html">
           View Project →
         </a>
+
       </div>
+
     </article>
 
-    <!-- PROJECT 2: LINKEDIN -->
+
+
+    <!-- PROJECT 2: LINKEDIN AUTOMATION -->
+
     <article class="project linkedin">
 
-      <div class="project-visual" aria-label="Illustrative LinkedIn AI publishing workflow">
+      <div class="project-visual"
+           aria-label="LinkedIn automation illustration">
+
         <div class="preview-label">
           LINKEDIN / AI CONTENT PIPELINE
         </div>
 
+
         <div class="linkedin-preview">
+
           <div class="linkedin-flow">
+
             <div class="flow-node">
               <b>Topic</b>
               <small>Input</small>
             </div>
+
             <span class="flow-arrow">›</span>
+
             <div class="flow-node">
               <b>Gemini</b>
               <small>Text</small>
             </div>
+
             <span class="flow-arrow">›</span>
+
             <div class="flow-node">
               <b>Visual</b>
               <small>AI</small>
             </div>
+
             <span class="flow-arrow">›</span>
+
             <div class="flow-node">
               <b>API</b>
               <small>Publish</small>
             </div>
+
           </div>
 
+
           <div class="post-mini">
+
             <div class="post-user">
+
               <div class="post-avatar"></div>
+
               Sample Professional Post
+
             </div>
+
             <p>
               Less manual work.<br>
               More meaningful outcomes.
             </p>
-            <em>AI content + visual generation</em>
+
+            <em>
+              AI content + visual generation
+            </em>
+
           </div>
+
         </div>
+
 
         <div class="preview-disclaimer">
           ILLUSTRATIVE PIPELINE
         </div>
+
       </div>
 
+
       <div class="project-content">
+
         <h3 class="project-title">
           LinkedIn Content Automation
         </h3>
 
         <p class="project-desc">
           AI-generated professional content,
-          visual production, LinkedIn API publishing,
-          and workflow tracking through n8n.
+          image generation, LinkedIn API
+          publishing, and workflow
+          tracking through n8n.
         </p>
 
         <div class="project-meta">
@@ -1247,22 +2022,32 @@ footer {
           ● Working Prototype
         </div>
 
-        <a class="btn btn-outline"
-           href="projects/linkedin-automation.html">
+        <a
+          class="btn btn-outline"
+          href="projects/linkedin-automation.html">
           View Project →
         </a>
+
       </div>
+
     </article>
 
+
+
     <!-- PROJECT 3: JOB DISCOVERY -->
+
     <article class="project jobs">
 
-      <div class="project-visual" aria-label="Illustrative AI job discovery dashboard">
+      <div class="project-visual"
+           aria-label="Job discovery matching dashboard illustration">
+
         <div class="preview-label">
           JOB DISCOVERY / AI MATCH ENGINE
         </div>
 
+
         <div class="job-preview">
+
           <div class="job-flow">
             <span>DISCOVER</span>
             <span>›</span>
@@ -1271,44 +2056,65 @@ footer {
             <span>TRACK</span>
           </div>
 
+
           <div class="job-board">
+
             <div class="board-title">
               Job Match Dashboard
-              <span>Sample</span>
+              <span>Historical</span>
             </div>
 
+
             <div class="job-entry">
+
               <div>
-                <b>Operations Manager</b>
-                <small>Example role · Berlin</small>
+                <b>Facility Manager</b>
+                <small>N26 · Berlin</small>
               </div>
-              <div class="job-fit">High Fit</div>
+
+              <div class="job-fit">
+                88%
+              </div>
+
             </div>
 
+
             <div class="job-entry">
+
               <div>
                 <b>Business Development</b>
-                <small>Example role · Germany</small>
+                <small>Arrow Electronics · Berlin</small>
               </div>
-              <div class="job-fit review">Review</div>
+
+              <div class="job-fit review">
+                76%
+              </div>
+
             </div>
+
           </div>
+
         </div>
+
 
         <div class="preview-disclaimer">
-          ILLUSTRATIVE MATCHING INTERFACE
+          HISTORICAL MATCH SCORES · NOT LIVE LISTINGS
         </div>
+
       </div>
 
+
       <div class="project-content">
+
         <h3 class="project-title">
           Job Discovery Automation
         </h3>
 
         <p class="project-desc">
-          Automated role discovery, AI-assisted
-          matching, relevance assessment,
-          and structured application tracking.
+          AI-assisted job discovery,
+          matching, skills analysis,
+          and application tracking
+          using APIs and Google Sheets.
         </p>
 
         <div class="project-meta">
@@ -1318,118 +2124,208 @@ footer {
         </div>
 
         <div class="project-status">
-          ● In Development
+          ● Working Tracker · In Refinement
         </div>
 
-        <a class="btn btn-outline"
-           href="projects/job-discovery.html">
+        <a
+          class="btn btn-outline"
+          href="projects/job-discovery.html">
           View Project →
         </a>
+
       </div>
+
     </article>
 
+
   </div>
+
 </section>
+
+
 
 <!-- =================================
      TECHNOLOGY STACK
 ================================== -->
+
 <section id="technology" class="section">
+
   <div class="section-heading">
-    <div class="eyebrow">03 / Technology Stack</div>
+
+    <div class="eyebrow">
+      04 / Technology & Skills
+    </div>
+
     <h2>
       Tools that turn ideas<br>
-      <span class="accent">into execution.</span>
+      <span class="accent">
+        into execution.
+      </span>
     </h2>
+
+    <p>
+      Combining operational experience,
+      analytics, automation, and
+      AI-assisted workflows.
+    </p>
+
   </div>
+
 
   <div class="tech-grid">
+
+
     <div class="tech-card">
+
       <div class="tech-icon">01</div>
-      <h3>Automation</h3>
+
+      <h3>Business Operations</h3>
+
       <p>
-        n8n, GitHub Actions, Python,
-        APIs, webhooks, and repeatable
-        workflow orchestration.
+        Retail management, business development,
+        team leadership, vendor negotiation,
+        facility operations, customer experience,
+        process optimization, and performance
+        management.
       </p>
+
     </div>
 
+
     <div class="tech-card">
+
       <div class="tech-icon">02</div>
-      <h3>AI & Content</h3>
+
+      <h3>Automation & AI</h3>
+
       <p>
+        n8n, Python, GitHub Actions,
         Gemini, Cloudflare Workers AI,
-        structured prompts, content workflows,
-        and automated media production.
+        API integrations, and automated
+        content-production workflows.
       </p>
+
     </div>
 
+
     <div class="tech-card">
+
       <div class="tech-icon">03</div>
-      <h3>Analytics</h3>
+
+      <h3>Analytics & Reporting</h3>
+
       <p>
-        Power BI, Excel, Google Sheets,
-        performance tracking, reporting,
-        and operational decision support.
+        Power BI, advanced Excel,
+        Google Sheets, dashboard creation,
+        inventory analysis, business reporting,
+        and data-driven decision support.
       </p>
+
     </div>
+
   </div>
+
 </section>
+
+
 
 <!-- =================================
      CONTACT
 ================================== -->
+
 <section id="contact" class="section">
+
   <div class="contact-panel">
-    <div class="eyebrow">04 / Let's Connect</div>
+
+    <div class="eyebrow">
+      05 / Let's Connect
+    </div>
+
 
     <h2>
-      Let's build something<br>
-      <span class="accent">more efficient.</span>
+      Let's create<br>
+      <span class="accent">
+        meaningful business impact.
+      </span>
     </h2>
 
+
     <p>
-      Interested in operational improvement,
-      practical AI, intelligent automation,
-      or digital transformation?
-      Let's connect and exchange ideas.
+      I'm interested in opportunities
+      across business operations,
+      retail management, workplace operations,
+      business development, and
+      technology-enabled process improvement.
     </p>
 
+
+    <p>
+      Whether you're a recruiter,
+      hiring manager, business leader,
+      or fellow automation enthusiast,
+      I'd be glad to connect.
+    </p>
+
+
     <div class="buttons">
-      <a class="btn btn-primary"
-         href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/"
-         target="_blank"
-         rel="noopener noreferrer">
+
+      <a
+        class="btn btn-primary"
+        href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/"
+        target="_blank"
+        rel="noopener noreferrer">
         Connect on LinkedIn →
       </a>
 
-      <a class="btn btn-outline"
-         href="https://github.com/viswavisnus8"
-         target="_blank"
-         rel="noopener noreferrer">
+      <a
+        class="btn btn-outline"
+        href="https://github.com/viswavisnus8"
+        target="_blank"
+        rel="noopener noreferrer">
         Explore GitHub
       </a>
+
+      <a
+        class="btn btn-outline"
+        href="#projects">
+        View My Projects
+      </a>
+
     </div>
+
   </div>
+
 </section>
 
+
 </main>
+
+
 
 <!-- =================================
      FOOTER
 ================================== -->
+
 <footer>
+
   <div class="footer-inner">
+
     <span>
       © 2026 Viswanathan Selvaraj.
       Built with purpose.
     </span>
+
     <span>
-      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/privacy.html">
+        Privacy Policy
+      </a>
       · Berlin, Germany
     </span>
+
   </div>
+
 </footer>
+
 
 </div>
 </body>
