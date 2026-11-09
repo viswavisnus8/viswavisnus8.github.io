@@ -5,862 +5,870 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080f1e">
-<meta name="description" content="Viswanathan Selvaraj — Business Operations, AI Automation and Analytics. Explore real-world digital workflows.">
+<meta name="description" content="Viswanathan Selvaraj — Business Operations, AI Automation, Workflow Engineering and Analytics.">
 <title>Viswa Visnus | AI Automation & Operations</title>
 
 <style>
+/* =====================================
+   DESIGN SYSTEM
+===================================== */
 :root {
   color-scheme: dark;
   --bg: #080f1e;
-  --surface: #101c30;
-  --surface2: #16263b;
-  --line: #263c52;
-  --text: #f4f8ff;
-  --muted: #a0b2c8;
+  --card: #101e30;
+  --card-light: #17293d;
+  --border: #2c4156;
+  --text: #f5f8fe;
+  --muted: #a7b8cd;
   --teal: #64e0bc;
-  --blue: #88acd9;
+  --blue: #78d2f3;
+  --purple: #cda6ff;
+  --gold: #f2cc82;
 }
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  background: var(--bg);
+  min-width: 320px;
+  background:
+    radial-gradient(ellipse at 85% 5%, #143d474d, transparent 27%),
+    radial-gradient(ellipse at 4% 27%, #202b5930, transparent 28%),
+    var(--bg);
   color: var(--text);
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   line-height: 1.65;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
+a { color: inherit; text-decoration: none; }
 a:focus-visible {
   outline: 2px solid var(--teal);
-  outline-offset: 5px;
+  outline-offset: 4px;
 }
-
-::selection {
-  background: var(--teal);
-  color: var(--bg);
-}
-
+::selection { background: var(--teal); color: var(--bg); }
 .container {
-  width: min(1160px, calc(100% - 40px));
+  width: min(1200px, calc(100% - 40px));
   margin: auto;
 }
-
-.ambient {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 850px;
-  background:
-    radial-gradient(
-      ellipse at 83% 19%,
-      #17605b45,
-      transparent 48%
-    ),
-    radial-gradient(
-      ellipse at 18% 60%,
-      #233e8030,
-      transparent 46%
-    );
-  pointer-events: none;
-}
-
-.eyebrow {
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 2.2px;
-  text-transform: uppercase;
-  color: var(--teal);
-}
-
-h1, h2, h3 {
-  line-height: 1.16;
-}
-
+h1, h2, h3 { line-height: 1.14; }
 h1 {
-  font-size: clamp(42px, 5.5vw, 76px);
-  letter-spacing: -3px;
-  margin: 20px 0 26px;
+  font-size: clamp(42px, 5.6vw, 75px);
+  letter-spacing: -2.8px;
+  margin: 22px 0 24px;
   font-weight: 800;
 }
-
 h2 {
-  font-size: clamp(29px, 3.6vw, 44px);
+  font-size: clamp(30px, 3.8vw, 46px);
   letter-spacing: -1.5px;
-  margin: 13px 0 20px;
+  margin: 14px 0 18px;
 }
-
 h3 {
   font-size: 21px;
-  letter-spacing: -0.4px;
+  letter-spacing: -.45px;
+  margin: 0 0 14px;
 }
-
-p {
-  color: var(--muted);
-  margin: 0 0 18px;
-}
-
-.text-teal {
+p { color: var(--muted); margin: 0 0 19px; }
+.accent { color: var(--teal); }
+.eyebrow {
   color: var(--teal);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
+.section {
+  padding: 82px 0;
+  scroll-margin-top: 35px;
+}
+.section-heading {
+  max-width: 740px;
+  margin-bottom: 35px;
+}
+.section-heading p { font-size: 16px; }
 
-/* ===============================
-   NAVIGATION
-================================ */
-
+/* =====================================
+   HEADER & NAVIGATION
+===================================== */
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 25px;
-  padding: 24px 0;
-  border-bottom: 1px solid #ffffff13;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding: 26px 0;
+  border-bottom: 1px solid #ffffff14;
 }
-
 .logo {
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 850;
   letter-spacing: 1px;
-  white-space: nowrap;
 }
-
-.logo span {
-  color: var(--teal);
-}
-
-.nav-links {
+.logo span { color: var(--teal); }
+.nav {
   display: flex;
   align-items: center;
-  gap: 27px;
   flex-wrap: wrap;
+  gap: 27px;
 }
-
-.nav-links a {
-  color: #c6d4e3;
+.nav a {
   font-size: 14px;
-  transition: color 0.2s;
+  color: #c8d6e5;
+  transition: color .2s;
 }
+.nav a:hover { color: var(--teal); }
 
-.nav-links a:hover {
-  color: var(--teal);
-}
-
-/* ===============================
+/* =====================================
    BUTTONS
-================================ */
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  border: 1px solid var(--line);
-  border-radius: 11px;
-  padding: 14px 21px;
-  font-size: 14px;
-  font-weight: 750;
-  transition:
-    transform 0.2s,
-    border-color 0.2s,
-    background 0.2s;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-}
-
-.btn-primary {
-  background: var(--teal);
-  border-color: var(--teal);
-  color: #071a20;
-}
-
-.btn-outline {
-  border-color: #457269;
-  color: var(--teal);
-  background: #11272a55;
-}
-
-.btn-outline:hover {
-  border-color: var(--teal);
-}
-
-.actions {
+===================================== */
+.buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 30px;
 }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 21px;
+  border: 1px solid #48776d;
+  border-radius: 11px;
+  font-size: 14px;
+  font-weight: 750;
+  text-align: center;
+  transition:
+    background .2s,
+    transform .2s,
+    border-color .2s;
+}
+.btn:hover { transform: translateY(-3px); }
+.btn-primary {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #071b1e;
+}
+.btn-outline {
+  background: #14302d66;
+  color: var(--teal);
+}
+.btn-outline:hover { border-color: var(--teal); }
 
-/* ===============================
-   HERO SECTION
-================================ */
-
+/* =====================================
+   HERO
+===================================== */
 .hero {
   display: grid;
-  grid-template-columns: 1.06fr 0.94fr;
-  gap: 52px;
-  align-items: center;
+  grid-template-columns: 1.06fr .94fr;
+  gap: 55px;
   min-height: 660px;
-  padding: 90px 0 65px;
+  align-items: center;
+  padding: 95px 0 70px;
 }
-
-.available {
+.hero-copy { min-width: 0; }
+.hero-copy p {
+  max-width: 580px;
+  font-size: 17px;
+  line-height: 1.82;
+}
+.top-pill {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  border: 1px solid #3a665c;
-  border-radius: 40px;
-  background: #15342e90;
-  padding: 8px 14px;
-  color: #b9f5df;
+  border: 1px solid #3b655d;
+  background: #15392f88;
+  border-radius: 50px;
+  padding: 9px 15px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 750;
+  color: #bdf6e2;
 }
-
-.dot {
+.pulse {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--teal);
-  box-shadow: 0 0 13px var(--teal);
+  box-shadow: 0 0 15px #64e0bc88;
+  animation: breathe 2.5s infinite;
 }
-
-.hero-copy .lead {
-  max-width: 570px;
-  font-size: 17px;
-  line-height: 1.8;
+@keyframes breathe {
+  50% { opacity: .5; box-shadow: 0 0 3px var(--teal); }
 }
-
-.hero-sub {
-  margin-top: 20px;
-  color: #d4e1ed;
-  font-size: 13px;
+.hero-skills {
+  font-size: 12px;
+  color: #d5e2eb;
+  margin-top: 22px;
 }
-
-.hero-sub span {
+.hero-skills span {
   color: var(--teal);
+  padding: 0 5px;
 }
 
-/* ===============================
-   AUTOMATION ENGINE VISUAL
-================================ */
-
-.workflow {
+/* =====================================
+   HERO WORKFLOW ENGINE
+===================================== */
+.engine {
   position: relative;
   overflow: hidden;
-  padding: 25px;
-  background: linear-gradient(
-    145deg,
-    #17283c,
-    #0e192b
-  );
-  border: 1px solid #39556a;
+  border: 1px solid #39566c;
   border-radius: 23px;
+  padding: 25px;
+  background:
+    linear-gradient(145deg, #192f42, #0d182a);
   box-shadow:
-    0 30px 90px #0006,
-    0 0 60px #64e0bc0c;
+    0 28px 80px #0007,
+    0 0 70px #64e0bc0c;
 }
-
-.workflow::before {
+.engine:before {
   content: "";
   position: absolute;
-  right: -90px;
-  top: -100px;
-  width: 260px;
-  height: 260px;
+  right: -80px;
+  top: -110px;
+  width: 270px;
+  height: 270px;
+  background: #64e0bc13;
   border-radius: 50%;
-  background: #64e0bc14;
   filter: blur(45px);
+  pointer-events: none;
 }
-
-.window-header {
+.engine-top {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding-bottom: 19px;
-  border-bottom: 1px solid var(--line);
-  font-size: 11px;
-  color: #a7bdd0;
+  gap: 10px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #ffffff1c;
+  color: #b4c8dc;
+  font-size: 10px;
   letter-spacing: 1px;
 }
-
-.window-dots {
-  display: flex;
-  gap: 6px;
-}
-
-.window-dots i {
+.window-dots { display: flex; gap: 6px; }
+.window-dots span {
   width: 9px;
   height: 9px;
-  background: #52667b;
+  background: #d9887f;
   border-radius: 50%;
 }
-
-.window-dots i:first-child {
-  background: #ed857b;
-}
-
-.window-dots i:nth-child(2) {
-  background: #e4bc67;
-}
-
-.window-dots i:last-child {
-  background: #64e0bc;
-}
-
-.workflow-body {
+.window-dots span:nth-child(2) { background: #e2bd69; }
+.window-dots span:nth-child(3) { background: var(--teal); }
+.engine-body {
   position: relative;
-  padding: 28px 8px 12px;
+  padding: 26px 7px 12px;
 }
-
-.workflow-node {
+.engine-node {
   display: flex;
-  gap: 15px;
   align-items: center;
-  background: #1b3145;
-  border: 1px solid #3b5870;
-  border-radius: 13px;
+  gap: 15px;
   padding: 17px;
+  background: #1b3145;
+  border: 1px solid #406078;
+  border-radius: 13px;
 }
-
-.workflow-node strong {
+.engine-node strong {
   display: block;
   font-size: 14px;
 }
-
-.workflow-node small {
+.engine-node small {
   display: block;
-  margin-top: 2px;
+  margin-top: 3px;
+  color: #aac0d4;
   font-size: 11px;
-  color: #acc0d0;
 }
-
-.node-icon {
-  flex: none;
+.engine-num {
   display: grid;
   place-items: center;
+  flex: none;
   width: 43px;
   height: 43px;
-  background: #28524e;
-  border-radius: 11px;
   color: var(--teal);
-  font-size: 12px;
+  background: #28544d;
   font-weight: 800;
+  font-size: 12px;
+  border-radius: 11px;
 }
-
-.connector {
-  height: 30px;
-  width: 2px;
-  margin: auto;
-  background: linear-gradient(
-    var(--teal),
-    #476c85
-  );
+.engine-line {
   position: relative;
+  width: 2px;
+  height: 28px;
+  margin: auto;
+  background: #4c8e89;
 }
-
-.connector::after {
+.engine-line:after {
   content: "";
   position: absolute;
+  top: 0;
+  left: -2.5px;
   width: 7px;
   height: 7px;
-  left: -2.5px;
-  top: 0;
-  background: var(--teal);
   border-radius: 50%;
+  background: var(--teal);
   box-shadow: 0 0 12px var(--teal);
-  animation: travel 2.6s linear infinite;
+  animation: signal 2.5s linear infinite;
 }
-
-@keyframes travel {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(28px);
-  }
+@keyframes signal {
+  from { transform: translateY(0); }
+  to { transform: translateY(26px); }
 }
-
-.workflow-bottom {
+.engine-bottom {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
-  margin-top: 22px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-  font-size: 11px;
-  color: #acc0d0;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #ffffff1c;
+  font-size: 10px;
+  color: #b4c8dc;
+  letter-spacing: .5px;
 }
+.engine-bottom strong { color: var(--teal); }
 
-.workflow-bottom strong {
-  color: var(--teal);
-}
-
-/* ===============================
+/* =====================================
    PROFESSIONAL METRICS
-================================ */
-
+===================================== */
 .metrics {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 38px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
 }
-
 .metric {
-  padding: 25px;
-  border: 1px solid var(--line);
+  padding: 26px;
+  border: 1px solid var(--border);
   border-radius: 15px;
-  background: linear-gradient(
-    135deg,
-    #142337,
-    #101a2b
-  );
+  background:
+    linear-gradient(135deg, #15263a, #0f1b2d);
 }
-
 .metric strong {
   display: block;
   color: var(--teal);
-  font-size: 26px;
-  letter-spacing: -1px;
+  font-size: 27px;
+  line-height: 1.25;
+  margin-bottom: 9px;
 }
-
 .metric span {
-  display: block;
-  color: #aabed0;
+  color: var(--muted);
   font-size: 13px;
-  margin-top: 5px;
 }
 
-/* ===============================
-   GENERAL SECTIONS
-================================ */
-
-section {
-  scroll-margin-top: 35px;
-}
-
-.content-section {
-  padding: 76px 0;
-}
-
-.section-heading {
-  max-width: 760px;
-  margin-bottom: 35px;
-}
-
-.section-heading p {
-  font-size: 16px;
-}
-
-.panel {
-  border: 1px solid var(--line);
-  background: linear-gradient(
-    135deg,
-    #122236,
-    #0e1b2b
-  );
-  border-radius: 20px;
-  padding: 38px;
-}
-
-.about-grid {
+/* =====================================
+   ABOUT
+===================================== */
+.about-card {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.12fr .88fr;
   gap: 35px;
-  align-items: center;
+  padding: 38px;
+  background:
+    linear-gradient(125deg, #14263a, #0e192a);
+  border: 1px solid var(--border);
+  border-radius: 20px;
 }
-
-.about-grid p {
-  font-size: 15px;
-}
-
-.highlight-list {
+.about-card p { font-size: 15px; }
+.capability-list {
   display: grid;
-  gap: 13px;
+  align-content: center;
+  gap: 12px;
 }
-
-.highlight {
+.capability {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 13px;
   padding: 13px 16px;
-  border: 1px solid #345266;
+  background: #1a3041;
+  border: 1px solid #38566a;
   border-radius: 11px;
-  background: #182c3c;
-  color: #e0edf5;
+  color: #e2edf6;
   font-size: 13px;
 }
-
-.highlight b {
-  color: var(--teal);
-  font-size: 16px;
-}
-
-/* ===============================
-   PROJECT CARDS — 3 COLUMNS
-================================ */
-
-.projects-grid {
+.capability b { color: var(--teal); }
+.approach {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  align-items: stretch;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 16px;
+  margin-top: 20px;
 }
-
-.project {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: var(--surface);
-  border-radius: 19px;
-  transition:
-    transform 0.25s,
-    border-color 0.25s,
-    box-shadow 0.25s;
+.approach-item {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #101d2f;
 }
-
-.project:hover {
-  transform: translateY(-6px);
-  border-color: #4f9988;
-  box-shadow: 0 22px 55px #0004;
-}
-
-.project-visual {
-  height: 180px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  border-bottom: 1px solid #ffffff16;
-}
-
-.visual-blue {
-  background: radial-gradient(
-    circle at 65% 30%,
-    #296e85,
-    #10283b 65%
-  );
-}
-
-.visual-purple {
-  background: radial-gradient(
-    circle at 65% 30%,
-    #645388,
-    #231d3a 65%
-  );
-}
-
-.visual-green {
-  background: radial-gradient(
-    circle at 65% 30%,
-    #427e68,
-    #122b2b 65%
-  );
-}
-
-.mini-screen {
-  width: 100%;
-  max-width: 255px;
-  border: 1px solid #ffffff40;
-  background: #0d1829dd;
-  border-radius: 11px;
-  padding: 13px 16px;
-  box-shadow: 0 15px 30px #0005;
-}
-
-.mini-title {
-  font-size: 10px;
+.approach-item small {
+  display: block;
+  color: var(--teal);
   font-weight: 800;
-  color: #d6e9f4;
-  letter-spacing: 0.5px;
-  margin-bottom: 13px;
-  overflow-wrap: anywhere;
-}
-
-.mini-line {
-  height: 7px;
-  width: 72%;
-  border-radius: 8px;
-  background: #ffffff30;
   margin-bottom: 8px;
 }
-
-.mini-line.short {
-  width: 45%;
+.approach-item strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.approach-item p {
+  font-size: 12px;
+  margin: 0;
 }
 
-.mini-line.wide {
-  width: 94%;
+/* =====================================
+   PROJECT CARDS
+===================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 18px;
+  align-items: stretch;
 }
-
-.mini-accent {
-  width: 40%;
-  height: 7px;
-  background: var(--teal);
-  border-radius: 8px;
-  margin-top: 16px;
+.project {
+  --pc: var(--teal);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 19px;
+  transition:
+    transform .25s,
+    border-color .25s,
+    box-shadow .25s;
 }
-
-.visual-purple .mini-accent {
-  background: #d8a0ff;
+.project:hover {
+  transform: translateY(-6px);
+  border-color: var(--pc);
+  box-shadow: 0 24px 55px #0005;
 }
-
-.visual-green .mini-accent {
-  background: #f3c56d;
-}
-
-.project-body {
+.project.german { --pc: var(--blue); }
+.project.linkedin { --pc: var(--purple); }
+.project.jobs { --pc: var(--gold); }
+.project-content {
   display: flex;
   flex: 1;
   flex-direction: column;
   padding: 24px;
 }
-
-.project-body h3 {
+.project-title {
+  font-size: 20px;
   margin: 0 0 13px;
 }
-
-.project-body p {
-  font-size: 14px;
+.project-desc {
+  font-size: 13px;
+  line-height: 1.75;
   flex: 1;
 }
-
-.tags {
+.project-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 7px;
   margin: 15px 0;
 }
-
 .tag {
-  font-size: 11px;
-  color: #bcd2e2;
-  border: 1px solid #355169;
-  border-radius: 30px;
-  padding: 5px 10px;
+  display: inline-block;
+  padding: 5px 9px;
+  border: 1px solid #36536c;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #c4d7e6;
 }
-
 .project-status {
-  font-size: 12px;
   color: var(--teal);
+  font-size: 12px;
   font-weight: 750;
-  margin: 13px 0 19px;
+  margin: 12px 0 19px;
 }
-
-.project-body .btn {
+.project-content .btn {
   width: 100%;
   margin-top: auto;
 }
 
-/* ===============================
-   TECHNOLOGY CARDS
-================================ */
+/* =====================================
+   PROJECT VISUALS — SHARED
+===================================== */
+.project-visual {
+  position: relative;
+  height: 232px;
+  overflow: hidden;
+  padding: 34px 15px 24px;
+  border-bottom: 1px solid #ffffff1d;
+}
+.german .project-visual {
+  background:
+    radial-gradient(circle at 74% 35%, #256b83,transparent 68%),
+    #102b3e;
+}
+.linkedin .project-visual {
+  background:
+    radial-gradient(circle at 74% 28%, #695288,transparent 68%),
+    #241c38;
+}
+.jobs .project-visual {
+  background:
+    radial-gradient(circle at 74% 28%, #3f7863,transparent 68%),
+    #102c2a;
+}
+.preview-label {
+  position: absolute;
+  left: 15px;
+  top: 12px;
+  color: #e0ecf7;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 1.1px;
+}
+.preview-disclaimer {
+  position: absolute;
+  bottom: 9px;
+  left: 15px;
+  color: #c0d0df;
+  font-size: 9px;
+  letter-spacing: .3px;
+}
 
+/* =====================================
+   GERMAN DECODE VISUAL
+===================================== */
+.german-preview {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+.video-phone {
+  position: relative;
+  flex: none;
+  width: 98px;
+  height: 166px;
+  border: 2px solid #89dcf1;
+  border-radius: 13px;
+  background:
+    linear-gradient(155deg,#194967,#0b1b32);
+  box-shadow: 0 15px 35px #0007;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+}
+.video-phone small {
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: #a8eaf8;
+}
+.video-phone strong {
+  font-size: 13px;
+  margin: 14px 0 8px;
+  line-height: 1.2;
+}
+.video-phone span {
+  font-size: 9px;
+  color: #d4e5ef;
+}
+.video-progress {
+  position: absolute;
+  left: 9px;
+  right: 9px;
+  bottom: 12px;
+  height: 3px;
+  background: #4e7289;
+  border-radius: 4px;
+}
+.video-progress:after {
+  content: "";
+  display: block;
+  width: 66%;
+  height: 100%;
+  background: #67e4cd;
+  border-radius: 4px;
+}
+.video-steps {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+.video-step {
+  font-size: 10px;
+  font-weight: 750;
+  color: #d9edf6;
+  background: #0c1d30dd;
+  border: 1px solid #42667c;
+  border-radius: 7px;
+  padding: 7px 9px;
+}
+.video-step b {
+  color: #72d5f3;
+  margin-right: 5px;
+}
+
+/* =====================================
+   LINKEDIN AUTOMATION VISUAL
+===================================== */
+.linkedin-preview {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+.linkedin-flow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.flow-node {
+  min-width: 0;
+  flex: 1;
+  padding: 9px 3px;
+  background: #211a39e8;
+  border: 1px solid #8567b0;
+  border-radius: 8px;
+  text-align: center;
+}
+.flow-node b {
+  display: block;
+  font-size: 10px;
+  color: #f4eaff;
+  overflow-wrap: anywhere;
+}
+.flow-node small {
+  display: block;
+  font-size: 8px;
+  color: #d8c3eb;
+}
+.flow-arrow {
+  flex: none;
+  color: #e2b8ff;
+  font-size: 15px;
+}
+.post-mini {
+  border: 1px solid #8165a7;
+  border-radius: 10px;
+  background: #171629dd;
+  padding: 13px;
+}
+.post-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 9px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #eae0f5;
+}
+.post-avatar {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#d2adff,#6553a3);
+}
+.post-mini p {
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 0;
+  color: #ebdff5;
+}
+.post-mini em {
+  display: block;
+  font-size: 9px;
+  color: #d5a9ff;
+  margin-top: 9px;
+  font-style: normal;
+}
+
+/* =====================================
+   JOB DISCOVERY VISUAL
+===================================== */
+.job-preview {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+.job-flow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .2px;
+  color: #f5d693;
+}
+.job-board {
+  padding: 13px;
+  border: 1px solid #5d997d;
+  border-radius: 11px;
+  background: #0c2423ed;
+}
+.board-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #e4f0e6;
+  font-weight: 800;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+.board-title span {
+  color: #f5d38b;
+  font-weight: 500;
+  font-size: 9px;
+}
+.job-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+  padding: 9px 0;
+  border-top: 1px solid #3c6656;
+}
+.job-entry:last-child { padding-bottom: 0; }
+.job-entry b {
+  display: block;
+  font-size: 10px;
+  font-weight: 750;
+  color: #effaf2;
+}
+.job-entry small {
+  display: block;
+  color: #abcab8;
+  font-size: 9px;
+}
+.job-fit {
+  flex: none;
+  padding: 4px 6px;
+  border: 1px solid #669c81;
+  border-radius: 6px;
+  background: #285343;
+  color: #d3ffe4;
+  font-size: 9px;
+}
+.job-fit.review {
+  border-color: #997b45;
+  background: #51462e;
+  color: #ffe3a9;
+}
+
+/* =====================================
+   TECHNOLOGY CARDS
+===================================== */
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3,minmax(0,1fr));
   gap: 18px;
 }
-
 .tech-card {
-  padding: 27px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--surface);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 28px;
 }
-
-.tech-card .tech-icon {
-  font-size: 25px;
-  margin-bottom: 15px;
+.tech-icon {
+  display: grid;
+  place-items: center;
+  width: 47px;
+  height: 47px;
+  margin-bottom: 22px;
+  border: 1px solid #41675d;
+  background: #1d3f3d;
+  border-radius: 12px;
+  color: var(--teal);
+  font-size: 14px;
+  font-weight: 800;
 }
-
-.tech-card h3 {
-  margin: 0 0 11px;
-}
-
 .tech-card p {
   font-size: 14px;
   margin: 0;
 }
 
-/* ===============================
-   CONTACT SECTION
-================================ */
-
-.contact {
+/* =====================================
+   CONTACT & FOOTER
+===================================== */
+.contact-panel {
   position: relative;
   overflow: hidden;
   padding: 55px;
-  background: linear-gradient(
-    120deg,
-    #173c40,
-    #122238 75%
-  );
-  border: 1px solid #386f69;
+  border: 1px solid #39756a;
   border-radius: 23px;
+  background: linear-gradient(120deg,#173d40,#112138 78%);
 }
-
-.contact::after {
+.contact-panel:after {
   content: "";
   position: absolute;
-  height: 260px;
-  width: 260px;
-  border: 1px solid #64e0bc20;
+  right: -100px;
+  top: -110px;
+  height: 300px;
+  width: 300px;
   border-radius: 50%;
-  right: -80px;
-  top: -80px;
+  border: 1px solid #64e0bc30;
   pointer-events: none;
 }
-
-.contact > * {
-  position: relative;
-  z-index: 1;
-}
-
-.contact p {
-  max-width: 650px;
-}
-
-/* ===============================
-   FOOTER
-================================ */
-
+.contact-panel > * { position: relative; z-index: 1; }
+.contact-panel p { max-width: 650px; }
 footer {
-  margin-top: 75px;
-  border-top: 1px solid var(--line);
-  padding: 30px 0;
-  color: var(--muted);
+  margin-top: 40px;
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
   font-size: 13px;
+  color: var(--muted);
 }
-
 .footer-inner {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 16px;
 }
+.footer-inner a { color: var(--teal); }
 
-.footer-inner a {
-  color: var(--teal);
-}
-
-/* ===============================
-   RESPONSIVE BREAKPOINTS
-================================ */
-
-/* Tablet and smaller desktop */
+/* =====================================
+   RESPONSIVE LAYOUT
+===================================== */
 @media (max-width: 980px) {
   .hero {
     grid-template-columns: 1fr;
     gap: 35px;
-    padding: 80px 0;
+    min-height: auto;
+    padding: 75px 0;
   }
-
-  .workflow {
-    max-width: 650px;
+  .engine {
     width: 100%;
+    max-width: 650px;
     margin: auto;
   }
-
-  .tech-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
+  .about-card { grid-template-columns: 1fr; }
 }
-
-/* Keep three project cards until 800px */
-/* Then display two */
-@media (min-width: 641px) and (max-width: 800px) {
+@media (max-width: 850px) {
   .projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+  .tech-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
   }
 }
-
-/* Mobile phones */
-@media (max-width: 640px) {
-  .container {
-    width: calc(100% - 32px);
-  }
-
-  .site-header {
-    justify-content: center;
-  }
-
-  .nav-links {
-    justify-content: center;
-    gap: 17px;
-  }
-
-  .hero {
-    padding: 60px 0;
-    min-height: auto;
-  }
-
-  h1 {
-    letter-spacing: -1.5px;
-  }
-
+@media (max-width: 650px) {
+  .container { width: calc(100% - 32px); }
+  .site-header { justify-content: center; }
+  .nav { justify-content: center; gap: 16px; }
+  .hero { padding: 62px 0 55px; }
+  h1 { letter-spacing: -1.5px; }
   .metrics,
+  .approach,
   .projects-grid,
   .tech-grid {
     grid-template-columns: 1fr;
   }
-
-  .metric {
-    padding: 20px;
-  }
-
-  .content-section {
-    padding: 50px 0;
-  }
-
-  .panel,
-  .contact {
-    padding: 25px;
-  }
-
-  .workflow {
-    padding: 17px;
-  }
-
-  .project-visual {
-    height: 170px;
-  }
+  .section { padding: 52px 0; }
+  .about-card,
+  .contact-panel { padding: 26px; }
+  .engine { padding: 18px; }
+  .project-visual { height: 235px; }
 }
-
-/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
+  html { scroll-behavior: auto; }
   *,
-  *::before,
-  *::after {
+  *:before,
+  *:after {
     animation: none !important;
     transition: none !important;
   }
@@ -869,19 +877,16 @@ footer {
 </head>
 
 <body>
-
-<div class="ambient" aria-hidden="true"></div>
-
 <div class="container">
 
-<!-- NAVIGATION -->
-
+<!-- =================================
+     NAVIGATION
+================================== -->
 <header class="site-header">
-  <a href="/" class="logo">
+  <a class="logo" href="/" aria-label="Viswa Visnus homepage">
     VISWAVISNUS<span>.</span>
   </a>
-
-  <nav class="nav-links" aria-label="Main navigation">
+  <nav class="nav" aria-label="Main navigation">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#technology">Technology</a>
@@ -891,124 +896,115 @@ footer {
 
 <main>
 
-<!-- HERO SECTION -->
-
+<!-- =================================
+     HERO SECTION
+================================== -->
 <section class="hero">
-
   <div class="hero-copy">
-
-    <div class="available">
-      <span class="dot"></span>
+    <div class="top-pill">
+      <span class="pulse" aria-hidden="true"></span>
       Exploring AI-Driven Business Solutions
     </div>
 
     <h1>
       Building smarter<br>
       systems for a<br>
-      <span class="text-teal">digital world.</span>
+      <span class="accent">digital world.</span>
     </h1>
 
-    <p class="lead">
+    <p>
       I'm Viswanathan Selvaraj — a Berlin-based
       business operations professional combining
       real-world management experience with AI,
       automation, and analytics.
     </p>
 
-    <p class="hero-sub">
+    <div class="hero-skills">
       Business Operations
       <span>✦</span>
       Applied AI
       <span>✦</span>
       Workflow Automation
-    </p>
+    </div>
 
-    <div class="actions">
+    <div class="buttons">
       <a href="#projects" class="btn btn-primary">
         Explore My Projects →
       </a>
 
-      <a
-        href="https://github.com/viswavisnus8"
-        class="btn btn-outline"
-        target="_blank"
-        rel="noopener noreferrer">
+      <a href="https://github.com/viswavisnus8"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn btn-outline">
         View GitHub
       </a>
     </div>
-
   </div>
 
   <!-- AUTOMATION ENGINE -->
-
-  <div class="workflow"
-       aria-label="Automation workflow illustration">
-
-    <div class="window-header">
-      <div class="window-dots">
-        <i></i><i></i><i></i>
+  <div class="engine" aria-label="Illustrative four-stage automation pipeline">
+    <div class="engine-top">
+      <div class="window-dots" aria-hidden="true">
+        <span></span><span></span><span></span>
       </div>
       <span>AUTOMATION ENGINE</span>
-      <span>●</span>
+      <span>◉</span>
     </div>
 
-    <div class="workflow-body">
-
-      <div class="workflow-node">
-        <div class="node-icon">01</div>
+    <div class="engine-body">
+      <div class="engine-node">
+        <div class="engine-num">01</div>
         <div>
           <strong>Data Collection</strong>
           <small>APIs · Sources · Operational Inputs</small>
         </div>
       </div>
 
-      <div class="connector"></div>
+      <div class="engine-line" aria-hidden="true"></div>
 
-      <div class="workflow-node">
-        <div class="node-icon">02</div>
+      <div class="engine-node">
+        <div class="engine-num">02</div>
         <div>
           <strong>Intelligent Processing</strong>
           <small>AI Models · Logic · Data Transformation</small>
         </div>
       </div>
 
-      <div class="connector"></div>
+      <div class="engine-line" aria-hidden="true"></div>
 
-      <div class="workflow-node">
-        <div class="node-icon">03</div>
+      <div class="engine-node">
+        <div class="engine-num">03</div>
         <div>
           <strong>Automated Execution</strong>
           <small>n8n · Python · Integrated Services</small>
         </div>
       </div>
 
-      <div class="connector"></div>
+      <div class="engine-line" aria-hidden="true"></div>
 
-      <div class="workflow-node">
-        <div class="node-icon">04</div>
+      <div class="engine-node">
+        <div class="engine-num">04</div>
         <div>
           <strong>Measurable Outcomes</strong>
           <small>Content · Reports · Business Insights</small>
         </div>
       </div>
 
-      <div class="workflow-bottom">
+      <div class="engine-bottom">
         <span>SYSTEM ARCHITECTURE</span>
         <strong>DESIGNED FOR AUTOMATION</strong>
       </div>
-
     </div>
   </div>
-
 </section>
 
-<!-- PROFESSIONAL HIGHLIGHTS -->
-
+<!-- =================================
+     PROFESSIONAL HIGHLIGHTS
+================================== -->
 <div class="metrics">
-
   <div class="metric">
     <strong>6+ Years</strong>
-    <span>Business operations and leadership</span>
+    <span>Operations and leadership experience</span>
   </div>
 
   <div class="metric">
@@ -1018,28 +1014,23 @@ footer {
 
   <div class="metric">
     <strong>AI + BI</strong>
-    <span>Technology and business intelligence</span>
+    <span>Technology meets business intelligence</span>
   </div>
-
 </div>
 
-<!-- ABOUT -->
-
-<section id="about" class="content-section">
-
+<!-- =================================
+     ABOUT ME
+================================== -->
+<section id="about" class="section">
   <div class="section-heading">
     <div class="eyebrow">01 / About Me</div>
-
     <h2>
       Technology backed by<br>
-      <span class="text-teal">
-        real business experience.
-      </span>
+      <span class="accent">real business experience.</span>
     </h2>
   </div>
 
-  <div class="panel about-grid">
-
+  <div class="about-card">
     <div>
       <p>
         My background spans retail leadership,
@@ -1050,101 +1041,126 @@ footer {
       <p>
         I bring that experience into digital solutions.
         Rather than automating for the sake of automation,
-        I focus on identifying repetitive work,
-        structuring information, and creating systems
-        that solve practical problems.
+        I focus on repetitive work, structured data,
+        and practical operational challenges.
       </p>
 
       <p>
-        My current interests include AI content pipelines,
-        workflow orchestration, intelligent job discovery,
-        and data-driven operational decision-making.
+        My current interests include AI-assisted
+        content pipelines, workflow orchestration,
+        intelligent job discovery, and data-driven
+        decision-making.
       </p>
     </div>
 
-    <div class="highlight-list">
-      <div class="highlight">
+    <div class="capability-list">
+      <div class="capability">
         <b>✓</b> Operations & Process Optimization
       </div>
-
-      <div class="highlight">
+      <div class="capability">
         <b>✓</b> Workflow Automation with n8n
       </div>
-
-      <div class="highlight">
+      <div class="capability">
         <b>✓</b> AI-Assisted Content Production
       </div>
-
-      <div class="highlight">
+      <div class="capability">
         <b>✓</b> Power BI & Business Analytics
       </div>
-
-      <div class="highlight">
+      <div class="capability">
         <b>✓</b> Python & API Integrations
       </div>
     </div>
-
   </div>
 
+  <div class="approach">
+    <div class="approach-item">
+      <small>01 / UNDERSTAND</small>
+      <strong>Identify the Problem</strong>
+      <p>
+        Understand the process, bottlenecks,
+        and requirements before automating.
+      </p>
+    </div>
+
+    <div class="approach-item">
+      <small>02 / BUILD</small>
+      <strong>Design the Workflow</strong>
+      <p>
+        Combine APIs, AI, and structured
+        logic into repeatable processes.
+      </p>
+    </div>
+
+    <div class="approach-item">
+      <small>03 / IMPROVE</small>
+      <strong>Measure & Refine</strong>
+      <p>
+        Review outcomes, detect failures,
+        and continuously improve the system.
+      </p>
+    </div>
+  </div>
 </section>
 
-<!-- AUTOMATION PROJECTS -->
-
-<section id="projects" class="content-section">
+<!-- =================================
+     FEATURED PROJECTS
+================================== -->
+<section id="projects" class="section">
 
   <div class="section-heading">
-
     <div class="eyebrow">02 / Featured Work</div>
-
     <h2>
       From ideas to<br>
-      <span class="text-teal">
-        working workflows.
-      </span>
+      <span class="accent">working workflows.</span>
     </h2>
-
     <p>
-      Three practical projects exploring how AI,
-      automation, and data can improve digital
-      processes and content production.
+      Practical automation projects combining
+      intelligent processing, content production,
+      and data-driven workflows.
     </p>
-
   </div>
 
   <div class="projects-grid">
 
     <!-- PROJECT 1: GERMAN DECODE -->
+    <article class="project german">
 
-    <article class="project">
-
-      <div class="project-visual visual-blue"
-           aria-hidden="true">
-
-        <div class="mini-screen">
-          <div class="mini-title">
-            GERMAN DECODE / VIDEO ENGINE
-          </div>
-
-          <div class="mini-line wide"></div>
-          <div class="mini-line"></div>
-          <div class="mini-line short"></div>
-          <div class="mini-accent"></div>
+      <div class="project-visual" aria-label="Illustrative German Decode video automation preview">
+        <div class="preview-label">
+          GERMAN DECODE / VIDEO ENGINE
         </div>
 
+        <div class="german-preview">
+          <div class="video-phone">
+            <small>GERMAN DECODE</small>
+            <strong>Feierabend</strong>
+            <span>Time after work</span>
+            <div class="video-progress"></div>
+          </div>
+
+          <div class="video-steps">
+            <div class="video-step"><b>01</b> Script</div>
+            <div class="video-step"><b>02</b> Voice</div>
+            <div class="video-step"><b>03</b> Render</div>
+            <div class="video-step"><b>04</b> Upload</div>
+          </div>
+        </div>
+
+        <div class="preview-disclaimer">
+          ILLUSTRATIVE PIPELINE
+        </div>
       </div>
 
-      <div class="project-body">
-
-        <h3>German Decode</h3>
-
-        <p>
-          An automated educational video pipeline
-          combining German language content,
-          AI-assisted scripts, audio generation,
-          and vertical video rendering.
+      <div class="project-content">
+        <h3 class="project-title">German Decode</h3>
+        <p class="project-desc">
+          Automated educational video production
+          combining AI-assisted scripts, narration,
+          vertical rendering, and scheduled
+          YouTube publishing.
         </p>
 
-        <div class="tags">
+        <div class="project-meta">
           <span class="tag">Python</span>
           <span class="tag">YouTube API</span>
           <span class="tag">GitHub Actions</span>
@@ -1154,47 +1170,74 @@ footer {
           ● Active Automation
         </div>
 
-        <a
-          href="projects/german-decode.html"
-          class="btn btn-outline">
+        <a class="btn btn-outline"
+           href="projects/german-decode.html">
           View Project →
         </a>
-
       </div>
     </article>
 
-    <!-- PROJECT 2: LINKEDIN AUTOMATION -->
+    <!-- PROJECT 2: LINKEDIN -->
+    <article class="project linkedin">
 
-    <article class="project">
-
-      <div class="project-visual visual-purple"
-           aria-hidden="true">
-
-        <div class="mini-screen">
-          <div class="mini-title">
-            LINKEDIN / CONTENT PIPELINE
-          </div>
-
-          <div class="mini-line"></div>
-          <div class="mini-line wide"></div>
-          <div class="mini-line short"></div>
-          <div class="mini-accent"></div>
+      <div class="project-visual" aria-label="Illustrative LinkedIn AI publishing workflow">
+        <div class="preview-label">
+          LINKEDIN / AI CONTENT PIPELINE
         </div>
 
+        <div class="linkedin-preview">
+          <div class="linkedin-flow">
+            <div class="flow-node">
+              <b>Topic</b>
+              <small>Input</small>
+            </div>
+            <span class="flow-arrow">›</span>
+            <div class="flow-node">
+              <b>Gemini</b>
+              <small>Text</small>
+            </div>
+            <span class="flow-arrow">›</span>
+            <div class="flow-node">
+              <b>Visual</b>
+              <small>AI</small>
+            </div>
+            <span class="flow-arrow">›</span>
+            <div class="flow-node">
+              <b>API</b>
+              <small>Publish</small>
+            </div>
+          </div>
+
+          <div class="post-mini">
+            <div class="post-user">
+              <div class="post-avatar"></div>
+              Sample Professional Post
+            </div>
+            <p>
+              Less manual work.<br>
+              More meaningful outcomes.
+            </p>
+            <em>AI content + visual generation</em>
+          </div>
+        </div>
+
+        <div class="preview-disclaimer">
+          ILLUSTRATIVE PIPELINE
+        </div>
       </div>
 
-      <div class="project-body">
+      <div class="project-content">
+        <h3 class="project-title">
+          LinkedIn Content Automation
+        </h3>
 
-        <h3>LinkedIn Content Automation</h3>
-
-        <p>
-          AI-assisted professional content,
-          visual generation, LinkedIn API
-          publishing, and structured tracking
-          through an integrated n8n workflow.
+        <p class="project-desc">
+          AI-generated professional content,
+          visual production, LinkedIn API publishing,
+          and workflow tracking through n8n.
         </p>
 
-        <div class="tags">
+        <div class="project-meta">
           <span class="tag">n8n</span>
           <span class="tag">Gemini</span>
           <span class="tag">Cloudflare AI</span>
@@ -1204,47 +1247,71 @@ footer {
           ● Working Prototype
         </div>
 
-        <a
-          href="projects/linkedin-automation.html"
-          class="btn btn-outline">
+        <a class="btn btn-outline"
+           href="projects/linkedin-automation.html">
           View Project →
         </a>
-
       </div>
     </article>
 
     <!-- PROJECT 3: JOB DISCOVERY -->
+    <article class="project jobs">
 
-    <article class="project">
-
-      <div class="project-visual visual-green"
-           aria-hidden="true">
-
-        <div class="mini-screen">
-          <div class="mini-title">
-            JOB DISCOVERY / AI MATCHING
-          </div>
-
-          <div class="mini-line wide"></div>
-          <div class="mini-line short"></div>
-          <div class="mini-line"></div>
-          <div class="mini-accent"></div>
+      <div class="project-visual" aria-label="Illustrative AI job discovery dashboard">
+        <div class="preview-label">
+          JOB DISCOVERY / AI MATCH ENGINE
         </div>
 
+        <div class="job-preview">
+          <div class="job-flow">
+            <span>DISCOVER</span>
+            <span>›</span>
+            <span>AI MATCH</span>
+            <span>›</span>
+            <span>TRACK</span>
+          </div>
+
+          <div class="job-board">
+            <div class="board-title">
+              Job Match Dashboard
+              <span>Sample</span>
+            </div>
+
+            <div class="job-entry">
+              <div>
+                <b>Operations Manager</b>
+                <small>Example role · Berlin</small>
+              </div>
+              <div class="job-fit">High Fit</div>
+            </div>
+
+            <div class="job-entry">
+              <div>
+                <b>Business Development</b>
+                <small>Example role · Germany</small>
+              </div>
+              <div class="job-fit review">Review</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="preview-disclaimer">
+          ILLUSTRATIVE MATCHING INTERFACE
+        </div>
       </div>
 
-      <div class="project-body">
+      <div class="project-content">
+        <h3 class="project-title">
+          Job Discovery Automation
+        </h3>
 
-        <h3>Job Discovery Automation</h3>
-
-        <p>
-          Automated opportunity discovery,
-          AI-assisted job matching,
-          relevance scoring, and structured
-          application tracking.
+        <p class="project-desc">
+          Automated role discovery, AI-assisted
+          matching, relevance assessment,
+          and structured application tracking.
         </p>
 
-        <div class="tags">
+        <div class="project-meta">
           <span class="tag">Job APIs</span>
           <span class="tag">AI Matching</span>
           <span class="tag">Google Sheets</span>
@@ -1254,148 +1321,116 @@ footer {
           ● In Development
         </div>
 
-        <a
-          href="projects/job-discovery.html"
-          class="btn btn-outline">
+        <a class="btn btn-outline"
+           href="projects/job-discovery.html">
           View Project →
         </a>
-
       </div>
     </article>
 
   </div>
-
 </section>
 
-<!-- TECHNOLOGY STACK -->
-
-<section id="technology" class="content-section">
-
+<!-- =================================
+     TECHNOLOGY STACK
+================================== -->
+<section id="technology" class="section">
   <div class="section-heading">
-
-    <div class="eyebrow">
-      03 / Technology Stack
-    </div>
-
+    <div class="eyebrow">03 / Technology Stack</div>
     <h2>
       Tools that turn ideas<br>
-      <span class="text-teal">
-        into execution.
-      </span>
+      <span class="accent">into execution.</span>
     </h2>
-
   </div>
 
   <div class="tech-grid">
-
     <div class="tech-card">
-      <div class="tech-icon">⚙️</div>
+      <div class="tech-icon">01</div>
       <h3>Automation</h3>
-
       <p>
         n8n, GitHub Actions, Python,
-        webhooks, HTTP APIs,
-        and workflow orchestration.
+        APIs, webhooks, and repeatable
+        workflow orchestration.
       </p>
     </div>
 
     <div class="tech-card">
-      <div class="tech-icon">🧠</div>
+      <div class="tech-icon">02</div>
       <h3>AI & Content</h3>
-
       <p>
         Gemini, Cloudflare Workers AI,
-        prompt engineering, media pipelines,
-        and AI-assisted processes.
+        structured prompts, content workflows,
+        and automated media production.
       </p>
     </div>
 
     <div class="tech-card">
-      <div class="tech-icon">📈</div>
+      <div class="tech-icon">03</div>
       <h3>Analytics</h3>
-
       <p>
         Power BI, Excel, Google Sheets,
-        business performance reporting,
-        and operational analysis.
+        performance tracking, reporting,
+        and operational decision support.
       </p>
     </div>
-
   </div>
-
 </section>
 
-<!-- CONTACT -->
-
-<section id="contact" class="content-section">
-
-  <div class="contact">
-
-    <div class="eyebrow">
-      04 / Get In Touch
-    </div>
+<!-- =================================
+     CONTACT
+================================== -->
+<section id="contact" class="section">
+  <div class="contact-panel">
+    <div class="eyebrow">04 / Let's Connect</div>
 
     <h2>
       Let's build something<br>
-      <span class="text-teal">
-        more efficient.
-      </span>
+      <span class="accent">more efficient.</span>
     </h2>
 
     <p>
-      Interested in business operations,
-      intelligent automation, practical AI
-      applications, or professional collaboration?
-      I'd be glad to connect.
+      Interested in operational improvement,
+      practical AI, intelligent automation,
+      or digital transformation?
+      Let's connect and exchange ideas.
     </p>
 
-    <div class="actions">
-
-      <a
-        class="btn btn-primary"
-        href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/"
-        target="_blank"
-        rel="noopener noreferrer">
+    <div class="buttons">
+      <a class="btn btn-primary"
+         href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/"
+         target="_blank"
+         rel="noopener noreferrer">
         Connect on LinkedIn →
       </a>
 
-      <a
-        class="btn btn-outline"
-        href="https://github.com/viswavisnus8"
-        target="_blank"
-        rel="noopener noreferrer">
+      <a class="btn btn-outline"
+         href="https://github.com/viswavisnus8"
+         target="_blank"
+         rel="noopener noreferrer">
         Explore GitHub
       </a>
-
     </div>
-
   </div>
-
 </section>
 
 </main>
 
-<!-- FOOTER -->
-
+<!-- =================================
+     FOOTER
+================================== -->
 <footer>
-
   <div class="footer-inner">
-
     <span>
       © 2026 Viswanathan Selvaraj.
       Built with purpose.
     </span>
-
     <span>
       <a href="/privacy.html">Privacy Policy</a>
       · Berlin, Germany
     </span>
-
   </div>
-
 </footer>
 
 </div>
-
 </body>
 </html>
