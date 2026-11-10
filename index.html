@@ -1315,6 +1315,45 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
 @media(max-width:980px){.site-header{border-radius:22px;position:relative;top:0}.hero{grid-template-columns:1fr;min-height:auto;gap:32px}.engine{transform:none;max-width:680px;width:100%;margin:auto}.showcase-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.projects-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.container{width:calc(100% - 30px)}.site-header{padding:14px;gap:12px}.nav{gap:13px}.nav a{font-size:11px}.nav .nav-contact{padding:8px 12px}.hero{padding-top:45px}.hero h1{font-size:clamp(39px,10vw,55px);letter-spacing:-2px}.hero-copy>p{font-size:14px}.showcase-shell{padding:16px}.showcase-heading{align-items:flex-start;flex-direction:column}.showcase-stats{grid-template-columns:1fr 1fr}.showcase-stats>div{padding:13px;min-height:130px}.showcase-stats strong{font-size:18px}.showcase-bottom a{margin-left:0}.section{padding:58px 0}.projects-grid{grid-template-columns:1fr}.project-visual{height:auto;min-height:205px}.engine-top{grid-template-columns:1fr auto}.engine-top-left{min-width:0}.engine-title{justify-self:end}.engine-status{display:none}.engine-mini-label{font-size:8px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Desktop-only project preview overlap fix. Mobile layout remains unchanged. */
+@media (min-width: 981px) {
+  .projects-grid .project-visual {
+    height: 290px;
+    min-height: 290px;
+    padding: 16px 16px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    overflow: hidden;
+  }
+  .projects-grid .preview-label,
+  .projects-grid .preview-disclaimer {
+    position: static;
+    inset: auto;
+    display: block;
+    flex: 0 0 auto;
+    margin: 0;
+    line-height: 1.35;
+  }
+  .projects-grid .german-preview,
+  .projects-grid .linkedin-preview,
+  .projects-grid .job-preview {
+    height: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+  }
+  .projects-grid .german-preview { align-items: center; }
+  .projects-grid .linkedin-preview,
+  .projects-grid .job-preview { justify-content: center; }
+  .projects-grid .preview-disclaimer {
+    margin-top: auto;
+    padding-top: 5px;
+    background: transparent;
+  }
+}
 </style></head>
 <body>
 <div class="container">
