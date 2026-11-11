@@ -1,1 +1,1 @@
-German lesson audio was synthesized with the [Piper Thorsten de_DE high voice](https://huggingface.co/rhasspy/piper-voices/blob/main/de/de_DE/thorsten/high/MODEL_CARD).
+German lesson audio was synthesized with the [Piper Kerstin de_DE voice](https://huggingface.co/rhasspy/piper-voices/blob/main/de/de_DE/kerstin/low/MODEL_CARD) using the steady-paced Option A settings.
