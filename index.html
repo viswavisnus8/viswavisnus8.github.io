@@ -1354,6 +1354,91 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
     background: transparent;
   }
 }
+
+
+/* ====================================================
+   RESPONSIVE PROJECT SECTION — MOBILE/TABLET PATCH
+   Keeps desktop project layout unchanged above 1024px.
+   Placed last so it overrides earlier grid breakpoints.
+==================================================== */
+@media (max-width: 1024px) {
+  #projects .projects-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+  #projects .project {
+    width: 100%;
+    min-width: 0;
+  }
+  #projects .project-visual {
+    box-sizing: border-box;
+    height: auto;
+    min-height: 270px;
+    padding: 20px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 14px;
+    overflow: hidden;
+  }
+  #projects .preview-label,
+  #projects .preview-disclaimer {
+    position: static;
+    inset: auto;
+    display: block;
+    flex: none;
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.45;
+    letter-spacing: .45px;
+  }
+  #projects .preview-disclaimer {
+    margin-top: auto;
+  }
+  #projects .german-preview,
+  #projects .linkedin-preview,
+  #projects .job-preview {
+    width: 100%;
+    height: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+  #projects .linkedin-preview,
+  #projects .job-preview {
+    justify-content: center;
+    gap: 14px;
+  }
+  #projects .project-content { padding: 24px; }
+  #projects .project-title { font-size: 22px; line-height: 1.3; }
+  #projects .project-desc { font-size: 15px; line-height: 1.65; }
+  #projects .project-status { font-size: 13px; }
+  #projects .tag { font-size: 11px; padding: 6px 10px; }
+  #projects .project-content .btn { min-height: 46px; }
+  #projects .flow-node b { font-size: 12px; }
+  #projects .flow-node small { font-size: 10px; }
+  #projects .post-mini p { font-size: 13px; }
+  #projects .post-mini em { font-size: 11px; }
+  #projects .board-title { font-size: 13px; }
+  #projects .job-entry b { font-size: 12px; }
+  #projects .job-entry small { font-size: 11px; }
+  #projects .job-fit { font-size: 11px; }
+  #projects .video-step { font-size: 11px; }
+}
+@media (max-width: 480px) {
+  #projects .projects-grid { gap: 20px; }
+  #projects .project-visual {
+    min-height: 250px;
+    padding: 17px 16px 15px;
+  }
+  #projects .project-content { padding: 20px; }
+  #projects .project-title { font-size: 20px; }
+  #projects .project-desc { font-size: 15px; }
+  #projects .flow-node { padding: 9px 2px; }
+  #projects .flow-node b { font-size: 10px; }
+  #projects .flow-node small { font-size: 9px; }
+  #projects .flow-arrow { font-size: 13px; }
+  #projects .video-phone { width: 96px; }
+}
 </style></head>
 <body>
 <div class="container">
