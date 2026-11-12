@@ -1460,21 +1460,23 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
 <style>
 /* Homepage hero and expertise */
 body {
-  background: radial-gradient(ellipse 75% 590px at 77% 360px, #0c2046, transparent), #080c15;
+  background:
+    radial-gradient(ellipse 68% 720px at 85% 250px, #162b65 0%, transparent 78%),
+    radial-gradient(ellipse 50% 540px at 4% 380px, #0c3150 0%, transparent 82%),
+    #080f20;
 }
-.container { max-width: 1320px; }
-.site-header { background: #111929f2; }
+.container { width: calc(100% - clamp(32px, 5vw, 112px)); max-width: 1740px; }
+.site-header { background: #111d35f2; }
 .hero {
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: clamp(26px, 5vw, 76px);
+  gap: clamp(28px, 5vw, 92px);
   min-height: 0;
-  padding: clamp(48px, 7vw, 96px) 0;
+  padding: clamp(38px, 4.5vw, 78px) 0 clamp(25px, 3vw, 45px);
 }
 .hero h1 {
-  font-size: clamp(2.35rem, 4.4vw, 4.4rem);
+  font-size: clamp(2.3rem, 4.7vw, 5rem);
   line-height: 1.04;
   letter-spacing: -.055em;
-  text-wrap: balance;
 }
 .hero-copy > p.hero-intro {
   margin-bottom: 0;
@@ -1482,75 +1484,57 @@ body {
   font-weight: 700;
 }
 .hero-intro span { color: var(--muted); font-weight: 400; }
-.hero-copy > p { max-width: 46ch; color: #b7c8df; }
-.hero .accent { color: #78b6ff; }
+.hero-copy > p { max-width: 55ch; color: #c6d8ef; }
+.hero .accent { color: #72c7ff; }
+.hero .btn-primary {
+  background: linear-gradient(115deg, #1957dd, #0878c7);
+  border-color: #478fff;
+}
 .hero-visual {
-  position: relative;
-  isolation: isolate;
   display: grid;
-  align-items: center;
+  place-items: center;
   min-width: 0;
-  min-height: 440px;
-  padding: clamp(16px, 3vw, 40px);
-  border: 1px solid #253c61;
+  overflow: hidden;
+  padding: clamp(14px, 2.1vw, 32px);
+  border: 1px solid #4a80d7;
   border-radius: 28px;
-  background: radial-gradient(ellipse at 57% 54%, #154ea7, #101f3a 62%, #0b1425 100%);
-  box-shadow: 0 24px 90px #02091899;
+  background:
+    radial-gradient(ellipse at 58% 34%, #2769d1, transparent 67%),
+    linear-gradient(135deg, #113b72, #141c49 70%);
+  box-shadow: 0 18px 65px #002b7a65;
 }
-.hero-orbit {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  pointer-events: none;
-}
-.hero-orbit span {
-  display: grid;
-  place-items: center;
-  width: 62%;
+.hero-portrait {
+  display: block;
+  width: min(100%, 470px);
+  height: auto;
   aspect-ratio: 1;
-  border: 1px solid #599cff70;
-  border-radius: 50%;
-  background: radial-gradient(circle at 65% 20%, #195ab0, #0a1a35 75%);
-  box-shadow: 0 0 0 15px #5691ff13, 0 0 0 35px #5691ff0b, 0 0 64px #2377fd66;
-  color: #d5e9ff;
-  font-size: clamp(4rem, 9vw, 8.3rem);
-  font-weight: 850;
-  letter-spacing: -.09em;
-  text-indent: -.09em;
-  text-shadow: 0 0 35px #338bff90;
+  object-fit: cover;
+  border-radius: 21px;
+  border: 1px solid #7bbcff80;
 }
 .hero-results {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, max-content));
-  justify-content: space-between;
-  align-content: space-between;
-  gap: 0 10px;
-  min-height: 355px;
-  margin: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 clamp(34px, 5vw, 70px);
 }
 .hero-results > div {
   display: flex;
   flex-direction: column-reverse;
-  align-self: start;
-  padding: 12px 16px;
-  border: 1px solid #5b93e573;
-  border-radius: 14px;
-  background: linear-gradient(140deg, #142540f5, #12366ceb);
-  box-shadow: 0 12px 36px #020b1a75;
-}
-.hero-results > div:nth-child(2), .hero-results > div:nth-child(3) {
-  transform: translateY(22px);
+  justify-content: flex-end;
+  padding: clamp(12px, 1.7vw, 24px);
+  border: 1px solid #3962a0;
+  border-radius: 16px;
+  background: linear-gradient(140deg, #172e55, #101b34);
 }
 .hero-results dd {
   margin: 0;
-  color: #f4f8ff;
-  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  color: #8dd4ff;
+  font-size: clamp(1.28rem, 2.4vw, 2.15rem);
   font-weight: 750;
   line-height: 1.15;
 }
-.hero-results dt { margin-top: 5px; color: #c4d6ef; font-size: .78rem; }
+.hero-results dt { margin-top: 6px; color: #d4e3f9; font-size: .85rem; }
 .expertise h2 { margin-top: 0; }
 .expertise-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .expertise-grid article {
@@ -1559,7 +1543,7 @@ body {
   padding: clamp(16px, 2vw, 28px);
   border: 1px solid #2b4166;
   border-radius: 20px;
-  background: linear-gradient(155deg, #12213c, #0c1322 72%);
+  background: linear-gradient(155deg, #172e53, #101a32 72%);
 }
 .expertise-graphic {
   display: grid;
@@ -1598,16 +1582,14 @@ body {
 .workflow-preview .engine { margin: 16px 0 0; max-width: 540px; }
 @media (max-width: 1050px) {
   .hero { grid-template-columns: minmax(0, 1fr); }
-  .hero-visual { width: min(100%, 600px); }
+  .hero-visual { width: min(100%, 650px); }
 }
 @media (max-width: 650px) {
   .site-header .nav { flex-wrap: nowrap; }
   .hero { gap: 28px; }
-  .hero-visual { min-height: 310px; padding: 14px; }
-  .hero-results { min-height: 255px; }
-  .hero-results > div { padding: 8px 10px; }
-  .hero-results > div:nth-child(2), .hero-results > div:nth-child(3) { transform: translateY(10px); }
-  .hero-results dt { font-size: .72rem; }
+  .hero-visual { padding: 14px; }
+  .hero-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-results dt { font-size: .78rem; }
   .expertise-grid { grid-template-columns: 1fr; }
 }
 </style>
@@ -1637,24 +1619,24 @@ body {
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero-copy">
     <p class="hero-intro">Viswanathan Selvaraj <span>· Berlin</span></p>
-    <h1 id="hero-title">Building smarter operations.<br/><span class="accent">Delivering measurable results.</span></h1>
-    <p>I'm a business operations and retail management professional. I use Power BI and AI automation to improve the processes that teams rely on every day.</p>
+    <h1 id="hero-title">Business operations.<br/><span class="accent">Smarter workflows.</span></h1>
+    <p>I’m a Berlin-based operations professional with experience leading retail teams, managing facilities, and growing B2B accounts. I use Power BI to track performance and n8n and Python to automate recurring work.</p>
     <div class="buttons">
-      <a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+      <a class="btn btn-primary" href="#projects">View projects <span aria-hidden="true">↗</span></a>
       <a class="btn btn-outline" href="automation-hub.html">Automation Hub <span aria-hidden="true">→</span></a>
       <a class="btn btn-outline" href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/" rel="noopener noreferrer" target="_blank">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
     </div>
   </div>
   <div class="hero-visual">
-    <div class="hero-orbit" aria-hidden="true"><span>VS</span></div>
-    <dl class="hero-results" aria-label="Professional achievements">
-      <div><dt>Operations experience</dt><dd>6+ years</dd></div>
-      <div><dt>Retail sales growth</dt><dd>+30%</dd></div>
-      <div><dt>Operating expenses</dt><dd>−15%</dd></div>
-      <div><dt>Client portfolio growth</dt><dd>+40%</dd></div>
-    </dl>
+    <img class="hero-portrait" src="assets/viswanathan-portrait-v1.jpg" alt="Viswanathan Selvaraj" width="800" height="800" fetchpriority="high"/>
   </div>
 </section>
+<dl class="hero-results" aria-label="Professional achievements">
+  <div><dt>Operations and business experience</dt><dd>6+ years</dd></div>
+  <div><dt>Retail sales growth at Sony Center</dt><dd>+30%</dd></div>
+  <div><dt>Operating expenses at Cultfit</dt><dd>−15%</dd></div>
+  <div><dt>Client portfolio growth at Rio Business Solutions</dt><dd>+40%</dd></div>
+</dl>
 <section class="expertise" aria-labelledby="expertise-title">
   <h2 id="expertise-title">Areas of expertise</h2>
   <div class="expertise-grid">
@@ -1685,10 +1667,7 @@ body {
 <div class="section-heading">
 <div class="eyebrow">01 / About Me</div>
 <h2>
-      Technology backed by<br/>
-<span class="accent">
-        real business experience.
-      </span>
+      My background
 </h2>
 </div>
 <div class="about-card">
@@ -1785,10 +1764,7 @@ body {
 <div class="section-heading">
 <div class="eyebrow">02 / Professional Experience</div>
 <h2>
-      Business leadership with<br/>
-<span class="accent">
-        measurable impact.
-      </span>
+      Professional experience
 </h2>
 <p>
       My experience combines commercial
@@ -1952,10 +1928,7 @@ body {
 <div class="section-heading">
 <div class="eyebrow">03 / Featured Automation Projects</div>
 <h2>
-      From ideas to<br/>
-<span class="accent">
-        working workflows.
-      </span>
+      Featured automation projects
 </h2>
 <p>
       Practical AI and automation projects
@@ -2165,7 +2138,7 @@ body {
 <div class="section-heading">
 <div class="eyebrow">04 / Automation Systems</div>
 <h2>Workflows, presented <span class="accent">with purpose.</span></h2>
-<p>Explore the systems behind content production, operational tracking, and AI-assisted work. This is a public project showcase—not a live administrative dashboard.</p>
+<p>Explore how I built workflows for video publishing, content production, and job discovery.</p>
 </div>
 <div class="showcase-shell">
 <div class="showcase-heading"><div><span class="showcase-kicker">VISWAVISNUS / SYSTEM OVERVIEW</span><h3>Automation Command Center</h3></div><a class="btn btn-primary" href="automation-hub.html">Open the Hub ↗</a></div>
@@ -2303,10 +2276,7 @@ body {
 <div class="contact-panel">
 <div class="eyebrow">06 / Let's Connect</div>
 <h2>
-      Let's create<br/>
-<span class="accent">
-        meaningful business impact.
-      </span>
+      Let’s connect
 </h2>
 <p>
       I'm interested in opportunities
@@ -2342,7 +2312,6 @@ body {
 <div class="footer-inner">
 <span>
       © 2026 Viswanathan Selvaraj.
-      Built with purpose.
     </span>
 <span>
 <a href="library.html">Free Library</a> ·
