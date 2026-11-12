@@ -1457,6 +1457,160 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
 @media(max-width:1000px){.proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.proof-grid{grid-template-columns:1fr}.proof-card{padding:18px}}
 </style>
+<style>
+/* Homepage hero and expertise */
+body {
+  background: radial-gradient(ellipse 75% 590px at 77% 360px, #0c2046, transparent), #080c15;
+}
+.container { max-width: 1320px; }
+.site-header { background: #111929f2; }
+.hero {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(26px, 5vw, 76px);
+  min-height: 0;
+  padding: clamp(48px, 7vw, 96px) 0;
+}
+.hero h1 {
+  font-size: clamp(2.35rem, 4.4vw, 4.4rem);
+  line-height: 1.04;
+  letter-spacing: -.055em;
+  text-wrap: balance;
+}
+.hero-copy > p.hero-intro {
+  margin-bottom: 0;
+  color: #edf4ff;
+  font-weight: 700;
+}
+.hero-intro span { color: var(--muted); font-weight: 400; }
+.hero-copy > p { max-width: 46ch; color: #b7c8df; }
+.hero .accent { color: #78b6ff; }
+.hero-visual {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-width: 0;
+  min-height: 440px;
+  padding: clamp(16px, 3vw, 40px);
+  border: 1px solid #253c61;
+  border-radius: 28px;
+  background: radial-gradient(ellipse at 57% 54%, #154ea7, #101f3a 62%, #0b1425 100%);
+  box-shadow: 0 24px 90px #02091899;
+}
+.hero-orbit {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.hero-orbit span {
+  display: grid;
+  place-items: center;
+  width: 62%;
+  aspect-ratio: 1;
+  border: 1px solid #599cff70;
+  border-radius: 50%;
+  background: radial-gradient(circle at 65% 20%, #195ab0, #0a1a35 75%);
+  box-shadow: 0 0 0 15px #5691ff13, 0 0 0 35px #5691ff0b, 0 0 64px #2377fd66;
+  color: #d5e9ff;
+  font-size: clamp(4rem, 9vw, 8.3rem);
+  font-weight: 850;
+  letter-spacing: -.09em;
+  text-indent: -.09em;
+  text-shadow: 0 0 35px #338bff90;
+}
+.hero-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  justify-content: space-between;
+  align-content: space-between;
+  gap: 0 10px;
+  min-height: 355px;
+  margin: 0;
+}
+.hero-results > div {
+  display: flex;
+  flex-direction: column-reverse;
+  align-self: start;
+  padding: 12px 16px;
+  border: 1px solid #5b93e573;
+  border-radius: 14px;
+  background: linear-gradient(140deg, #142540f5, #12366ceb);
+  box-shadow: 0 12px 36px #020b1a75;
+}
+.hero-results > div:nth-child(2), .hero-results > div:nth-child(3) {
+  transform: translateY(22px);
+}
+.hero-results dd {
+  margin: 0;
+  color: #f4f8ff;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-weight: 750;
+  line-height: 1.15;
+}
+.hero-results dt { margin-top: 5px; color: #c4d6ef; font-size: .78rem; }
+.expertise h2 { margin-top: 0; }
+.expertise-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.expertise-grid article {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(16px, 2vw, 28px);
+  border: 1px solid #2b4166;
+  border-radius: 20px;
+  background: linear-gradient(155deg, #12213c, #0c1322 72%);
+}
+.expertise-graphic {
+  display: grid;
+  place-items: center;
+  min-height: 115px;
+  margin-bottom: 21px;
+  border: 1px solid #345b984f;
+  border-radius: 13px;
+  background:
+    radial-gradient(ellipse, #16468a88, transparent 72%),
+    repeating-linear-gradient(0deg, transparent 0 23px, #538cea14 23px 24px),
+    repeating-linear-gradient(90deg, transparent 0 23px, #538cea14 23px 24px);
+  color: #90c2ff;
+}
+.expertise-graphic span {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #568de1;
+  border-radius: 14px;
+  font-size: 2rem;
+  background: #112b55;
+  box-shadow: 0 0 26px #287bff55;
+}
+.expertise-grid a {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 7px 0;
+  color: #91c4ff;
+  font-weight: 700;
+}
+.expertise-grid a:hover { text-decoration: underline; }
+.workflow-preview { margin-top: 22px; }
+.workflow-preview summary { color: #91c4ff; cursor: pointer; font-weight: 700; }
+.workflow-preview .engine { margin: 16px 0 0; max-width: 540px; }
+@media (max-width: 1050px) {
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .hero-visual { width: min(100%, 600px); }
+}
+@media (max-width: 650px) {
+  .site-header .nav { flex-wrap: nowrap; }
+  .hero { gap: 28px; }
+  .hero-visual { min-height: 310px; padding: 14px; }
+  .hero-results { min-height: 255px; }
+  .hero-results > div { padding: 8px 10px; }
+  .hero-results > div:nth-child(2), .hero-results > div:nth-child(3) { transform: translateY(10px); }
+  .hero-results dt { font-size: .72rem; }
+  .expertise-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 <div class="container">
@@ -1480,118 +1634,50 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
 <!-- =================================
      HERO SECTION
 ================================== -->
-<section class="hero">
-<div class="hero-copy">
-<div class="top-pill">●  BERLIN · BUSINESS OPERATIONS × AUTOMATION</div>
-<h1>Turning complexity into <span class="accent">scalable operations.</span></h1>
-<p>
-      I'm Viswanathan Selvaraj, a Berlin-based
-      Business Operations and Retail Management
-      professional with 6+ years of experience.
-    </p>
-<p>
-      I combine operational leadership,
-      commercial performance improvement,
-      Power BI analytics, and practical
-      AI automation to build more
-      efficient business processes.
-    </p>
-<div class="hero-skills">
-      Retail &amp; Workplace Operations
-      <span>✦</span>
-      Business Development
-      <span>✦</span>
-      AI &amp; Power BI
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="hero-intro">Viswanathan Selvaraj <span>· Berlin</span></p>
+    <h1 id="hero-title">Building smarter operations.<br/><span class="accent">Delivering measurable results.</span></h1>
+    <p>I'm a business operations and retail management professional. I use Power BI and AI automation to improve the processes that teams rely on every day.</p>
+    <div class="buttons">
+      <a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+      <a class="btn btn-outline" href="automation-hub.html">Automation Hub <span aria-hidden="true">→</span></a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/" rel="noopener noreferrer" target="_blank">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
     </div>
-<div class="buttons"><a class="btn btn-primary" href="#projects">Explore my work ↗</a><a class="btn btn-outline" href="automation-hub.html">Automation Hub →</a><a class="btn btn-outline" href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/" rel="noopener noreferrer" target="_blank">Connect on LinkedIn ↗</a></div>
-</div>
-<!-- AUTOMATION ENGINE -->
-<div aria-label="Illustrative automation workflow" class="engine">
-<div class="engine-top">
-<div class="engine-top-left">
-<div aria-hidden="true" class="window-dots">
-<span></span>
-<span></span>
-<span></span>
-</div>
-<span class="engine-mini-label">OPERATIONS → INTELLIGENCE</span>
-</div>
-<span class="engine-title">AUTOMATION ENGINE</span>
-<span aria-hidden="true" class="engine-status">◉</span>
-</div>
-<div class="engine-body">
-<div class="engine-node">
-<div class="engine-num">01</div>
-<div>
-<strong>Data Collection</strong>
-<small>
-            APIs · Sources · Operational Inputs
-          </small>
-</div>
-</div>
-<div aria-hidden="true" class="engine-line"></div>
-<div class="engine-node">
-<div class="engine-num">02</div>
-<div>
-<strong>Intelligent Processing</strong>
-<small>
-            AI Models · Logic · Data Transformation
-          </small>
-</div>
-</div>
-<div aria-hidden="true" class="engine-line"></div>
-<div class="engine-node">
-<div class="engine-num">03</div>
-<div>
-<strong>Automated Execution</strong>
-<small>
-            n8n · Python · Integrated Services
-          </small>
-</div>
-</div>
-<div aria-hidden="true" class="engine-line"></div>
-<div class="engine-node">
-<div class="engine-num">04</div>
-<div>
-<strong>Measurable Outcomes</strong>
-<small>
-            Content · Reports · Business Insights
-          </small>
-</div>
-</div>
-<div class="engine-bottom">
-<span>SYSTEM ARCHITECTURE</span>
-<strong>DESIGNED FOR AUTOMATION</strong>
-</div>
-</div>
-</div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-orbit" aria-hidden="true"><span>VS</span></div>
+    <dl class="hero-results" aria-label="Professional achievements">
+      <div><dt>Operations experience</dt><dd>6+ years</dd></div>
+      <div><dt>Retail sales growth</dt><dd>+30%</dd></div>
+      <div><dt>Operating expenses</dt><dd>−15%</dd></div>
+      <div><dt>Client portfolio growth</dt><dd>+40%</dd></div>
+    </dl>
+  </div>
 </section>
-<!-- =================================
-     PROFESSIONAL ACHIEVEMENTS
-================================== -->
-<div aria-label="Professional achievements" class="metrics">
-<div class="metric">
-<strong>6+ Years</strong>
-<span>
-      Operations, retail and business
-      leadership experience
-    </span>
-</div>
-<div class="metric">
-<strong>+30% Sales</strong>
-<span>
-      Retail sales growth achieved
-      through store management
-    </span>
-</div>
-<div class="metric">
-<strong>−15% OpEx</strong>
-<span>
-      Operating expense reduction
-      through vendor negotiations
-    </span>
-</div>
-</div>
+<section class="expertise" aria-labelledby="expertise-title">
+  <h2 id="expertise-title">Areas of expertise</h2>
+  <div class="expertise-grid">
+    <article>
+      <div class="expertise-graphic" aria-hidden="true"><span>▥</span></div>
+      <h3>Retail &amp; Business Operations</h3>
+      <p>Store and facility management, team leadership, inventory planning, and vendor coordination.</p>
+      <a href="#experience">See experience <span aria-hidden="true">→</span></a>
+    </article>
+    <article>
+      <div class="expertise-graphic" aria-hidden="true"><span>↗</span></div>
+      <h3>Business Development</h3>
+      <p>B2B client acquisition, market research, relationship management, and contract negotiation.</p>
+      <a href="#results">See results <span aria-hidden="true">→</span></a>
+    </article>
+    <article>
+      <div class="expertise-graphic" aria-hidden="true"><span>⌘</span></div>
+      <h3>AI Automation &amp; Analytics</h3>
+      <p>Workflow automation with n8n and Python, API integrations, and Power BI reporting.</p>
+      <a href="#projects">See projects <span aria-hidden="true">→</span></a>
+    </article>
+  </div>
+</section>
 <!-- =================================
      ABOUT ME
 ================================== -->
@@ -2091,6 +2177,68 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
 </div>
 <div class="showcase-bottom"><span class="signal-dot"></span> Project architecture showcase · No live production metrics or private access exposed <a href="automation-hub.html">View all systems →</a></div>
 </div>
+<details class="workflow-preview">
+<summary>View the automation workflow</summary>
+<div aria-label="Illustrative automation workflow" class="engine">
+<div class="engine-top">
+<div class="engine-top-left">
+<div aria-hidden="true" class="window-dots">
+<span></span>
+<span></span>
+<span></span>
+</div>
+<span class="engine-mini-label">OPERATIONS → INTELLIGENCE</span>
+</div>
+<span class="engine-title">AUTOMATION ENGINE</span>
+<span aria-hidden="true" class="engine-status">◉</span>
+</div>
+<div class="engine-body">
+<div class="engine-node">
+<div class="engine-num">01</div>
+<div>
+<strong>Data Collection</strong>
+<small>
+            APIs · Sources · Operational Inputs
+          </small>
+</div>
+</div>
+<div aria-hidden="true" class="engine-line"></div>
+<div class="engine-node">
+<div class="engine-num">02</div>
+<div>
+<strong>Intelligent Processing</strong>
+<small>
+            AI Models · Logic · Data Transformation
+          </small>
+</div>
+</div>
+<div aria-hidden="true" class="engine-line"></div>
+<div class="engine-node">
+<div class="engine-num">03</div>
+<div>
+<strong>Automated Execution</strong>
+<small>
+            n8n · Python · Integrated Services
+          </small>
+</div>
+</div>
+<div aria-hidden="true" class="engine-line"></div>
+<div class="engine-node">
+<div class="engine-num">04</div>
+<div>
+<strong>Measurable Outcomes</strong>
+<small>
+            Content · Reports · Business Insights
+          </small>
+</div>
+</div>
+<div class="engine-bottom">
+<span>SYSTEM ARCHITECTURE</span>
+<strong>DESIGNED FOR AUTOMATION</strong>
+</div>
+</div>
+</div>
+</details>
 </section><section class="section" id="technology">
 <div class="section-heading">
 <div class="eyebrow">05 / Technology &amp; Skills</div>
