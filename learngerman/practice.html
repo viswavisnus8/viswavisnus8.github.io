@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#091526">
-<title>Schreiben &amp; Hören Practice | LearnGerman</title>
-<meta name="description" content="Practise German writing and listening with 12 email prompts and model answers, plus 20 dialogues with questions and transcripts.">
+<title>Schreiben, Hören &amp; Lesen Practice | LearnGerman</title>
+<meta name="description" content="Practise German writing and listening with 12 email prompts and model answers, 20 dialogues with transcripts, and 12 reading exercises.">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <script defer src="../assets/analytics.js"></script>
 <style>
@@ -33,6 +33,7 @@ textarea{display:block;width:100%;padding:10px;margin:4px 0 14px;resize:vertical
 .answer{border:1px solid var(--line);border-radius:8px;background:#0e1c2f;margin-top:12px}
 .answer .model{padding:0 15px}
 audio{display:block;width:min(100%,420px);margin:14px 0}
+.passage{margin:14px 0;padding:12px 15px;border-left:3px solid var(--mint);background:#0e1c2f}
 fieldset{min-width:0;padding:0;border:0;margin:0 0 12px}
 legend{font-weight:700;padding:0}
 .choice{padding:6px 0;cursor:pointer}
@@ -46,8 +47,8 @@ footer{padding:18px 0 34px;border-top:1px solid var(--line)}
 </style>
 </head>
 <body><div class="wrap">
-<header><a class="brand" href="./">← LearnGerman</a><nav aria-label="Practice sections"><a href="#schreiben" lang="de">Schreiben</a><a href="#hoeren" lang="de">Hören</a></nav></header>
-<main><div class="hero"><h1><span lang="de">Schreiben &amp; Hören</span> Practice</h1><p class="intro">Work through short listening exercises and practise everyday emails for DTZ preparation.</p></div>
+<header><a class="brand" href="./">← LearnGerman</a><nav aria-label="Practice sections"><a href="#schreiben" lang="de">Schreiben</a><a href="#hoeren" lang="de">Hören</a><a href="#lesen" lang="de">Lesen</a></nav></header>
+<main><div class="hero"><h1><span lang="de">Schreiben &amp; Hören</span> Practice</h1><p class="intro">Practise everyday emails, listening dialogues, and short German texts for DTZ preparation.</p></div>
 <section id="schreiben" aria-labelledby="write-heading">
 <h2 id="write-heading" lang="de">Schreiben</h2><p class="intro">Choose one of 12 tasks. Write an email that covers all four points, then open the model answer. Check your greeting, closing, and word order after <em lang="de">weil</em> or <em lang="de">dass</em>.</p>
 <details class="task"><summary>1. Termin beim Bürgeramt verschieben</summary><div class="content">
@@ -293,7 +294,96 @@ footer{padding:18px 0 34px;border-top:1px solid var(--line)}
 </fieldset><div class="actions"><button type="submit">Antwort prüfen</button><button type="reset" class="secondary">Zurücksetzen</button></div><p class="feedback" role="status"></p></form>
 <details class="answer"><summary>Show transcript</summary><ol lang="de"><li>Was machen wir am Wochenende?</li><li>Wir können im Park spazieren gehen.</li><li>Gute Idee! Treffen wir uns um drei Uhr?</li><li>Ja, um drei am Eingang.</li></ol></details>
 </div></details>
-</section></main>
+</section>
+<section id="lesen" aria-labelledby="reading-heading">
+<h2 id="reading-heading" lang="de">Lesen</h2>
+<p class="intro">Read a short German notice, email, or message. Choose the best answer and check the explanation.</p>
+<details class="task"><summary lang="de">1. Bürgeramt</summary><div class="content" lang="de"><blockquote class="passage">Wegen einer internen Fortbildung öffnet das Bürgeramt am Mittwoch erst um 11 Uhr. Bereits gebuchte Termine zwischen 8 und 11 Uhr werden automatisch verschoben. Betroffene erhalten den neuen Termin per E-Mail.</blockquote>
+<form data-answer="0" data-explanation="Wer einen frühen Termin hat, bekommt automatisch einen neuen Termin per E-Mail."><fieldset><legend>Sie haben am Mittwoch um 9 Uhr einen Termin. Was müssen Sie tun?</legend>
+<label class="choice"><input type="radio" name="answer" value="0"> Auf die E-Mail warten</label>
+<label class="choice"><input type="radio" name="answer" value="1"> Um 11 Uhr vor Ort sein</label>
+<label class="choice"><input type="radio" name="answer" value="2"> Selbst sofort einen neuen Termin buchen</label>
+</fieldset><div class="actions"><button type="submit">Antwort prüfen</button><button type="reset" class="secondary">Zurücksetzen</button></div><p class="feedback" role="status"></p></form>
+</div></details>
+<details class="task"><summary lang="de">2. Hausverwaltung</summary><div class="content" lang="de"><blockquote class="passage">Am Montag wird das Wasser im gesamten Haus von 9 bis 12 Uhr abgestellt. Bitte füllen Sie vorher ausreichend Trinkwasser ab. Die Arbeiten betreffen sowohl das kalte als auch das warme Wasser.</blockquote>
+<form data-answer="1" data-explanation="Sowohl … als auch bedeutet, dass beide Wasserleitungen betroffen sind."><fieldset><legend>Was gilt am Montagvormittag?</legend>
+<label class="choice"><input type="radio" name="answer" value="0"> Die Arbeiten betreffen nur das Erdgeschoss.</label>
+<label class="choice"><input type="radio" name="answer" value="1"> Es gibt zeitweise weder kaltes noch warmes Wasser.</label>
+<label class="choice"><input type="radio" name="answer" value="2"> Nur das warme Wasser wird abgestellt.</label>
+</fieldset><div class="actions"><button type="submit">Antwort prüfen</button><button type="reset" class="secondary">Zurücksetzen</button></div><p class="feedback" role="status"></p></form>
+</div></details>
+<details class="task"><summary lang="de">3. Deutschkurs</summary><div class="content" lang="de"><blockquote class="passage">Liebe Kursteilnehmende, unsere Lehrerin ist am Donnerstag auf einer Fortbildung. Der Unterricht fällt deshalb nicht aus. Herr Becker übernimmt die Stunde. Wir treffen uns wie gewohnt um 18 Uhr, diesmal aber in Raum 204.</blockquote>
+<form data-answer="2" data-explanation="Wie gewohnt bedeutet, dass die Uhrzeit gleich bleibt. Herr Becker unterrichtet in Raum 204."><fieldset><legend>Was ändert sich am Donnerstag?</legend>
+<label class="choice"><input type="radio" name="answer" value="0"> Die Uhrzeit und der Raum</label>
+<label class="choice"><input type="radio" name="answer" value="1"> Der Unterrichtstag und die Uhrzeit</label>
+<label class="choice"><input type="radio" name="answer" value="2"> Die Lehrkraft und der Raum</label>
+</fieldset><div class="actions"><button type="submit">Antwort prüfen</button><button type="reset" class="secondary">Zurücksetzen</button></div><p class="feedback" role="status"></p></form>
+</div></details>
+<details class="task"><summary lang="de">4. Zugfahrt</summary><div class="content" lang="de"><blockquote class="passage">Der Regionalzug nach Potsdam fährt heute wegen Bauarbeiten nur bis Wannsee. Von dort bringt Sie ein Ersatzbus nach Potsdam. Ihre Fahrkarte gilt auch im Bus.</blockquote>
+<form data-answer="1" data-explanation="Von dort bezieht sich auf Wannsee. Die vorhandene Fahrkarte gilt im Bus."><fieldset><legend>Wie kommen Fahrgäste heute von Wannsee nach Potsdam?</legend>
+<label class="choice"><input type="radio" name="answer" value="0"> Mit einem Bus, für den sie eine neue Fahrkarte brauchen</label>
+<label class="choice"><input type="radio" name="answer" value="1"> Mit einem Ersatzbus und derselben Fahrkarte</label>
+<label class="choice"><input type="radio" name="answer" value="2"> Mit dem Regionalzug ab Wannsee</label>
+</fieldset><div class="actions"><button type="submit">Antwort prüfen</button><button type="reset" class="secondary">Zurücksetzen</button></div><p class="feedback" role="status"></p></form>
+</div></details>
+<details class="task"><summary lang="de">5. Schichtplan</summary><div class="content" lang="de"><blockquote class="passage">Hallo Nina, ich kann am Samstag deine Frühschicht übernehmen, wenn du dafür am Montag meine Spätschicht machst. Bitte sag mir bis Freitagmittag Bescheid, damit ich den Tausch noch mit der Filialleitung klären kann.</blockquote>
+<form data-answer="2" data-explanation="Bescheid sagen bedeutet hier, auf den Vorschlag zu antworten."><fieldset><legend>Was soll Nina bis Freitagmittag tun?</legend>
+<label class="choice"><input type="radio" name="answer" value="0"> Die Frühschicht am Samstag übernehmen</label>
+<label class="choice"><input type="radio" name="answer" value="1"> Den Tausch selbst bei der Filialleitung melden</label>
+<label class="choice"><input type="radio" name="answer" value="2"> Auf den Vorschlag antworten</label>
+</fieldset><div class="actions"><button type="submit">Antwort prüfen</button><button type="reset" class="secondary">Zurücksetzen</button></div><p class="feedback" role="status"></p></form>
+</div></details>
+<details class="task"><summary lang="de">6. Paketabholung</summary><div class="content" lang="de"><blockquote class="passage">Ihr Paket liegt ab Dienstag in der Filiale am Marktplatz. Es wird dort bis einschließlich Samstag aufbewahrt. Zur Abholung bringen Sie bitte Ihren Ausweis und diese Nachricht mit.</blockquote>
+<form data-answer="0" data-explanation="Bis einschließlich Samstag bedeutet, dass der Samstag mitgezählt wird."><fieldset><legend>Können Sie das Paket am Samstag noch abholen?</legend>
+<label class="choice"><input type="radio" name="answer" value="0"> Ja, wenn Sie Ihren Ausweis und die Nachricht mitbringen.</label>
+<label class="choice"><input type="radio" name="answer" value="1"> Nein, der letzte Tag ist Freitag.</label>
+<label class="choice"><input type="radio" name="answer" value="2"> Ja, Sie brauchen dafür nur Ihren Ausweis.</label>
+</fieldset><div class="actions"><button type="submit">Antwort prüfen</button><button type="reset" class="secondary">Zurücksetzen</button></div><p class="feedback" role="status"></p></form>
+</div></details>
+<details class="task"><summary lang="de">7. Bibliothek</summary><div class="content" lang="de"><blockquote class="passage">Die Rückgabebox neben dem Haupteingang ist rund um die Uhr geöffnet. CDs und Spiele dürfen jedoch nur am Schalter zurückgegeben werden. Der Schalter schließt werktags um 18 Uhr.</blockquote>
+<form data-answer="2" data-explanation="Spiele müssen an den Schalter. Nach 18 Uhr ist er werktags geschlossen."><fieldset><legend>Sie möchten um 20 Uhr ein Spiel zurückgeben. Was gilt?</legend>
+<label class="choice"><input type="radio" name="answer" value="0"> Sie können das Spiel in die Rückgabebox legen.</label>
+<label class="choice"><input type="radio" name="answer" value="1"> Sie können das Spiel werktags bis 20 Uhr am Schalter abgeben.</label>
+<label class="choice"><input type="radio" name="answer" value="2"> Sie müssen bis zur nächsten Öffnung des Schalters warten.</label>
+</fieldset><div class="actions"><button type="submit">Antwort prüfen</button><button type="reset" class="secondary">Zurücksetzen</button></div><p class="feedback" role="status"></p></form>
+</div></details>
+<details class="task"><summary lang="de">8. Anmeldung zum Schwimmkurs</summary><div class="content" lang="de"><blockquote class="passage">Für den Abendkurs gibt es noch freie Plätze. Bitte melden Sie sich bis zum 5. Mai online an. Die Kursgebühr zahlen Sie erst am ersten Kurstag vor Ort. Eine Überweisung vor Kursbeginn ist nicht nötig.</blockquote>
+<form data-answer="0" data-explanation="Der 5. Mai ist die Frist für die Anmeldung. Bezahlt wird erst am ersten Kurstag."><fieldset><legend>Wann bezahlen Sie den Kurs?</legend>
+<label class="choice"><input type="radio" name="answer" value="0"> Am ersten Kurstag</label>
+<label class="choice"><input type="radio" name="answer" value="1"> Bei der Online-Anmeldung</label>
+<label class="choice"><input type="radio" name="answer" value="2"> Spätestens am 5. Mai per Überweisung</label>
+</fieldset><div class="actions"><button type="submit">Antwort prüfen</button><button type="reset" class="secondary">Zurücksetzen</button></div><p class="feedback" role="status"></p></form>
+</div></details>
+<details class="task"><summary lang="de">9. Arztpraxis</summary><div class="content" lang="de"><blockquote class="passage">Am Freitag bleibt unsere Praxis geschlossen. In dringenden Fällen wenden Sie sich bitte an die Vertretung in der Gartenstraße. Rezepte, die Sie bis Donnerstag bestellt haben, können Sie ab Montag bei uns abholen.</blockquote>
+<form data-answer="1" data-explanation="Ab Montag nennt den frühesten Abholtag in der eigenen Praxis."><fieldset><legend>Sie haben am Donnerstag ein Rezept bestellt. Ab wann können Sie es bei Ihrer Praxis abholen?</legend>
+<label class="choice"><input type="radio" name="answer" value="0"> Ab Donnerstag</label>
+<label class="choice"><input type="radio" name="answer" value="1"> Ab Montag</label>
+<label class="choice"><input type="radio" name="answer" value="2"> Ab Freitag</label>
+</fieldset><div class="actions"><button type="submit">Antwort prüfen</button><button type="reset" class="secondary">Zurücksetzen</button></div><p class="feedback" role="status"></p></form>
+</div></details>
+<details class="task"><summary lang="de">10. Elternabend</summary><div class="content" lang="de"><blockquote class="passage">Der Elternabend findet am Dienstag um 19 Uhr statt. Bitte benutzen Sie den Seiteneingang, da der Haupteingang ab 18 Uhr geschlossen ist. Wenn Sie nicht teilnehmen können, schicken Sie Ihre Fragen vorher per E-Mail.</blockquote>
+<form data-answer="0" data-explanation="Der Haupteingang ist schon ab 18 Uhr geschlossen."><fieldset><legend>Welchen Eingang sollen Eltern um 19 Uhr benutzen?</legend>
+<label class="choice"><input type="radio" name="answer" value="0"> Den Seiteneingang</label>
+<label class="choice"><input type="radio" name="answer" value="1"> Den Haupteingang</label>
+<label class="choice"><input type="radio" name="answer" value="2"> Den Eingang zur Sporthalle</label>
+</fieldset><div class="actions"><button type="submit">Antwort prüfen</button><button type="reset" class="secondary">Zurücksetzen</button></div><p class="feedback" role="status"></p></form>
+</div></details>
+<details class="task"><summary lang="de">11. Gebrauchtes Fahrrad</summary><div class="content" lang="de"><blockquote class="passage">Ich verkaufe mein Stadtrad für 120 Euro. Die Beleuchtung funktioniert, aber der hintere Reifen muss gewechselt werden. Eine Probefahrt ist am Wochenende nach Absprache möglich.</blockquote>
+<form data-answer="1" data-explanation="Der Reifen muss gewechselt werden. Die Beleuchtung funktioniert bereits."><fieldset><legend>Was muss am Fahrrad repariert werden?</legend>
+<label class="choice"><input type="radio" name="answer" value="0"> Die Vorderbremse</label>
+<label class="choice"><input type="radio" name="answer" value="1"> Der hintere Reifen</label>
+<label class="choice"><input type="radio" name="answer" value="2"> Die Beleuchtung</label>
+</fieldset><div class="actions"><button type="submit">Antwort prüfen</button><button type="reset" class="secondary">Zurücksetzen</button></div><p class="feedback" role="status"></p></form>
+</div></details>
+<details class="task"><summary lang="de">12. Rechnung für den Sprachkurs</summary><div class="content" lang="de"><blockquote class="passage">Sie haben Ihre Kursgebühr bereits überwiesen. Wenn Sie trotzdem eine Zahlungserinnerung erhalten, schicken Sie uns bitte einen Nachweis über die Überweisung. Überweisen Sie den Betrag in diesem Fall nicht erneut.</blockquote>
+<form data-answer="2" data-explanation="Ein Überweisungsnachweis reicht hier aus. Die Gebühr wurde bereits bezahlt."><fieldset><legend>Was sollen Sie bei einer Zahlungserinnerung tun, wenn Sie schon bezahlt haben?</legend>
+<label class="choice"><input type="radio" name="answer" value="0"> Noch einmal überweisen</label>
+<label class="choice"><input type="radio" name="answer" value="1"> Den Kurs abmelden</label>
+<label class="choice"><input type="radio" name="answer" value="2"> Einen Nachweis schicken</label>
+</fieldset><div class="actions"><button type="submit">Antwort prüfen</button><button type="reset" class="secondary">Zurücksetzen</button></div><p class="feedback" role="status"></p></form>
+</div></details>
+</section>
+</main>
 <footer>For full exam practice, use the <a href="https://www.gast.de/de/forschung-entwicklung/entwicklung/auftraege/deutsch-test-fuer-zuwanderer-dtz/der-dtz-auf-einen-blick">official DTZ practice materials from g.a.s.t.</a></footer>
 </div>
 <script>
@@ -310,7 +400,9 @@ for (const task of document.querySelectorAll('.listening')) {
     }
   });
 
-  const form = task.querySelector('form');
+}
+
+for (const form of document.querySelectorAll('form[data-answer]')) {
   const feedback = form.querySelector('.feedback');
   form.addEventListener('submit', event => {
     event.preventDefault();
@@ -323,6 +415,7 @@ for (const task of document.querySelectorAll('.listening')) {
     feedback.textContent = choice.value === form.dataset.answer
       ? 'Richtig!'
       : 'Die richtige Antwort lautet: ' + correct;
+    if (form.dataset.explanation) feedback.textContent += ' ' + form.dataset.explanation;
   });
   form.addEventListener('reset', () => {
     feedback.textContent = '';
