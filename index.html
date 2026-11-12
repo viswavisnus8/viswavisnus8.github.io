@@ -74,7 +74,7 @@ a:focus-visible {
 }
 
 .container {
-  width: min(1200px, calc(100% - 40px));
+  width:calc(100% - clamp(32px, 5vw, 80px));
   margin: auto;
 }
 
@@ -1270,7 +1270,7 @@ html{scroll-padding-top:94px}
 /* Website 2.0 — hybrid portfolio + operations dashboard */
 :root{--bg:#090b12;--card:#111620;--card-light:#192131;--border:#29364d;--text:#f6f8fd;--muted:#9baabe;--teal:#5da5ff;--blue:#6aafff;--purple:#90a4ff;--gold:#d8b985}
 body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),radial-gradient(ellipse at 4% 38%,#1e315933,transparent 36%),#090b12;font-family:Inter,'Segoe UI',Arial,sans-serif}
-.container{width:min(1240px,calc(100% - 44px))}
+.container{width:calc(100% - clamp(32px, 5vw, 80px))}
 .site-header{position:sticky;z-index:50;top:12px;margin-top:14px;padding:13px 20px;min-height:68px;background:#141a26ed;border:1px solid #384860;border-radius:50px;box-shadow:0 15px 44px #03060c88;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 .logo{font-size:17px;letter-spacing:.9px}.nav{gap:17px}.nav a{font-size:12px}.nav .nav-contact{background:#146eea;color:white;padding:12px 17px;border-radius:22px;font-weight:700}.nav .nav-contact:hover{color:white;background:#348bff}
 .hero{min-height:660px;gap:46px;padding-top:45px;padding-bottom:40px}
@@ -1293,7 +1293,7 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
 ::selection{background:#2d7be7;color:#fff}a:focus-visible{outline-color:#70b2ff}
 
 /* 2026-11 layout refinement */
-.container{width:min(1440px,calc(100% - 56px))}
+.container{width:calc(100% - clamp(32px, 5vw, 80px))}
 .projects-grid{gap:22px;align-items:stretch}
 .project{display:flex;flex-direction:column;min-height:100%}
 .project-visual{height:218px;padding:16px 16px 14px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}

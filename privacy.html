@@ -26,9 +26,9 @@
       line-height: 1.8;
     }
     main {
-      max-width: 850px;
+      width: 100%;
       margin: 0 auto;
-      padding: 65px 24px;
+      padding: 65px clamp(16px, 2.5vw, 40px);
     }
     a { color: var(--accent); }
     h1 { font-size: 38px; line-height: 1.2; }
@@ -37,7 +37,7 @@
       margin-top: 38px;
       color: var(--accent);
     }
-    p, li { color: var(--muted); }
+    p, li { color: var(--muted); max-width: 78ch; }
     .panel {
       background: var(--panel);
       border: 1px solid var(--border);
