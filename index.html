@@ -1440,6 +1440,23 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
   #projects .video-phone { width: 96px; }
 }
 </style><script defer src="assets/analytics.js"></script>
+<style>
+.proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.proof-card{min-width:0;padding:24px;background:var(--card);border:1px solid var(--border);border-radius:16px}
+.proof-card h3{margin:0 0 10px;font-size:1.15rem}
+.proof-card p,.proof-card li{color:var(--muted)}
+.proof-card ul,.proof-card ol{padding-left:1.35rem}
+.proof-card li+li{margin-top:.4rem}
+.proof-metrics{display:flex;flex-wrap:wrap;gap:8px 15px}
+.proof-metrics strong,.proof-card summary{color:var(--blue)}
+.proof-card summary{cursor:pointer;font-weight:700}
+.proof-table{overflow-x:auto;margin-top:12px}
+.proof-table table{width:100%;border-collapse:collapse;font-size:.85rem}
+.proof-table caption{text-align:left;font-weight:700;padding-bottom:6px}
+.proof-table th,.proof-table td{padding:7px 8px;text-align:left;border-bottom:1px solid var(--border)}
+@media(max-width:1000px){.proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.proof-grid{grid-template-columns:1fr}.proof-card{padding:18px}}
+</style>
 </head>
 <body>
 <div class="container">
@@ -1453,7 +1470,7 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
 <nav aria-label="Main navigation" class="nav">
 <a href="#about">About</a>
 <a href="automation-hub.html">Automation Hub</a>
-<a href="library.html">Free Library</a><a href="learngerman/">LearnGerman</a><a href="#experience">Experience</a>
+<a href="library.html">Free Library</a><a href="learngerman/">LearnGerman</a><a href="#experience">Experience</a><a href="#results">Results</a>
 <a href="#projects">Projects</a>
 <a href="#technology">Technology</a>
 <a href="#contact">Contact</a>
@@ -1810,6 +1827,41 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
 <!-- =================================
      FEATURED PROJECTS
 ================================== -->
+<section class="section" id="results">
+  <div class="section-heading">
+    <h2>Operations <span class="accent">results.</span></h2>
+  </div>
+  <div class="proof-grid">
+    <article class="proof-card">
+      <h3>Sony Center · Sales and inventory</h3>
+      <p>Built Power BI dashboards to track sales and used inventory reporting to spot gaps in product availability. Managed store performance and led a team of more than 25 employees.</p>
+      <p class="proof-metrics"><strong>20% fewer stockouts</strong><strong>30% annual sales growth</strong></p>
+      <details><summary>View sample inventory dashboard</summary>
+        <p>Illustrative Power BI dashboard layout built with fictional retail data.</p>
+        <div class="proof-table"><table>
+          <caption>Example weekly stock review</caption>
+          <thead><tr><th scope="col">Category</th><th scope="col">Units in stock</th><th scope="col">Units sold</th><th scope="col">Reorder point</th><th scope="col">Next action</th></tr></thead>
+          <tbody><tr><th scope="row">Headphones</th><td>12</td><td>24</td><td>15</td><td>Reorder</td></tr>
+          <tr><th scope="row">Cameras</th><td>9</td><td>5</td><td>6</td><td>Monitor</td></tr>
+          <tr><th scope="row">Accessories</th><td>46</td><td>19</td><td>20</td><td>Monitor</td></tr></tbody>
+        </table></div>
+      </details>
+    </article>
+    <article class="proof-card">
+      <h3>Cultfit · Vendor costs and service</h3>
+      <p>Renegotiated supplier contracts and coordinated facility scheduling and service delivery. Tracked customer satisfaction alongside operating costs to monitor the service experience.</p>
+      <p class="proof-metrics"><strong>15% lower operating expenses</strong><strong>95%+ customer satisfaction</strong></p>
+    </article>
+    <article class="proof-card">
+      <h3>Sodexo · Workplace operations in Berlin</h3>
+      <p>Supports daily workplace readiness, coordinates supplies and equipment, and works with the facility team to maintain hygiene and safety standards.</p>
+      <details><summary>View sample site readiness checklist</summary>
+        <p>Example checklist for a fictional workplace.</p>
+        <ol><li>Check that shared spaces and meeting rooms are ready for use.</li><li>Confirm supply levels and flag items below the reorder point.</li><li>Record safety, hygiene, or equipment issues and assign a follow-up owner.</li><li>Hand over unresolved requests with the next action and due time.</li></ol>
+      </details>
+    </article>
+  </div>
+</section>
 <section class="section" id="projects">
 <div class="section-heading">
 <div class="eyebrow">03 / Featured Automation Projects</div>
@@ -2091,6 +2143,14 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
 <!-- =================================
      CONTACT
 ================================== -->
+<section class="section" id="credentials">
+  <div class="section-heading"><h2>Education and <span class="accent">credentials.</span></h2></div>
+  <div class="proof-grid">
+    <article class="proof-card"><h3>Education</h3><ul><li>MBA in General Management · SASTRA University</li><li>B.Sc. in Electronics &amp; Communication Systems · Bharathiar University</li></ul></article>
+    <article class="proof-card"><h3>Selected training</h3><ul><li>Google AI Professional Certificate</li><li>Google Project Management Professional</li><li>Microsoft Power BI Desktop training</li><li>Excel Skills for Business</li></ul></article>
+    <article class="proof-card"><h3>Languages</h3><ul><li>German · B1 coursework · preparing for B2</li><li>English · C1</li><li>Tamil · Native</li></ul></article>
+  </div>
+</section>
 <section class="section" id="contact">
 <div class="contact-panel">
 <div class="eyebrow">06 / Let's Connect</div>
