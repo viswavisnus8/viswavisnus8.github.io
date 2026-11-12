@@ -30,7 +30,7 @@ summary{cursor:pointer;padding:12px 15px;font-weight:700}
 .content{padding:4px 16px 16px}
 label{display:block}
 textarea{display:block;width:100%;padding:10px;margin:4px 0 14px;resize:vertical;border:1px solid #527185;border-radius:8px;background:var(--bg);color:var(--text);font:inherit}
-.answer{border:1px solid var(--line);border-radius:8px;background:#0e1c2f;margin-top:12px}
+.draft-status{color:var(--muted);font-size:.875rem;margin:-7px 0 12px}.draft-status:empty{display:none}.answer{border:1px solid var(--line);border-radius:8px;background:#0e1c2f;margin-top:12px}
 .answer .model{padding:0 15px}
 audio{display:block;width:min(100%,420px);margin:14px 0}
 .passage{margin:14px 0;padding:12px 15px;border-left:3px solid var(--mint);background:#0e1c2f}
@@ -53,62 +53,62 @@ footer{padding:18px 0 34px;border-top:1px solid var(--line)}
 <h2 id="write-heading" lang="de">Schreiben</h2><p class="intro">Choose one of 12 tasks. Write an email that covers all four points, then open the model answer. Check your greeting, closing, and word order after <em lang="de">weil</em> or <em lang="de">dass</em>.</p>
 <details class="task"><summary>1. Termin beim Bürgeramt verschieben</summary><div class="content">
 <p lang="de">Sie haben morgen um 10 Uhr einen Termin beim Bürgeramt. Sie müssen arbeiten.</p><ul lang="de"><li>Nennen Sie den bisherigen Termin.</li><li>Erklären Sie, warum Sie nicht kommen können.</li><li>Bitten Sie um einen neuen Termin.</li><li>Schlagen Sie eine passende Zeit vor.</li></ul>
-<label for="draft-1">Your draft</label><textarea id="draft-1" rows="6" lang="de" spellcheck="false"></textarea>
+<label for="draft-1">Your draft</label><textarea id="draft-1" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model" lang="de"><p>Sehr geehrte Damen und Herren,</p><p>ich habe morgen um 10 Uhr einen Termin bei Ihnen. Leider kann ich nicht kommen, weil ich arbeiten muss. Könnten Sie mir bitte einen neuen Termin anbieten? Nächste Woche kann ich am Dienstag oder Donnerstag ab 14 Uhr kommen. Vielen Dank für Ihre Hilfe.</p><p>Mit freundlichen Grüßen<br>Alex Müller</p></div></details>
 </div></details>
 <details class="task"><summary>2. Heizung funktioniert nicht</summary><div class="content">
 <p lang="de">In Ihrer Wohnung ist die Heizung seit gestern kalt. Schreiben Sie an die Hausverwaltung.</p><ul lang="de"><li>Beschreiben Sie das Problem.</li><li>Sagen Sie, seit wann es besteht.</li><li>Bitten Sie um eine Reparatur.</li><li>Sagen Sie, wann jemand in die Wohnung kommen kann.</li></ul>
-<label for="draft-2">Your draft</label><textarea id="draft-2" rows="6" lang="de" spellcheck="false"></textarea>
+<label for="draft-2">Your draft</label><textarea id="draft-2" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model" lang="de"><p>Sehr geehrte Damen und Herren,</p><p>seit gestern funktioniert die Heizung in meiner Wohnung nicht. Inzwischen ist es besonders im Wohnzimmer sehr kalt. Könnten Sie bitte so bald wie möglich jemanden zur Reparatur schicken? Am Mittwoch bin ich ab 15 Uhr zu Hause. Falls dieser Termin nicht passt, erreichen Sie mich per E-Mail.</p><p>Mit freundlichen Grüßen<br>Alex Müller</p></div></details>
 </div></details>
 <details class="task"><summary>3. Fehlen im Deutschkurs</summary><div class="content">
 <p lang="de">Sie können zwei Tage lang nicht zum Deutschkurs kommen. Schreiben Sie an Ihre Kursleiterin Frau Weber.</p><ul lang="de"><li>Nennen Sie die Tage.</li><li>Erklären Sie den Grund.</li><li>Fragen Sie nach den Aufgaben.</li><li>Sagen Sie, wann Sie wiederkommen.</li></ul>
-<label for="draft-3">Your draft</label><textarea id="draft-3" rows="6" lang="de" spellcheck="false"></textarea>
+<label for="draft-3">Your draft</label><textarea id="draft-3" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model" lang="de"><p>Sehr geehrte Frau Weber,</p><p>leider kann ich am Montag und Dienstag nicht zum Deutschkurs kommen, weil mein Kind krank ist. Ich muss an beiden Tagen zu Hause bleiben. Könnten Sie mir bitte die Hausaufgaben per E-Mail schicken? Wenn es meinem Kind besser geht, komme ich am Mittwoch wieder. Vielen Dank für Ihr Verständnis.</p><p>Mit freundlichen Grüßen<br>Alex Müller</p></div></details>
 </div></details>
 <details class="task"><summary>4. Falsche Lieferung</summary><div class="content">
 <p lang="de">Sie haben online einen schwarzen Rucksack bestellt. Geliefert wurde ein roter.</p><ul lang="de"><li>Nennen Sie das bestellte Produkt.</li><li>Beschreiben Sie den Fehler.</li><li>Sagen Sie, was Sie möchten.</li><li>Fragen Sie nach der Rücksendung.</li></ul>
-<label for="draft-4">Your draft</label><textarea id="draft-4" rows="6" lang="de" spellcheck="false"></textarea>
+<label for="draft-4">Your draft</label><textarea id="draft-4" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model" lang="de"><p>Sehr geehrte Damen und Herren,</p><p>vor einer Woche habe ich bei Ihnen einen schwarzen Rucksack bestellt. Heute ist das Paket angekommen, aber der Rucksack ist rot. Ich möchte den Rucksack deshalb gegen das schwarze Modell umtauschen. Bitte schicken Sie mir ein Rücksendeetikett und teilen Sie mir mit, wann ich mit der richtigen Lieferung rechnen kann. Vielen Dank.</p><p>Mit freundlichen Grüßen<br>Alex Müller</p></div></details>
 </div></details>
 <details class="task"><summary>5. Einladung absagen</summary><div class="content">
 <p lang="de">Ihr Freund Lukas hat Sie am Samstag zum Geburtstag eingeladen. Sie können nicht kommen.</p><ul lang="de"><li>Bedanken Sie sich für die Einladung.</li><li>Sagen Sie ab und nennen Sie den Grund.</li><li>Schlagen Sie ein Treffen vor.</li><li>Wünschen Sie ihm eine schöne Feier.</li></ul>
-<label for="draft-5">Your draft</label><textarea id="draft-5" rows="6" lang="de" spellcheck="false"></textarea>
+<label for="draft-5">Your draft</label><textarea id="draft-5" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model" lang="de"><p>Lieber Lukas,</p><p>danke für deine Einladung! Leider kann ich am Samstag nicht zu deiner Geburtstagsfeier kommen, weil ich arbeiten muss. Hast du am Sonntag Zeit für einen Kaffee? Ich würde dich gern treffen und dir persönlich gratulieren. Ich wünsche dir eine schöne Feier!</p><p>Viele Grüße<br>Alex Müller</p></div></details>
 </div></details>
 <details class="task"><summary>6. Informationen zum Sportkurs</summary><div class="content">
 <p lang="de">Sie möchten einen Schwimmkurs für Erwachsene besuchen. Schreiben Sie an das Schwimmbad.</p><ul lang="de"><li>Erklären Sie Ihr Interesse.</li><li>Fragen Sie nach Zeiten.</li><li>Fragen Sie nach dem Preis.</li><li>Fragen Sie, wie Sie sich anmelden können.</li></ul>
-<label for="draft-6">Your draft</label><textarea id="draft-6" rows="6" lang="de" spellcheck="false"></textarea>
+<label for="draft-6">Your draft</label><textarea id="draft-6" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model" lang="de"><p>Sehr geehrte Damen und Herren,</p><p>ich interessiere mich für Ihren Schwimmkurs für Erwachsene. Da ich tagsüber arbeite, suche ich einen Kurs am Abend. An welchen Tagen findet der nächste Kurs statt und wie viel kostet er? Könnten Sie mir bitte auch sagen, ob ich mich online anmelden kann? Vielen Dank im Voraus.</p><p>Mit freundlichen Grüßen<br>Alex Müller</p></div></details>
 </div></details>
 <details class="task"><summary>7. Schicht tauschen</summary><div class="content">
 <p lang="de">Sie haben am Freitag einen wichtigen privaten Termin. Fragen Sie Ihre Kollegin Nina nach einem Schichttausch.</p><ul lang="de"><li>Nennen Sie Ihre Schicht.</li><li>Erklären Sie, warum Sie tauschen möchten.</li><li>Machen Sie ein konkretes Angebot.</li><li>Bitten Sie um eine Antwort.</li></ul>
-<label for="draft-7">Your draft</label><textarea id="draft-7" rows="6" lang="de" spellcheck="false"></textarea>
+<label for="draft-7">Your draft</label><textarea id="draft-7" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model" lang="de"><p>Hallo Nina,</p><p>ich habe am Freitag die Spätschicht, aber an diesem Nachmittag habe ich einen wichtigen Termin. Könntest du vielleicht meine Schicht übernehmen? Dafür könnte ich am Samstag für dich arbeiten. Sag mir bitte bis Mittwoch Bescheid, damit ich den Schichttausch mit unserer Chefin klären kann. Danke für deine Hilfe!</p><p>Viele Grüße<br>Alex Müller</p></div></details>
 </div></details>
 <details class="task"><summary>8. Kind in der Schule entschuldigen</summary><div class="content">
 <p lang="de">Ihre Tochter kann wegen Krankheit nicht zur Schule kommen. Schreiben Sie an ihren Lehrer Herrn Bauer.</p><ul lang="de"><li>Nennen Sie den Namen Ihres Kindes.</li><li>Erklären Sie den Grund für das Fehlen.</li><li>Sagen Sie, wie lange Ihr Kind voraussichtlich fehlt.</li><li>Fragen Sie nach den Aufgaben.</li></ul>
-<label for="draft-8">Your draft</label><textarea id="draft-8" rows="6" lang="de" spellcheck="false"></textarea>
+<label for="draft-8">Your draft</label><textarea id="draft-8" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model" lang="de"><p>Sehr geehrter Herr Bauer,</p><p>meine Tochter Lea Bauer aus der Klasse 4b kann heute nicht zur Schule kommen, weil sie Fieber hat. Voraussichtlich bleibt sie bis Mittwoch zu Hause. Könnten Sie mir bitte sagen, welche Aufgaben sie nachholen soll? Falls sie länger krank bleibt, melde ich mich noch einmal. Vielen Dank.</p><p>Mit freundlichen Grüßen<br>Alex Müller</p></div></details>
 </div></details>
 <details class="task"><summary>9. Tasche im Bus verloren</summary><div class="content">
 <p lang="de">Sie haben Ihre Tasche im Bus vergessen. Schreiben Sie an das Fundbüro.</p><ul lang="de"><li>Nennen Sie Linie, Tag und Uhrzeit.</li><li>Beschreiben Sie die Tasche.</li><li>Nennen Sie den Inhalt.</li><li>Fragen Sie nach der Abholung.</li></ul>
-<label for="draft-9">Your draft</label><textarea id="draft-9" rows="6" lang="de" spellcheck="false"></textarea>
+<label for="draft-9">Your draft</label><textarea id="draft-9" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model" lang="de"><p>Sehr geehrte Damen und Herren,</p><p>gestern gegen 17 Uhr habe ich im Bus der Linie M29 eine Tasche liegen lassen. Sie ist dunkelblau und hat einen roten Anhänger. In der Tasche waren ein Regenschirm und ein Buch. Können Sie bitte nachsehen, ob jemand die Tasche abgegeben hat? Falls sie bei Ihnen ist, teilen Sie mir bitte mit, wann ich sie abholen kann.</p><p>Mit freundlichen Grüßen<br>Alex Müller</p></div></details>
 </div></details>
 <details class="task"><summary>10. Frage zur Nebenkostenabrechnung</summary><div class="content">
 <p lang="de">Ihre Nebenkostenabrechnung ist höher als im Vorjahr. Schreiben Sie an die Hausverwaltung.</p><ul lang="de"><li>Nennen Sie den Grund Ihrer Nachricht.</li><li>Sagen Sie, welche Position unklar ist.</li><li>Bitten Sie um eine Erklärung.</li><li>Fragen Sie nach einem Gesprächstermin.</li></ul>
-<label for="draft-10">Your draft</label><textarea id="draft-10" rows="6" lang="de" spellcheck="false"></textarea>
+<label for="draft-10">Your draft</label><textarea id="draft-10" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model" lang="de"><p>Sehr geehrte Damen und Herren,</p><p>ich habe die Nebenkostenabrechnung für meine Wohnung erhalten. Die Heizkosten sind deutlich höher als im letzten Jahr. Da ich die Berechnung nicht verstehe, bitte ich Sie um eine kurze Erklärung. Wäre es möglich, die Abrechnung gemeinsam zu besprechen? Am Donnerstag hätte ich ab 16 Uhr Zeit.</p><p>Mit freundlichen Grüßen<br>Alex Müller</p></div></details>
 </div></details>
 <details class="task"><summary>11. Nachbarn um Rücksicht bitten</summary><div class="content">
 <p lang="de">In der Nachbarwohnung läuft spät abends laute Musik. Schreiben Sie Ihren Nachbarn eine Nachricht.</p><ul lang="de"><li>Beschreiben Sie die Situation.</li><li>Erklären Sie, wie sie Sie betrifft.</li><li>Bitten Sie freundlich um eine Änderung.</li><li>Bieten Sie ein Gespräch an.</li></ul>
-<label for="draft-11">Your draft</label><textarea id="draft-11" rows="6" lang="de" spellcheck="false"></textarea>
+<label for="draft-11">Your draft</label><textarea id="draft-11" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model" lang="de"><p>Hallo zusammen,</p><p>in den letzten Tagen war die Musik in eurer Wohnung nach 22 Uhr noch sehr laut. Da ich früh aufstehen muss, kann ich dann nur schwer einschlafen. Könntet ihr die Musik abends bitte etwas leiser stellen? Wenn ihr darüber sprechen möchtet, könnt ihr gern bei mir klingeln. Vielen Dank!</p><p>Viele Grüße<br>Alex Müller</p></div></details>
 </div></details>
 <details class="task"><summary>12. Praktikum anfragen</summary><div class="content">
 <p lang="de">Sie möchten in einem Geschäft ein Praktikum machen. Schreiben Sie an die Filialleitung.</p><ul lang="de"><li>Sagen Sie, warum Sie schreiben.</li><li>Nennen Sie den gewünschten Zeitraum.</li><li>Erklären Sie Ihr Interesse.</li><li>Fragen Sie nach den nächsten Schritten.</li></ul>
-<label for="draft-12">Your draft</label><textarea id="draft-12" rows="6" lang="de" spellcheck="false"></textarea>
+<label for="draft-12">Your draft</label><textarea id="draft-12" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model" lang="de"><p>Sehr geehrte Damen und Herren,</p><p>ich möchte mich erkundigen, ob ich in Ihrer Filiale ein zweiwöchiges Praktikum machen kann. Ich hätte im Mai Zeit und interessiere mich besonders für die Arbeit im Verkauf. Ich arbeite gern mit Menschen und möchte mehr über den Alltag in einem Geschäft lernen. Könnten Sie mir bitte sagen, ob ein Praktikum möglich ist und welche Unterlagen Sie brauchen? Vielen Dank für Ihre Rückmeldung.</p><p>Mit freundlichen Grüßen<br>Alex Müller</p></div></details>
 </div></details>
 </section>
@@ -389,7 +389,7 @@ footer{padding:18px 0 34px;border-top:1px solid var(--line)}
 <details class="task"><summary lang="de">1. Einen Termin verschieben</summary><div class="content">
 <h3 lang="de">Lesen</h3><blockquote class="passage" lang="de">Guten Tag, Ihr Termin am Mittwoch findet um 9 Uhr statt. Falls Sie nicht kommen können, schreiben Sie uns bitte bis Dienstagmittag. Am Freitag haben wir noch Termine frei.</blockquote><p lang="de">Bis wann sollen Sie antworten?</p>
 <details class="answer"><summary>Show reading answer</summary><div class="model"><p lang="de">Bis Dienstagmittag.</p></div></details>
-<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie 4–5 Sätze an das Büro. Nennen Sie den alten Termin, erklären Sie Ihre Absage und fragen Sie nach einem Termin am Freitag.</p><label for="a2-draft-1">Your draft</label><textarea id="a2-draft-1" rows="6" lang="de" spellcheck="false"></textarea>
+<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie 4–5 Sätze an das Büro. Nennen Sie den alten Termin, erklären Sie Ihre Absage und fragen Sie nach einem Termin am Freitag.</p><label for="a2-draft-1">Your draft</label><textarea id="a2-draft-1" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model"><p lang="de">Guten Tag,<br>ich habe am Mittwoch um 9 Uhr einen Termin bei Ihnen. Leider kann ich nicht kommen, weil ich arbeiten muss. Kann ich stattdessen am Freitag einen Termin bekommen? Am Vormittag habe ich Zeit. Vielen Dank!<br>Mit freundlichen Grüßen<br>Alex Müller</p></div></details>
 <h3 lang="de">Sprechen</h3><p lang="de">Rufen Sie an. Nennen Sie den alten Termin und fragen Sie nach einer neuen Uhrzeit.</p>
 <p><strong>Grammar tip</strong><br>weil sends the conjugated verb to the end. „… weil ich arbeiten muss.“</p>
@@ -397,7 +397,7 @@ footer{padding:18px 0 34px;border-top:1px solid var(--line)}
 <details class="task"><summary lang="de">2. Eine Wohnung besichtigen</summary><div class="content">
 <h3 lang="de">Lesen</h3><blockquote class="passage" lang="de">Die Besichtigung findet am Donnerstag um 17 Uhr statt. Bitte warten Sie vor dem Haus. Wenn Sie später kommen, rufen Sie uns an.</blockquote><p lang="de">Was sollen Sie tun, wenn Sie sich verspäten?</p>
 <details class="answer"><summary>Show reading answer</summary><div class="model"><p lang="de">Sie sollen anrufen.</p></div></details>
-<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie der Vermieterin. Bestätigen Sie den Termin und fragen Sie nach der Adresse und der Wohnungsgröße.</p><label for="a2-draft-2">Your draft</label><textarea id="a2-draft-2" rows="6" lang="de" spellcheck="false"></textarea>
+<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie der Vermieterin. Bestätigen Sie den Termin und fragen Sie nach der Adresse und der Wohnungsgröße.</p><label for="a2-draft-2">Your draft</label><textarea id="a2-draft-2" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model"><p lang="de">Guten Tag Frau Weber,<br>vielen Dank für Ihre Nachricht. Ich komme am Donnerstag um 17 Uhr zur Besichtigung. Wie lautet die genaue Adresse? Wie groß ist die Wohnung? Ich freue mich auf den Termin.<br>Mit freundlichen Grüßen<br>Alex Müller</p></div></details>
 <h3 lang="de">Sprechen</h3><p lang="de">Beschreiben Sie in drei Sätzen, welche Wohnung Sie suchen.</p>
 <p><strong>Grammar tip</strong><br>Use the verb in second position after a time phrase. „Am Donnerstag komme ich zur Besichtigung.“</p>
@@ -405,7 +405,7 @@ footer{padding:18px 0 34px;border-top:1px solid var(--line)}
 <details class="task"><summary lang="de">3. Im Deutschkurs fehlen</summary><div class="content">
 <h3 lang="de">Lesen</h3><blockquote class="passage" lang="de">Am Montag wiederholen wir die Hausaufgaben. Wer nicht teilnehmen kann, findet die Aufgaben ab Dienstag im Kursportal.</blockquote><p lang="de">Wann stehen die Aufgaben im Kursportal?</p>
 <details class="answer"><summary>Show reading answer</summary><div class="model"><p lang="de">Ab Dienstag.</p></div></details>
-<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie Ihrer Lehrerin. Entschuldigen Sie sich, nennen Sie einen Grund und fragen Sie, welche Seiten Sie bearbeiten sollen.</p><label for="a2-draft-3">Your draft</label><textarea id="a2-draft-3" rows="6" lang="de" spellcheck="false"></textarea>
+<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie Ihrer Lehrerin. Entschuldigen Sie sich, nennen Sie einen Grund und fragen Sie, welche Seiten Sie bearbeiten sollen.</p><label for="a2-draft-3">Your draft</label><textarea id="a2-draft-3" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model"><p lang="de">Liebe Frau Weber,<br>leider kann ich am Montag nicht zum Deutschkurs kommen. Ich habe einen Arzttermin. Welche Seiten soll ich zu Hause bearbeiten? Am Mittwoch komme ich wieder zum Unterricht.<br>Viele Grüße<br>Alex Müller</p></div></details>
 <h3 lang="de">Sprechen</h3><p lang="de">Erklären Sie mündlich, warum Sie fehlen und wann Sie wiederkommen.</p>
 <p><strong>Grammar tip</strong><br>After a modal verb, the infinitive goes at the end. „Ich kann am Montag nicht kommen.“</p>
@@ -413,7 +413,7 @@ footer{padding:18px 0 34px;border-top:1px solid var(--line)}
 <details class="task"><summary lang="de">4. Ein Paket abholen</summary><div class="content">
 <h3 lang="de">Lesen</h3><blockquote class="passage" lang="de">Ihr Paket ist in der Filiale am Bahnhof. Sie können es bis Samstag abholen. Bitte bringen Sie Ihren Ausweis mit.</blockquote><p lang="de">Wo liegt das Paket?</p>
 <details class="answer"><summary>Show reading answer</summary><div class="model"><p lang="de">In der Filiale am Bahnhof.</p></div></details>
-<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie einer Freundin. Bitten Sie sie um Hilfe, nennen Sie die Filiale und erklären Sie, warum Sie nicht selbst hingehen können.</p><label for="a2-draft-4">Your draft</label><textarea id="a2-draft-4" rows="6" lang="de" spellcheck="false"></textarea>
+<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie einer Freundin. Bitten Sie sie um Hilfe, nennen Sie die Filiale und erklären Sie, warum Sie nicht selbst hingehen können.</p><label for="a2-draft-4">Your draft</label><textarea id="a2-draft-4" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model"><p lang="de">Hallo Nina,<br>mein Paket liegt in der Filiale am Bahnhof. Kannst du es bitte für mich abholen? Ich arbeite diese Woche bis 18 Uhr. Das Paket bleibt bis Samstag in der Filiale. Danke für deine Hilfe!<br>Viele Grüße<br>Alex</p></div></details>
 <h3 lang="de">Sprechen</h3><p lang="de">Fragen Sie am Schalter, bis wann Ihr Paket dort bleibt.</p>
 <p><strong>Grammar tip</strong><br>abholen is separable. „Ich hole das Paket am Samstag ab.“</p>
@@ -421,7 +421,7 @@ footer{padding:18px 0 34px;border-top:1px solid var(--line)}
 <details class="task"><summary lang="de">5. Eine Einladung beantworten</summary><div class="content">
 <h3 lang="de">Lesen</h3><blockquote class="passage" lang="de">Hallo Alex, wir feiern am Samstag ab 15 Uhr im Park. Bring bitte etwas zu trinken mit. Wenn es regnet, feiern wir bei mir zu Hause. Viele Grüße, Nina</blockquote><p lang="de">Wo findet die Feier bei Regen statt?</p>
 <details class="answer"><summary>Show reading answer</summary><div class="model"><p lang="de">Bei Nina zu Hause.</p></div></details>
-<h3 lang="de">Schreiben</h3><p lang="de">Antworten Sie auf die Einladung. Sagen Sie zu, schreiben Sie, was Sie mitbringen, und fragen Sie nach der Adresse für den Fall, dass es regnet.</p><label for="a2-draft-5">Your draft</label><textarea id="a2-draft-5" rows="6" lang="de" spellcheck="false"></textarea>
+<h3 lang="de">Schreiben</h3><p lang="de">Antworten Sie auf die Einladung. Sagen Sie zu, schreiben Sie, was Sie mitbringen, und fragen Sie nach der Adresse für den Fall, dass es regnet.</p><label for="a2-draft-5">Your draft</label><textarea id="a2-draft-5" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model"><p lang="de">Hallo Nina,<br>vielen Dank für die Einladung! Ich komme am Samstag gern. Ich bringe Wasser und Saft mit. Kannst du mir deine Adresse schicken, falls es regnet? Bis Samstag!<br>Viele Grüße<br>Alex</p></div></details>
 <h3 lang="de">Sprechen</h3><p lang="de">Laden Sie einen Freund ein und vereinbaren Sie Zeit und Ort.</p>
 <p><strong>Grammar tip</strong><br>Use bei with a person or their place. „Wir feiern bei Nina.“</p>
@@ -433,7 +433,7 @@ footer{padding:18px 0 34px;border-top:1px solid var(--line)}
 <details class="task"><summary lang="de">1. Eine Reparatur vereinbaren</summary><div class="content">
 <h3 lang="de">Lesen</h3><blockquote class="passage" lang="de">Die Hausverwaltung kann den Heizungsservice am Donnerstag zwischen 8 und 12 Uhr schicken. Die Firma benötigt Zugang zur Wohnung. Falls niemand zu Hause ist, bittet die Hausverwaltung um eine Rückmeldung bis Dienstag.</blockquote><p lang="de">Warum braucht die Hausverwaltung eine Rückmeldung, wenn niemand zu Hause ist?</p>
 <details class="answer"><summary>Show reading answer</summary><div class="model"><p lang="de">Die Firma muss in die Wohnung kommen, um die Heizung zu reparieren.</p></div></details>
-<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie an die Hausverwaltung. Beschreiben Sie das Problem, erklären Sie, warum der Termin schwierig ist, schlagen Sie zwei Alternativen vor und bitten Sie um Bestätigung.</p><label for="b1-draft-1">Your draft</label><textarea id="b1-draft-1" rows="6" lang="de" spellcheck="false"></textarea>
+<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie an die Hausverwaltung. Beschreiben Sie das Problem, erklären Sie, warum der Termin schwierig ist, schlagen Sie zwei Alternativen vor und bitten Sie um Bestätigung.</p><label for="b1-draft-1">Your draft</label><textarea id="b1-draft-1" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model"><p lang="de">Sehr geehrte Damen und Herren,<br>seit drei Tagen funktioniert die Heizung in meiner Wohnung nicht. Den vorgeschlagenen Termin am Donnerstagvormittag kann ich leider nicht wahrnehmen, da ich arbeiten muss. Am Donnerstag wäre ich ab 15 Uhr zu Hause. Alternativ könnte ich am Freitag den ganzen Vormittag zu Hause bleiben. Bitte teilen Sie mir mit, welcher Termin für die Firma möglich ist.<br>Mit freundlichen Grüßen<br>Alex Müller</p></div></details>
 <h3 lang="de">Sprechen</h3><p lang="de">Erklären Sie das Problem am Telefon. Reagieren Sie, wenn Ihr erster Vorschlag abgelehnt wird.</p>
 <p><strong>Grammar tip</strong><br>„Da ich arbeiten muss, …“ gives a reason. The main verb comes immediately after the opening clause.</p>
@@ -441,7 +441,7 @@ footer{padding:18px 0 34px;border-top:1px solid var(--line)}
 <details class="task"><summary lang="de">2. Eine falsche Rechnung klären</summary><div class="content">
 <h3 lang="de">Lesen</h3><blockquote class="passage" lang="de">Auf Ihrer Rechnung steht der Tarif für Einzelunterricht. Sie haben sich jedoch für den Gruppenkurs angemeldet. Laut Anmeldebestätigung ist der Gruppenkurs günstiger. Die Zahlungsfrist endet am nächsten Freitag.</blockquote><p lang="de">Welche Unterlage zeigt, dass Sie sich für den Gruppenkurs angemeldet haben?</p>
 <details class="answer"><summary>Show reading answer</summary><div class="model"><p lang="de">Die Anmeldebestätigung.</p></div></details>
-<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie an die Sprachschule. Nennen Sie den Unterschied, verweisen Sie auf die Bestätigung, bitten Sie um eine korrigierte Rechnung und fragen Sie nach der Zahlungsfrist.</p><label for="b1-draft-2">Your draft</label><textarea id="b1-draft-2" rows="6" lang="de" spellcheck="false"></textarea>
+<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie an die Sprachschule. Nennen Sie den Unterschied, verweisen Sie auf die Bestätigung, bitten Sie um eine korrigierte Rechnung und fragen Sie nach der Zahlungsfrist.</p><label for="b1-draft-2">Your draft</label><textarea id="b1-draft-2" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model"><p lang="de">Sehr geehrte Damen und Herren,<br>auf meiner Rechnung wird der Preis für Einzelunterricht berechnet, obwohl ich mich für den günstigeren Gruppenkurs angemeldet habe. Die Anmeldebestätigung habe ich dieser E-Mail beigefügt. Könnten Sie die Rechnung bitte prüfen und mir eine korrigierte Version schicken? Da die Zahlungsfrist am Freitag endet, möchte ich außerdem wissen, ob ich bis zur Klärung mit der Überweisung warten soll. Vielen Dank für Ihre Hilfe.<br>Mit freundlichen Grüßen<br>Alex Müller</p></div></details>
 <h3 lang="de">Sprechen</h3><p lang="de">Erklären Sie den Unterschied zwischen der Buchung und der Rechnung und bitten Sie höflich um eine Lösung.</p>
 <p><strong>Grammar tip</strong><br>obwohl introduces a contrast and sends the conjugated verb to the end.</p>
@@ -449,7 +449,7 @@ footer{padding:18px 0 34px;border-top:1px solid var(--line)}
 <details class="task"><summary lang="de">3. Gemeinsam einen Ausflug planen</summary><div class="content">
 <h3 lang="de">Lesen</h3><blockquote class="passage" lang="de">Samira kann am Samstag erst ab 13 Uhr. Ben möchte möglichst wenig ausgeben. Das Museum kostet 12 Euro, der Park ist kostenlos. Bei Regen ist das Museum eine gute Alternative.</blockquote><p lang="de">Welche Möglichkeit passt bei gutem Wetter zu beiden Personen?</p>
 <details class="answer"><summary>Show reading answer</summary><div class="model"><p lang="de">Ein Besuch im Park am Samstagnachmittag. Samira hat dann Zeit und der Eintritt ist kostenlos.</p></div></details>
-<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie der Gruppe. Schlagen Sie einen Ort und eine Uhrzeit vor, begründen Sie beides, nennen Sie einen Plan bei Regen und bitten Sie um Rückmeldung.</p><label for="b1-draft-3">Your draft</label><textarea id="b1-draft-3" rows="6" lang="de" spellcheck="false"></textarea>
+<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie der Gruppe. Schlagen Sie einen Ort und eine Uhrzeit vor, begründen Sie beides, nennen Sie einen Plan bei Regen und bitten Sie um Rückmeldung.</p><label for="b1-draft-3">Your draft</label><textarea id="b1-draft-3" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model"><p lang="de">Hallo zusammen,<br>ich schlage vor, dass wir uns am Samstag um 14 Uhr am Parkeingang treffen. Dann kann Samira mitkommen, und wir müssen keinen Eintritt bezahlen. Wenn es regnet, könnten wir stattdessen ins Museum gehen. Der Eintritt kostet dort 12 Euro. Passt euch der Vorschlag? Gebt mir bitte bis Freitag Bescheid.<br>Viele Grüße<br>Alex</p></div></details>
 <h3 lang="de">Sprechen</h3><p lang="de">Planen Sie den Ausflug zu zweit. Fragen Sie nach der Meinung Ihres Partners und einigen Sie sich auf einen Plan.</p>
 <p><strong>Grammar tip</strong><br>Make and respond to a suggestion with „Wie wäre es, wenn …?“ and „Das passt mir, weil …“.</p>
@@ -457,7 +457,7 @@ footer{padding:18px 0 34px;border-top:1px solid var(--line)}
 <details class="task"><summary lang="de">4. Für eine Weiterbildung anfragen</summary><div class="content">
 <h3 lang="de">Lesen</h3><blockquote class="passage" lang="de">Ein Computerkurs beginnt im Mai. Interessierte können zwischen einem Abendkurs und einem Wochenendkurs wählen. Wer sich bis zum 20. April anmeldet, erhält eine Ermäßigung. Die Kursberatung findet nur nach Terminvereinbarung statt.</blockquote><p lang="de">Was muss man tun, um weniger zu bezahlen?</p>
 <details class="answer"><summary>Show reading answer</summary><div class="model"><p lang="de">Man muss sich bis zum 20. April anmelden.</p></div></details>
-<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie an den Kursanbieter. Erklären Sie Ihr Ziel und Ihre zeitliche Einschränkung, fragen Sie nach den Inhalten und bitten Sie um einen Beratungstermin.</p><label for="b1-draft-4">Your draft</label><textarea id="b1-draft-4" rows="6" lang="de" spellcheck="false"></textarea>
+<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie an den Kursanbieter. Erklären Sie Ihr Ziel und Ihre zeitliche Einschränkung, fragen Sie nach den Inhalten und bitten Sie um einen Beratungstermin.</p><label for="b1-draft-4">Your draft</label><textarea id="b1-draft-4" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model"><p lang="de">Sehr geehrte Damen und Herren,<br>ich interessiere mich für Ihren Computerkurs, da ich im Beruf sicherer mit Tabellen arbeiten möchte. Weil ich abends arbeite, kommt für mich nur der Wochenendkurs infrage. Könnten Sie mir sagen, welche Programme im Kurs behandelt werden? Außerdem würde ich gern vor der Anmeldung einen Beratungstermin vereinbaren. Freitags kann ich ab 14 Uhr.<br>Mit freundlichen Grüßen<br>Alex Müller</p></div></details>
 <h3 lang="de">Sprechen</h3><p lang="de">Sagen Sie, was Sie lernen möchten, und vergleichen Sie die beiden Kurszeiten. Begründen Sie Ihre Wahl.</p>
 <p><strong>Grammar tip</strong><br>„Könnten Sie mir sagen, welche Programme …?“ is a polite indirect question. The conjugated verb goes at the end.</p>
@@ -465,7 +465,7 @@ footer{padding:18px 0 34px;border-top:1px solid var(--line)}
 <details class="task"><summary lang="de">5. Auf einen Vorschlag im Haus reagieren</summary><div class="content">
 <h3 lang="de">Lesen</h3><blockquote class="passage" lang="de">Die Hausgemeinschaft möchte den Innenhof verschönern. Zur Wahl stehen neue Sitzbänke oder zusätzliche Fahrradständer. Beide Vorschläge zusammen sind zu teuer. Bis Sonntag können die Bewohner ihre Meinung per E-Mail schicken.</blockquote><p lang="de">Warum soll die Hausgemeinschaft zwischen zwei Vorschlägen wählen?</p>
 <details class="answer"><summary>Show reading answer</summary><div class="model"><p lang="de">Das Geld reicht für beide Vorschläge zusammen nicht aus.</p></div></details>
-<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie an die Hausgemeinschaft. Nennen Sie Ihre Wahl, geben Sie zwei Gründe, gehen Sie auf den anderen Vorschlag ein und bieten Sie Ihre Hilfe an.</p><label for="b1-draft-5">Your draft</label><textarea id="b1-draft-5" rows="6" lang="de" spellcheck="false"></textarea>
+<h3 lang="de">Schreiben</h3><p lang="de">Schreiben Sie an die Hausgemeinschaft. Nennen Sie Ihre Wahl, geben Sie zwei Gründe, gehen Sie auf den anderen Vorschlag ein und bieten Sie Ihre Hilfe an.</p><label for="b1-draft-5">Your draft</label><textarea id="b1-draft-5" rows="6" lang="de" spellcheck="false"></textarea><p class="draft-status" role="status"></p>
 <details class="answer"><summary>Show model answer</summary><div class="model"><p lang="de">Hallo zusammen,<br>ich bin dafür, zuerst zusätzliche Fahrradständer aufzustellen. Viele Räder stehen im Treppenhaus, und im Hof könnten wir sie sicher anschließen. Neue Sitzbänke wären auch schön, aber im Moment brauchen wir vor allem Platz für die Fahrräder. Vielleicht können wir im nächsten Jahr über die Bänke sprechen. Beim Aufbau helfe ich gern mit.<br>Viele Grüße<br>Alex</p></div></details>
 <h3 lang="de">Sprechen</h3><p lang="de">Äußern Sie Ihre Meinung. Fragen Sie danach, was Ihr Gegenüber bevorzugt, und reagieren Sie auf einen Einwand.</p>
 <p><strong>Grammar tip</strong><br>„Ich bin dafür, …“ introduces your position. „Außerdem …“ adds a reason.</p>
@@ -475,6 +475,29 @@ footer{padding:18px 0 34px;border-top:1px solid var(--line)}
 <footer>For full exam practice, use the <a href="https://www.gast.de/de/forschung-entwicklung/entwicklung/auftraege/deutsch-test-fuer-zuwanderer-dtz/der-dtz-auf-einen-blick">official DTZ practice materials from g.a.s.t.</a></footer>
 </div>
 <script>
+for (const draft of document.querySelectorAll('textarea[id]')) {
+  const key = 'learngerman-writing-v1:' + draft.id;
+  const status = draft.nextElementSibling;
+  try {
+    const saved = localStorage.getItem(key);
+    if (saved !== null) {
+      draft.value = saved;
+      status.textContent = 'Draft restored on this device.';
+    }
+  } catch {
+    status.textContent = 'Draft saving is unavailable in this browser.';
+  }
+  draft.addEventListener('input', () => {
+    try {
+      if (draft.value) localStorage.setItem(key, draft.value);
+      else localStorage.removeItem(key);
+      status.textContent = draft.value ? 'Draft saved on this device.' : '';
+    } catch {
+      status.textContent = 'Could not save your draft. Copy it before leaving.';
+    }
+  });
+}
+
 const audioPlayers = document.querySelectorAll('.listening audio');
 for (const task of document.querySelectorAll('.listening')) {
   const player = task.querySelector('audio');
