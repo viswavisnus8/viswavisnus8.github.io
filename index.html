@@ -1458,83 +1458,94 @@ body{background:radial-gradient(ellipse at 85% 0%,#12346644,transparent 35%),rad
 @media(max-width:650px){.proof-grid{grid-template-columns:1fr}.proof-card{padding:18px}}
 </style>
 <style>
-/* Homepage hero and expertise */
+/* Homepage profile and results */
 body {
-  background:
-    radial-gradient(ellipse 68% 720px at 85% 250px, #162b65 0%, transparent 78%),
-    radial-gradient(ellipse 50% 540px at 4% 380px, #0c3150 0%, transparent 82%),
-    #080f20;
+  background: #090f21;
 }
-.container { width: calc(100% - clamp(32px, 5vw, 112px)); max-width: 1740px; }
-.site-header { background: #111d35f2; }
+.container {
+  width: calc(100% - clamp(32px, 7vw, 150px));
+  max-width: 1680px;
+}
+.site-header {
+  position: relative;
+  top: auto;
+  margin-top: 0;
+  padding-inline: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #34445f;
+  border-radius: 0;
+  box-shadow: none;
+}
 .hero {
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: clamp(28px, 5vw, 92px);
+  display: block;
   min-height: 0;
-  padding: clamp(38px, 4.5vw, 78px) 0 clamp(25px, 3vw, 45px);
-}
-.hero h1 {
-  font-size: clamp(2.3rem, 4.7vw, 5rem);
-  line-height: 1.04;
-  letter-spacing: -.055em;
-}
-.hero-copy > p.hero-intro {
-  margin-bottom: 0;
-  color: #edf4ff;
-  font-weight: 700;
-}
-.hero-intro span { color: var(--muted); font-weight: 400; }
-.hero-copy > p { max-width: 55ch; color: #c6d8ef; }
-.hero .accent { color: #72c7ff; }
-.hero .btn-primary {
-  background: linear-gradient(115deg, #1957dd, #0878c7);
-  border-color: #478fff;
-}
-.hero-visual {
-  display: grid;
-  place-items: center;
-  min-width: 0;
+  margin: clamp(22px, 3vw, 44px) 0 clamp(32px, 4vw, 62px);
+  padding: 0;
   overflow: hidden;
-  padding: clamp(14px, 2.1vw, 32px);
-  border: 1px solid #4a80d7;
-  border-radius: 28px;
-  background:
-    radial-gradient(ellipse at 58% 34%, #2769d1, transparent 67%),
-    linear-gradient(135deg, #113b72, #141c49 70%);
-  box-shadow: 0 18px 65px #002b7a65;
+  border-radius: 24px;
+  background: linear-gradient(112deg, #113db1, #173aa0 44%, #262574 100%);
+  border: 1px solid #526de0;
+}
+.hero-profile {
+  display: grid;
+  grid-template-columns: minmax(168px, 245px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(25px, 4.3vw, 76px);
+  padding: clamp(24px, 4.2vw, 72px);
+  background: radial-gradient(ellipse at 13% 18%, #168de875, transparent 55%);
 }
 .hero-portrait {
   display: block;
-  width: min(100%, 470px);
+  width: 100%;
   height: auto;
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 21px;
-  border: 1px solid #7bbcff80;
+  object-position: 50% 34%;
+  border-radius: 14px;
+  outline: 1px solid #b4daff80;
+  box-shadow: 0 16px 36px #091e688c;
 }
+.hero h1 {
+  margin: 9px 0 15px;
+  font-size: clamp(2.35rem, 4.6vw, 5rem);
+  line-height: 1.05;
+  font-weight: 730;
+  letter-spacing: -.045em;
+}
+.hero-copy > p.hero-intro {
+  margin-bottom: 0;
+  color: #d9eeff;
+  font-weight: 700;
+}
+.hero-copy > p { max-width: 62ch; color: #edf3ff; }
+.hero .buttons { margin-top: 22px; }
+.hero .btn-primary { background: #e4f6ff; color: #102a66; border-color: #e4f6ff; box-shadow: none; }
+.hero .btn-primary:hover { background: #fff; }
+.hero .btn-outline { background: #101e55a6; color: #fff; border-color: #a7c6ff80; }
+.hero a:focus-visible { outline-color: #fff; }
 .hero-results {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  margin: 0 0 clamp(34px, 5vw, 70px);
+  margin: 0;
+  border-top: 1px solid #a3bcff59;
+  background: #0915326b;
 }
 .hero-results > div {
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
-  padding: clamp(12px, 1.7vw, 24px);
-  border: 1px solid #3962a0;
-  border-radius: 16px;
-  background: linear-gradient(140deg, #172e55, #101b34);
+  padding: clamp(12px, 2vw, 27px);
 }
+.hero-results > div + div { border-left: 1px solid #a3bcff59; }
 .hero-results dd {
   margin: 0;
-  color: #8dd4ff;
-  font-size: clamp(1.28rem, 2.4vw, 2.15rem);
+  color: #e9f7ff;
+  font-size: clamp(1.35rem, 2.6vw, 2.4rem);
   font-weight: 750;
   line-height: 1.15;
 }
-.hero-results dt { margin-top: 6px; color: #d4e3f9; font-size: .85rem; }
+.hero-results dt { margin-top: 5px; color: #d6e5ff; font-size: .86rem; }
 .expertise h2 { margin-top: 0; }
 .expertise-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .expertise-grid article {
@@ -1580,17 +1591,16 @@ body {
 .workflow-preview { margin-top: 22px; }
 .workflow-preview summary { color: #91c4ff; cursor: pointer; font-weight: 700; }
 .workflow-preview .engine { margin: 16px 0 0; max-width: 540px; }
-@media (max-width: 1050px) {
-  .hero { grid-template-columns: minmax(0, 1fr); }
-  .hero-visual { width: min(100%, 650px); }
+@media (max-width: 700px) {
+  .hero-profile { grid-template-columns: 1fr; gap: 22px; }
+  .hero-portrait { width: 112px; aspect-ratio: 1; border-radius: 50%; }
+  .hero-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-results > div:nth-child(3) { border-left: 0; }
+  .hero-results > div:nth-child(n + 3) { border-top: 1px solid #a3bcff59; }
+  .expertise-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 650px) {
   .site-header .nav { flex-wrap: nowrap; }
-  .hero { gap: 28px; }
-  .hero-visual { padding: 14px; }
-  .hero-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hero-results dt { font-size: .78rem; }
-  .expertise-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -1617,26 +1627,26 @@ body {
      HERO SECTION
 ================================== -->
 <section class="hero" aria-labelledby="hero-title">
-  <div class="hero-copy">
-    <p class="hero-intro">Viswanathan Selvaraj <span>· Berlin</span></p>
-    <h1 id="hero-title">Business operations.<br/><span class="accent">Smarter workflows.</span></h1>
-    <p>I’m a Berlin-based operations professional with experience leading retail teams, managing facilities, and growing B2B accounts. I use Power BI to track performance and n8n and Python to automate recurring work.</p>
-    <div class="buttons">
-      <a class="btn btn-primary" href="#projects">View projects <span aria-hidden="true">↗</span></a>
-      <a class="btn btn-outline" href="automation-hub.html">Automation Hub <span aria-hidden="true">→</span></a>
-      <a class="btn btn-outline" href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/" rel="noopener noreferrer" target="_blank">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+  <div class="hero-profile">
+    <img class="hero-portrait" src="assets/viswanathan-portrait-v1.jpg" alt="Viswanathan Selvaraj" width="800" height="800" fetchpriority="high"/>
+    <div class="hero-copy">
+      <p class="hero-intro">Business operations &amp; automation · Berlin</p>
+      <h1 id="hero-title">Viswanathan Selvaraj</h1>
+      <p>I’ve led retail teams, managed facilities, and grown B2B accounts. I use Power BI to track performance and build automations with n8n and Python for recurring work.</p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="#projects">View projects <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-outline" href="automation-hub.html">Automation Hub <span aria-hidden="true">→</span></a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/viswanathan-selvaraj-23a226165/" rel="noopener noreferrer" target="_blank">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
   </div>
-  <div class="hero-visual">
-    <img class="hero-portrait" src="assets/viswanathan-portrait-v1.jpg" alt="Viswanathan Selvaraj" width="800" height="800" fetchpriority="high"/>
-  </div>
-</section>
-<dl class="hero-results" aria-label="Professional achievements">
+  <dl class="hero-results" aria-label="Professional achievements">
   <div><dt>Operations and business experience</dt><dd>6+ years</dd></div>
   <div><dt>Retail sales growth at Sony Center</dt><dd>+30%</dd></div>
   <div><dt>Operating expenses at Cultfit</dt><dd>−15%</dd></div>
   <div><dt>Client portfolio growth at Rio Business Solutions</dt><dd>+40%</dd></div>
 </dl>
+</section>
 <section class="expertise" aria-labelledby="expertise-title">
   <h2 id="expertise-title">Areas of expertise</h2>
   <div class="expertise-grid">
