@@ -1633,8 +1633,17 @@ body {
   .hero-results > div { position: static; width: auto; max-width: none; }
 }
 @media (max-width: 650px) {
-  .site-header .nav { flex-wrap: nowrap; }
+  .site-header .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 12px;
+    overflow: visible;
+    padding-bottom: 0;
+  }
   .hero { padding: 20px; }
+  .hero-visual { row-gap: 0; padding-top: 16px; }
+  .hero-halo { width: min(72%, 290px); }
+  .hero-results { margin-top: clamp(24px, 8vw, 42px); }
   .hero h1 { font-size: clamp(1.85rem, 7vw, 2.55rem); }
   .hero .btn { padding-inline: 15px; }
   .hero-results > div { padding: 8px 10px; }
