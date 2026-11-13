@@ -1505,14 +1505,37 @@ body {
   min-width: 0;
   padding: clamp(16px, 2vw, 36px) 0;
 }
+.hero-halo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(77%, 490px);
+  isolation: isolate;
+}
+.hero-halo::before,
+.hero-halo::after {
+  content: "";
+  position: absolute;
+  inset: -7.5%;
+  z-index: -1;
+  border: 1px solid #3e92ef47;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #296bfc42, inset 0 0 16px #27b2f22c;
+  pointer-events: none;
+}
+.hero-halo::after {
+  inset: -14%;
+  border-color: #4b92e32c;
+  box-shadow: none;
+}
 .hero-disc {
   position: relative;
-  width: min(77%, 490px);
+  width: 100%;
   aspect-ratio: 1;
   overflow: hidden;
   border: 1px solid #4d90ed66;
   border-radius: 50%;
-  background: radial-gradient(circle at 64% 40%, #1769ce, #0a2b58 64%, #0a182b);
+  background: radial-gradient(circle at 70% 25%, #228fca, #164f9f 43%, #10284c 79%);
   box-shadow: 0 0 70px #1463db60;
 }
 .hero-portrait {
@@ -1531,14 +1554,15 @@ body {
   width: max-content;
   max-width: 44%;
   padding: 10px 14px;
-  border: 1px solid #477cc58c;
+  border: 1px solid #a2d8ff66;
   border-radius: 13px;
-  background: linear-gradient(140deg, #11223af2, #14417aeb);
-  box-shadow: 0 8px 22px #050d2190;
+  background: linear-gradient(142deg, #366b9c88, #101f389e);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 25px #020b2266, inset 0 1px #caf0ff1c;
 }
 .hero-results > div:nth-child(1) { top: 15%; left: 0; }
 @media (min-width: 901px) {
-  .hero-results > div:nth-child(1) { top: 7%; left: -16px; }
+  .hero-results > div:nth-child(1) { top: 7%; left: -26px; }
 }
 .hero-results > div:nth-child(2) { top: 0; right: 0; }
 .hero-results > div:nth-child(3) { bottom: 15%; left: 0; }
@@ -1599,7 +1623,7 @@ body {
 @media (max-width: 900px) {
   .hero { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .hero-visual { width: min(100%, 570px); margin-inline: auto; padding: 0; }
-  .hero-disc { width: min(85%, 340px); }
+  .hero-halo { width: min(78%, 340px); }
   .hero-results {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1652,8 +1676,10 @@ body {
     </div>
   </div>
   <div class="hero-visual">
-    <div class="hero-disc">
-      <img class="hero-portrait" src="assets/viswanathan-hero-cutout.webp" alt="Viswanathan Selvaraj" width="720" height="720" fetchpriority="high"/>
+    <div class="hero-halo">
+      <div class="hero-disc">
+        <img class="hero-portrait" src="assets/viswanathan-hero-cutout.webp" alt="Viswanathan Selvaraj" width="720" height="720" fetchpriority="high"/>
+      </div>
     </div>
     <dl class="hero-results" aria-label="Professional achievements">
       <div><dt>Operations experience</dt><dd>6+ years</dd></div>
