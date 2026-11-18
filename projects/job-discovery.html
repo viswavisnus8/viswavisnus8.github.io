@@ -606,7 +606,7 @@ footer a { color: var(--teal); }
 <nav aria-label="Main navigation">
 <a href="../index.html">Home</a>
 <a href="../index.html#projects">Projects</a>
-<a href="#results">Results</a>
+<a href="#results">Demo</a>
 <a href="#workflow">Workflow</a>
 <a href="../index.html#contact">Contact</a>
 <a href="../automation-hub.html">Automation Hub</a></nav>
@@ -647,25 +647,25 @@ footer a { color: var(--teal); }
 </div>
 <div class="actions">
 <a class="btn btn-primary" href="#results">
-        View Matching Results →
+        Try the interactive demo
       </a>
 <a class="btn" href="#workflow">
         Explore Workflow
       </a>
 </div>
 </div>
-<!-- HISTORICAL MATCHING DASHBOARD -->
+<!-- FICTIONAL SAMPLE DASHBOARD -->
 <div class="dashboard">
 <div class="dashboard-header">
 <strong>JOB MATCHING ENGINE</strong>
-<span>TRACKER SNAPSHOT</span>
+<span>SAMPLE DATA</span>
 </div>
 <div class="dashboard-subtitle">
-      Selected historical matches · 10 Oct 2026
+      Fictional sample matches · demonstration only
     </div>
 <div class="mini-job">
 <div class="mini-top">
-<strong>N26 GmbH</strong>
+<strong>Example Company A</strong>
 <span class="score">88%</span>
 </div>
 <small>Facility Manager · Berlin</small>
@@ -675,7 +675,7 @@ footer a { color: var(--teal); }
 </div>
 <div class="mini-job">
 <div class="mini-top">
-<strong>Goldbeck</strong>
+<strong>Example Company B</strong>
 <span class="score">82%</span>
 </div>
 <small>Facility Management · Berlin</small>
@@ -685,7 +685,7 @@ footer a { color: var(--teal); }
 </div>
 <div class="mini-job">
 <div class="mini-top">
-<strong>Arrow Electronics</strong>
+<strong>Example Company C</strong>
 <span class="score">76%</span>
 </div>
 <small>Business Development · Berlin</small>
@@ -694,7 +694,7 @@ footer a { color: var(--teal); }
 </div>
 </div>
 <div class="dashboard-footer">
-      Historical tracker data · Not live vacancies
+      Illustrative scores · Fictional jobs · No live vacancies
     </div>
 </div>
 </section>
@@ -753,100 +753,72 @@ footer a { color: var(--teal); }
 </article>
 </div>
 </section>
-<!-- ===== REAL HISTORICAL RESULTS ===== -->
-<section id="results">
-<div class="section-intro">
-<div class="eyebrow">02 / Actual Tracker Examples</div>
-<h2>
-      From job listings to<br/>
-<span class="accent">structured insights.</span>
-</h2>
-<p>
-      These examples are drawn from a historical
-      Job Application Tracker snapshot dated
-      10 October 2026. Job titles have been
-      shortened for display.
-    </p>
+<section id="results"><div class="section-intro"><div class="eyebrow">Interactive project demo</div><h2>Explore a sample <span class="accent">job review queue.</span></h2><p>Select a fictional job, preview the application preparation steps, or mark it reviewed. This is a browser-only demonstration; your real tracker stays private.</p></div><div id="job-demo-sample">
+  <style>
+    #job-demo-sample{font:16px/1.6 'Segoe UI',Arial,sans-serif;color:#edf4ff;background:#090f1c;border:1px solid #263953;border-radius:22px;overflow:hidden}
+    #job-demo-sample *{box-sizing:border-box}
+    #job-demo-sample header{padding:22px 26px;border-bottom:1px solid #263953;background:#101c30;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    #job-demo-sample section{padding:22px;scroll-margin-top:24px}
+    #job-demo-sample footer{display:block;margin:0}
+    #job-demo-sample .brand{font-weight:700;letter-spacing:1px;font-size:12px;color:#92caff}
+    #job-demo-sample h2{font-size:24px;line-height:1.2;margin:6px 0;font-weight:650}
+    #job-demo-sample .badge{color:#87dbc8;border:1px solid #315b59;background:#163235;padding:5px 10px;border-radius:20px;font-size:12px}
+    #job-demo-sample .flow{display:flex;flex-wrap:wrap;gap:10px;padding:18px 26px;color:#9cb1cd;font-size:12px;border-bottom:1px solid #263953}
+    #job-demo-sample .flow strong{color:#78c9ff}
+    #job-demo-sample .layout{display:grid;grid-template-columns:minmax(235px,0.9fr) minmax(0,1.2fr)}
+    #job-demo-sample .queue{padding:22px;border-right:1px solid #263953;display:flex;flex-direction:column;gap:12px}
+    #job-demo-sample h3{margin:0 0 6px;font-size:16px}
+    #job-demo-sample .job{font:inherit;color:#edf4ff;text-align:left;background:#111e31;border:1px solid #2a3c55;border-radius:12px;padding:15px;width:100%;cursor:pointer}
+    #job-demo-sample .job[aria-pressed=true]{border-color:#5aaeff;background:#152f50;box-shadow:0 0 0 1px #5aaeff}
+    #job-demo-sample .job strong{display:block;font-size:14px;margin-bottom:5px}
+    #job-demo-sample small{font-size:12px;color:#b0bfd3}
+    #job-demo-sample .status{display:block;color:#88cfff;font-size:12px;margin-top:12px}
+    #job-demo-sample .detail{padding:22px 26px;min-width:0;background:radial-gradient(ellipse at top right,#173c643d,transparent 70%)}
+    #job-demo-sample .detail h3{font-size:20px}
+    #job-demo-sample .tags{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+    #job-demo-sample .tags span{background:#16273d;color:#b8dfff;padding:4px 9px;border-radius:6px;font-size:12px}
+    #job-demo-sample .section{border-top:1px solid #263953;padding-top:16px;margin-top:18px}
+    #job-demo-sample p{margin:6px 0 12px;color:#bbcadc}
+    #job-demo-sample .actions{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 10px}
+    #job-demo-sample .action{font:inherit;color:#edf4ff;border:1px solid #46617d;background:#18263b;border-radius:9px;padding:10px 13px;cursor:pointer}
+    #job-demo-sample .primary{background:#1768d5;border-color:#3886ed}
+    #job-demo-sample button:focus-visible{outline:2px solid #9fdfff;outline-offset:3px}
+    #job-demo-sample .result{padding:14px;background:#10243b;border-radius:10px;border:1px solid #2d4d70;margin-top:15px}
+    #job-demo-sample footer{padding:14px 26px;border-top:1px solid #263953;color:#9fb2ca;font-size:12px}
+    @media(max-width:600px){#job-demo-sample .layout{grid-template-columns:1fr}#job-demo-sample .queue{border-right:0;border-bottom:1px solid #263953}#job-demo-sample header,#job-demo-sample .detail{padding:20px}#job-demo-sample h2{font-size:21px}}
+  </style>
+  <header><div><div class="brand">VISWAVISNUS / PROJECT DEMO</div><h2>Job Discovery Assistant</h2></div><span class="badge">Fictional sample data</span></header>
+  <div class="flow"><strong>Discover jobs</strong><span>→</span><span>Check duplicates</span><span>→</span><span>Review fit</span><span>→</span><span>Prepare application</span></div>
+  <div class="layout">
+    <section class="queue" aria-label="Sample job queue"><h3>Review queue</h3>
+      <button class="job" data-job="operations" aria-pressed="true"><strong>Business Operations Specialist</strong><small>Example Company A · Berlin · Hybrid</small><span class="status">Review required · Portal application</span></button>
+      <button class="job" data-job="sales" aria-pressed="false"><strong>Sales Operations Coordinator</strong><small>Example Company B · Hamburg · Hybrid</small><span class="status">Review required · Portal application</span></button>
+      <button class="job" data-job="facility" aria-pressed="false"><strong>Facility Services Coordinator</strong><small>Example Company C · Berlin · On-site</small><span class="status">Review required · Email application</span></button>
+    </section>
+    <section class="detail" aria-label="Selected sample job"><small>SELECTED OPPORTUNITY</small><h3 id="jd-title">Business Operations Specialist</h3><p id="jd-company">Example Company A · Berlin · Hybrid</p>
+      <div class="tags" id="jd-tags"><span>Reporting</span><span>Team coordination</span><span>Excel</span></div>
+      <div class="section"><h3>What needs checking?</h3><p id="jd-check">German language requirements, reporting responsibilities, and whether the role matches your experience.</p></div>
+      <div class="section"><h3>Application preparation</h3><p id="jd-prep">Highlight relevant operations experience and reporting skills. Review every claim before using the documents.</p></div>
+      <div class="actions"><button class="action primary" id="jd-preview">Preview application pack</button><button class="action" id="jd-review">Mark reviewed</button></div>
+      <div id="jd-result" aria-live="polite" hidden></div>
+    </section>
+  </div>
+  <footer>Concept preview · No live job search, document generation, emails, or application submissions.</footer>
+  <script>
+    (()=>{
+      const root=document.getElementById('job-demo-sample');
+      const data={operations:{title:'Business Operations Specialist',company:'Example Company A · Berlin · Hybrid',tags:['Reporting','Team coordination','Excel'],check:'German language requirements, reporting responsibilities, and whether the role matches your experience.',prep:'Highlight relevant operations experience and reporting skills. Review every claim before using the documents.'},sales:{title:'Sales Operations Coordinator',company:'Example Company B · Hamburg · Hybrid',tags:['Sales reporting','CRM handoffs','Coordination'],check:'Required CRM experience, German level, and expectations for sales reporting.',prep:'Highlight retail performance tracking, B2B coordination, and process improvement. Include only tools you have actually used.'},facility:{title:'Facility Services Coordinator',company:'Example Company C · Berlin · On-site',tags:['Vendor coordination','Site readiness','Inventory'],check:'Required technical certifications, shift pattern, and German language requirements.',prep:'Highlight workplace readiness, vendor coordination, and facility services experience. Verify the application email before sending.'}};
+      let selected='operations';const reviewed=new Set();
+      function render(){const d=data[selected];root.querySelector('#jd-title').textContent=d.title;root.querySelector('#jd-company').textContent=d.company;root.querySelector('#jd-check').textContent=d.check;root.querySelector('#jd-prep').textContent=d.prep;const tags=root.querySelector('#jd-tags');tags.replaceChildren(...d.tags.map(t=>{const s=document.createElement('span');s.textContent=t;return s}));root.querySelectorAll('[data-job]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.job===selected)));root.querySelector('#jd-result').hidden=true;root.querySelector('#jd-review').textContent=reviewed.has(selected)?'Undo reviewed':'Mark reviewed';root.querySelectorAll('[data-job]').forEach(b=>{b.querySelector('.status').textContent=(reviewed.has(b.dataset.job)?'Reviewed':'Review required')+' · '+(b.dataset.job==='facility'?'Email application':'Portal application');});}
+      root.querySelectorAll('[data-job]').forEach(b=>b.addEventListener('click',()=>{selected=b.dataset.job;render();}));
+      function show(text){const r=root.querySelector('#jd-result');r.className='result';r.textContent=text;r.hidden=false;}
+      root.querySelector('#jd-preview').addEventListener('click',()=>show('Sample pack for '+data[selected].title+': job requirements checklist + suggested CV emphasis + cover-letter draft for review. This preview does not create or send files.'));
+      root.querySelector('#jd-review').addEventListener('click',()=>{if(reviewed.has(selected))reviewed.delete(selected);else reviewed.add(selected);render();show(reviewed.has(selected)?'Marked reviewed for this demo session. No application has been submitted.':'Returned to the review queue.');});
+
+    })();
+  </script>
 </div>
-<div class="match-grid">
-<!-- JOB 1 -->
-<article class="match-card">
-<div class="match-heading">
-<div class="company">N26 GmbH</div>
-<div class="match-score">88%</div>
-</div>
-<h3>Facility Manager</h3>
-<p class="match-meta">
-        Berlin, Germany
-      </p>
-<div class="progress">
-<div style="width:88%"></div>
-</div>
-<div class="match-footer">
-<span class="job-status pending">
-          Pending
-        </span>
-<span class="match-date">
-          10 Oct 2026
-        </span>
-</div>
-</article>
-<!-- JOB 2 -->
-<article class="match-card">
-<div class="match-heading">
-<div class="company">Goldbeck</div>
-<div class="match-score">82%</div>
-</div>
-<h3>Facility Management</h3>
-<p class="match-meta">
-        Berlin, Germany
-      </p>
-<div class="progress">
-<div style="width:82%"></div>
-</div>
-<div class="match-footer">
-<span class="job-status pending">
-          Pending
-        </span>
-<span class="match-date">
-          10 Oct 2026
-        </span>
-</div>
-</article>
-<!-- JOB 3 -->
-<article class="match-card">
-<div class="match-heading">
-<div class="company">Arrow Electronics</div>
-<div class="match-score">76%</div>
-</div>
-<h3>Business Development</h3>
-<p class="match-meta">
-        Berlin, Germany
-      </p>
-<div class="progress">
-<div style="width:76%"></div>
-</div>
-<div class="match-footer">
-<span class="job-status applied">
-          Applied
-        </span>
-<span class="match-date">
-          10 Oct 2026
-        </span>
-</div>
-</article>
-</div>
-<div class="note">
-<p>
-<strong>About these results:</strong>
-      These match scores and application statuses
-      come from the user's historical tracker.
-      Scores are internal decision-support
-      estimates, not independently verified
-      suitability assessments. The listings'
-      current availability has not been checked.
-    </p>
-</div>
+
 </section>
 <!-- ===== WORKFLOW ===== -->
 <section id="workflow">
@@ -943,15 +915,15 @@ footer a { color: var(--teal); }
 <thead>
 <tr>
 <th>Company</th>
-<th>Role (shortened)</th>
+<th>Sample role</th>
 <th>Location</th>
-<th>Fit Score</th>
+<th>Illustrative score</th>
 <th>Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>N26 GmbH</strong></td>
+<td><strong>Example Company A</strong></td>
 <td>Facility Manager</td>
 <td>Berlin</td>
 <td class="score-cell">88%</td>
@@ -962,7 +934,7 @@ footer a { color: var(--teal); }
 </td>
 </tr>
 <tr>
-<td><strong>Goldbeck</strong></td>
+<td><strong>Example Company B</strong></td>
 <td>Facility Management</td>
 <td>Berlin</td>
 <td class="score-cell">82%</td>
@@ -973,13 +945,13 @@ footer a { color: var(--teal); }
 </td>
 </tr>
 <tr>
-<td><strong>Arrow Electronics</strong></td>
+<td><strong>Example Company C</strong></td>
 <td>Business Development</td>
 <td>Berlin</td>
 <td class="score-cell">76%</td>
 <td>
 <span class="job-status applied">
-              Applied
+              Reviewed
             </span>
 </td>
 </tr>
@@ -988,7 +960,7 @@ footer a { color: var(--teal); }
 </div>
 <div class="note">
 <p>
-      The internal tracker contains additional
+      The table above uses fictional sample records. The internal tracker contains additional
       fields including Date, Portal, Company,
       Role, Location, URL, Fit Score,
       Missing Skills, Status, and Outreach Note.
@@ -1124,10 +1096,10 @@ footer a { color: var(--teal); }
     </p>
 <ul>
 <li>Application decisions remain under human control</li>
-<li>No automatic applications without approval</li>
+<li>The public demo does not send emails or submit applications</li>
 <li>Internal application records are not publicly shared</li>
 <li>API credentials and private configurations remain protected</li>
-<li>Historical examples are not represented as live vacancies</li>
+<li>Public examples use fictional employers and are not live vacancies</li>
 </ul>
 </div>
 </section>
